@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+ /* abstracts */
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+/* Layout */
+@import 'layout/body';
+
+/* Views */
+
+/* components */
+@import 'components/header';
+@import 'components/footer';
+@import 'components/navbar';
+
+/* base */
+@import 'base/reset';

@@ -1,3 +1,64 @@
-/* Components (or modules): holds all of your styles for buttons, carousels, sliders, and similar page components (think widgets).
- Your project will typically contain a lot of component files — as the whole site/app should be mostly composed of small modules.*/
- 
+@import 'abstracts/variables';
+
+ .navbar {
+
+  &__container {
+    align-items: center;
+    background-color: $navbar-background-color;
+    border-radius: 0 1.5rem 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 10rem;
+    z-index: 1;
+  }
+
+  &__logo {
+    border-radius: 20px;
+    background-color: wheat;
+    height: 5rem;
+    width: 5rem;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    height: 6rem;
+    justify-content: space-around;
+
+    &__option {
+      color: $navbar-text-color;
+      text-decoration: none;
+      transition: 0.5s;
+      &:hover {
+        color: red;
+      }
+    }
+  }
+
+  &__logout{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+
+    &__line {
+      background-color: $navbar-text-color;
+      height: 1.5px;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+
+    &__option {
+      color: $navbar-text-color;
+      text-decoration: none;
+    }
+  }
+
+ }

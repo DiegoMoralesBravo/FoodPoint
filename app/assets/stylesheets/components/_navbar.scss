@@ -5,17 +5,28 @@
   &__container {
     align-items: center;
     background-color: $navbar-background-color;
-    border-radius: 0 1.5rem 1.5rem 0;
     display: flex;
     flex-direction: column;
     height: 100%;
-    justify-content: space-around;
     left: 0;
+    padding-top: 60px;
     position: absolute;
     text-align: center;
     top: 0;
-    width: 10rem;
+    transition: 0.5s;
+    width: 0;
     z-index: 1;
+  }
+
+  &__closed {
+    border-radius: 0 1.5rem 1.5rem 0;
+    width: 2rem;
+    height: 94.3%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    background-color: $navbar-background-color;
   }
 
   &__logo {
@@ -23,6 +34,13 @@
     background-color: wheat;
     height: 5rem;
     width: 5rem;
+
+    &__closed {
+      border-radius: 10px;
+      background-color: wheat;
+      height: 2rem;
+      width: 2rem;
+    }
   }
 
   &__menu {
@@ -62,3 +80,9 @@
   }
 
  }
+
+
+#main {
+  padding: 16px;
+  transition: margin-left .5s;
+}

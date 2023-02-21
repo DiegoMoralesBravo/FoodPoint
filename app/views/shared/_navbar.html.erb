@@ -1,0 +1,25 @@
+<div>
+  <%=  javascript_include_tag 'navbar' %>
+  <div id="mySidenav" class="navbar__container">
+    
+      <a class="navbar__close__btn" onclick="closeNav()">&times;</a>
+      <div class='navbar__logo' ></div>
+      
+
+    <div class='navbar__menu' >
+      <%= link_to 'Mesas', '/', class: 'navbar__menu__option'%>
+      <%= link_to 'Ordenes', '/', class: 'navbar__menu__option'%>
+      <%= link_to 'Menu', '/', class: 'navbar__menu__option'%>
+    </div>
+    <div class="flex-shrink-0">
+
+    <div class='navbar__logout' >
+      <%= link_to 'Log Out', '/', class: 'navbar__logout__option'%>
+    </div>
+    
+  </div>
+
+  <div id='main' class="navbar__container__closed" onclick="openNav()">
+    <div id='logo' class='navbar__logo__closed' ></div>
+  </div>
+</div>

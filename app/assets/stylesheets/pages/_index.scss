@@ -1,143 +1,101 @@
-$background-beige-principal: #fefef5 ;
-$black-light: #2C2C2C  ;
-$red-color-main-button: #C93E3F;
-$white-font-and-lettering: #ffffff ;
-$red-color-main-button-hover: #a43131;
+@import "../abstracts/variables";
 
-
-@mixin center_objects_row {
-
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-
+* {
+  margin: 0;
+  padding: 0;
 }
 
+body {
+  background-color: $background-beige-principal;
+}
+.main-container {
+  @include center_objects_row();
+}
+.left-container {
+  align-items: center;
+  background-image: url("1.svg");
+  background-repeat: no-repeat;
+  color: $white-font-and-lettering;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 50%;
 
-@mixin center_objects_column {
+  .text-container {
+    margin-right: 100px;
+    max-width: 400px;
 
+    p {
+      font-family: "Inter";
+      font-size: 90px;
+      font-weight: bolder;
+    }
+  }
+}
+
+.rigth-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  min-width: 300px;
+  width: 50%;
+
+  img {
+    width: 315px;
+    filter: drop-shadow(10px 10px 10px #a8a8a863);
+  }
+
+  .buttons-container {
     align-items: center;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     justify-content: center;
 
-}
+    .button-home {
+      align-items: center;
+      background: #c93e3f;
+      border-radius: 45px;
+      border: 6px solid #ffffff;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      display: flex;
+      height: 90px;
+      justify-content: flex-end;
+      margin: 10px;
+      transition: ease 4ms;
+      width: 403px;
 
-*{
-    margin: 0;
-    padding: 0;
-}
+      p {
+        color: #ffffff;
+        font-family: "Inter";
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 600;
+      }
 
-
-body{
-    background-color: $background-beige-principal;
-}
-.main-container{
-
-    @include center_objects_row();
-}
-.left-container{
-
-    background-image: url("1.svg") ;
-    background-repeat: no-repeat;
-    height: 100vh;
-    width: 50%;
-    color: $white-font-and-lettering;
-    display: flex;
-    align-items: center;
-    justify-content:  center;
-
-
-    .text-container{
-        margin-right: 100px;
-        max-width: 400px;
-
-        p{
-
-            font-family: 'Inter';
-            font-size: 90px;
-            font-weight: bolder;
-        }
-
-    }
-
-
-
-}
-
-.rigth-container{
-
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    min-width: 300px;
-    width: 50%;
-
-    img{
-        width: 315px;
-        filter: drop-shadow(10px 10px 10px #a8a8a863);
-    }
-
-    .buttons-container{
+      span {
         align-items: center;
+        background-color: $white-font-and-lettering;
+        border-radius: 50%;
         display: flex;
-        flex-direction: column;
+        height: 60px;
         justify-content: center;
-
-        .button-home{
-
-            align-items: center;
-            background: #C93E3F;
-            border-radius: 45px;
-            border: 6px solid #FFFFFF;
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            display: flex;
-            height: 90px;
-            justify-content: flex-end;
-            margin: 10px;
-            transition: ease 4ms;
-            width: 403px;
-
-            p{
-
-                color: #FFFFFF;
-                font-family: 'Inter';
-                font-size: 36px;
-                font-style: normal;
-                font-weight: 600;
-            }
-
-            span{
-                background-color: $white-font-and-lettering;
-                border-radius: 50%;
-                height: 60px;
-                margin-left: 50px;
-                margin-right: 10px;
-                width: 60px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                img{
-                    width: 50px;
-                    fill: $red-color-main-button;
-
-                }
-            }
-
+        margin-left: 50px;
+        margin-right: 10px;
+        width: 60px;
+        img {
+          width: 50px;
+          fill: $red-color-main-button;
         }
+      }
     }
+  }
 
-    .button-home:hover{
-
-        background: $red-color-main-button-hover;
-        span{
-            rotate: 20deg;
-        }
-
+  .button-home:hover {
+    background: $red-color-main-button-hover;
+    span {
+      rotate: 20deg;
     }
+  }
 }

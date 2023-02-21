@@ -2,43 +2,62 @@
 
  .navbar {
 
+
   &__container {
     align-items: center;
     background-color: $navbar-background-color;
     display: flex;
     flex-direction: column;
     height: 100%;
+    justify-content: space-around;
     left: 0;
-    padding-top: 60px;
+    font-size: x-large;
+    padding-top: 0;
     position: absolute;
     text-align: center;
     top: 0;
     transition: 0.5s;
     width: 0;
     z-index: 1;
+
+    &__closed {
+      border-radius: 0 1.5rem 1.5rem 0;
+      width: 2rem;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      background-color: $navbar-background-color;
+    }
   }
 
-  &__closed {
-    border-radius: 0 1.5rem 1.5rem 0;
-    width: 2rem;
-    height: 94.3%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 2;
-    background-color: $navbar-background-color;
+  &__close {
+
+    &__btn {
+      font-size: 30px;
+      color: $navbar-close-color;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
   }
 
   &__logo {
     border-radius: 20px;
-    background-color: wheat;
+    background-color: $navbar-logo;
     height: 5rem;
     width: 5rem;
 
     &__closed {
       border-radius: 10px;
-      background-color: wheat;
+      background-color: $navbar-logo;
       height: 2rem;
+      margin-top: 1rem;
       width: 2rem;
     }
   }
@@ -46,7 +65,7 @@
   &__menu {
     display: flex;
     flex-direction: column;
-    height: 6rem;
+    height: 15rem;
     justify-content: space-around;
 
     &__option {
@@ -54,7 +73,7 @@
       text-decoration: none;
       transition: 0.5s;
       &:hover {
-        color: red;
+        color: $navbar-text-color-hover;
       }
     }
   }
@@ -76,6 +95,10 @@
     &__option {
       color: $navbar-text-color;
       text-decoration: none;
+
+      &:hover {
+        color: $navbar-logout;
+      }
     }
   }
 
@@ -83,6 +106,8 @@
 
 
 #main {
-  padding: 16px;
+  padding: 0 1rem 0 1rem;
   transition: margin-left .5s;
 }
+
+

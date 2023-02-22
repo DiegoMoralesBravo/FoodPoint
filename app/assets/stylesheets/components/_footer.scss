@@ -1,0 +1,32 @@
+.footer {
+
+  &__container {
+
+    background-color: #253755;
+    bottom: 0; 
+    color: #4a8ebf;
+    left: 0;
+    min-height: 70px;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+  }
+
+  &__authors {
+    display: flex;
+    flex-direction: column;
+    
+    &__author {
+      color: white;
+      text-decoration: none;
+      width: fit-content;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+
+
+}

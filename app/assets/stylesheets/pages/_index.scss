@@ -1,8 +1,5 @@
 @import "../abstracts/variables";
-<<<<<<< HEAD
-=======
 @import "../abstracts/mixins";
->>>>>>> 3cf367b2a8bd3cff99a88118272c6a326d37f532
 
 * {
   margin: 0;
@@ -17,11 +14,7 @@ body {
 }
 .left-container {
   align-items: center;
-<<<<<<< HEAD
-  background-image: url("1.svg");
-=======
   background-image: url("dishes/3.svg");
->>>>>>> 3cf367b2a8bd3cff99a88118272c6a326d37f532
   background-repeat: no-repeat;
   color: $white-font-and-lettering;
   display: flex;
@@ -51,11 +44,7 @@ body {
   width: 50%;
 
   img {
-<<<<<<< HEAD
-    width: 315px;
-=======
     width: 250px;
->>>>>>> 3cf367b2a8bd3cff99a88118272c6a326d37f532
     filter: drop-shadow(10px 10px 10px #a8a8a863);
   }
 
@@ -67,11 +56,7 @@ body {
 
     .button-home {
       align-items: center;
-<<<<<<< HEAD
-      background: #c93e3f;
-=======
       background: $red_button;
->>>>>>> 3cf367b2a8bd3cff99a88118272c6a326d37f532
       border-radius: 45px;
       border: 6px solid #ffffff;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -83,11 +68,7 @@ body {
       width: 403px;
 
       p {
-<<<<<<< HEAD
-        color: #ffffff;
-=======
         color: $white;
->>>>>>> 3cf367b2a8bd3cff99a88118272c6a326d37f532
         font-family: "Inter";
         font-size: 36px;
         font-style: normal;

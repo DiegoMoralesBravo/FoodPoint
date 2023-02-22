@@ -3,8 +3,10 @@
 # Food Point
 
 
-[![Status - Finished](https://img.shields.io/badge/Status-InProgress-2ea44f?style=for-the-badge)](https://) ![Mob - Programming](https://img.shields.io/badge/Mob-Programming-blue?style=for-the-badge) [![Bright - Coders](https://img.shields.io/badge/Bright-Coders-blue?style=for-the-badge)](https://) [![Team - 3](https://img.shields.io/badge/Team-1-ff69b4?style=for-the-badge)](https://) [![Work - Team](https://img.shields.io/badge/Work-Team-important?style=for-the-badge)](https://) [![Project - Food Point](https://img.shields.io/badge/Project-FoodPoint-9cf?style=for-the-badge)](https://)
+[![Status - Finished](https://img.shields.io/badge/Status-InProgress-2ea44f?style=for-the-badge)](https://) ![Mob - Programming](https://img.shields.io/badge/Mob-Programming-blue?style=for-the-badge) [![Bright - Coders](https://img.shields.io/badge/Bright-Coders-blue?style=for-the-badge)](https://) [![Team - 3](https://img.shields.io/badge/Team-3-ff69b4?style=for-the-badge)](https://) [![Work - Team](https://img.shields.io/badge/Work-Team-important?style=for-the-badge)](https://) [![Project - Food Point](https://img.shields.io/badge/Project-FoodPoint-9cf?style=for-the-badge)](https://)
 
+
+![BrightCoders Logo](img/home.png)
 
 
 ## Descripcion

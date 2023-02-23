@@ -2,9 +2,13 @@
 
   &__container {
 
+    align-items: center;
     background-color: #253755;
     bottom: 0; 
     color: #4a8ebf;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     left: 0;
     min-height: 70px;
     padding: 1rem;
@@ -24,6 +28,15 @@
       &:hover {
         opacity: 0.5;
       }
+    }
+  }
+
+  &__media {
+
+    transition: 0.5s;
+
+    &:hover {
+      opacity: 0.5;
     }
   }
 

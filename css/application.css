@@ -1,0 +1,26 @@
+@charset "UTF-8";
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+/* abstracts */
+/* Layout */
+/* Views */
+/* components */
+/* Components (or modules): holds all of your styles for buttons, carousels, sliders, and similar page components (think widgets).
+ Your project will typically contain a lot of component files — as the whole site/app should be mostly composed of small modules.*/
+/* base */
+/* Base: holds the boilerplate code for the project. 
+Including standard styles such as resets and typographic rules, 
+which are commonly used throughout your project.*/

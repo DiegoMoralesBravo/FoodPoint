@@ -1,2 +1,23 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="main-container">
+  <div class="left-container">
+    <div class="text-container">
+      <p>Handmade,
+        with an Extra
+        Pinch of Love </p>
+    </div>
+  </div>
+  <div class="rigth-container">
+    <%=image_tag("svg/foodpoint.svg")%>
+    <div class="buttons-container">
+      <button class="button-home">
+        <p>Kitchen</p>
+        <span><%= image_tag("restaurant_menu_white_24dp.svg")%> </span> </button>
+      <button class="button-home">
+        <p>Service</p>
+        <span><%= image_tag("supervisor_account_white_24dp.svg")%> </span>  </button>
+      <button class="button-home">
+        <p>Admin</p>
+        <span> <%= image_tag("support_agent_white_24dp.svg")%></span></button>
+    </div>
+  </div>
+</div>

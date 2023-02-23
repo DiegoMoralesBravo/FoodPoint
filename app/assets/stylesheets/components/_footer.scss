@@ -1,11 +1,9 @@
 .footer {
-
   &__container {
-
     align-items: center;
     background-color: #253755;
     bottom: 0;
-    color: #4A8EBF;
+    color: #4a8ebf;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -32,14 +30,10 @@
   }
 
   &__media {
-
     transition: 0.5s;
 
     &:hover {
       opacity: 0.5;
     }
   }
-
-
-
 }

@@ -1,0 +1,113 @@
+html,
+body {
+    margin: 0;
+    max-height: 100%;
+    color: grey;
+}
+
+.img {
+    min-height: 100vh;
+    background-image: url(login_img.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 30px 30px 0;
+}
+
+.overlay {
+    width: 500px;
+    height: 520px;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(2px);
+    color: white;
+    border-radius: 30px;
+    box-shadow: inset 0px 290px 75px 20px rgba(255, 255, 255, 0.39);
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding-top: 100px;
+}
+
+.icon {
+    width: 100px;
+    height: 100px;
+}
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+}
+
+h3{
+    margin-top: 10px;
+}
+.center {
+    margin: auto;
+    text-align: center;
+}
+
+.field {
+    padding-bottom: 20px;
+}
+
+.user_field,
+.password_field {
+    width: 280px;
+    border: none;
+    border-bottom: 2px solid grey;
+    outline: none;
+}
+
+.user_field:focus,
+.password_field:focus {
+    border-bottom: 2px solid black;
+}
+
+.fields_login {
+    display: flex;
+    justify-content: center;
+}
+
+.remember_field {
+    margin-right: 20px;
+    color: grey;
+}
+
+input[type="checkbox"] {
+    background-color: black;
+    accent-color: #c93e3f;
+}
+
+input[type="checkbox"]:checked+label {
+    color: black;
+}
+
+input[type="submit" i] {
+    background: #c93e3f;
+    border-radius: 40px;
+    border: 6px solid #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    height: 50px;
+    margin: 10px;
+    width: 253px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    transition: ease 4ms;
+}
+
+input[type="submit" i]:hover {
+    color: black;
+    background: #ffffff;
+    border: 6px solid #c93e3f;
+}
+

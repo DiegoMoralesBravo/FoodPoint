@@ -1,5 +1,9 @@
+@import "../abstracts/variables";
+
+
 html,
 body {
+    background-color: $background-beige-principal;
     color: grey;
     margin: 0;
     max-height: 100%;
@@ -62,8 +66,8 @@ h3{
 
 .user_field,
 .password_field {
-    border-bottom: 2px solid grey;
     border: none;
+    border-bottom: 2px solid gray;
     outline: none;
     width: 280px;
   }
@@ -71,6 +75,7 @@ h3{
 .user_field:focus,
 .password_field:focus {
     border-bottom: 2px solid black;
+
   }
 
 .fields_login {

@@ -1,0 +1,48 @@
+.kitchen {
+
+  &__main{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 0 0 5rem;
+    width: 95%;
+  }
+
+  &__order {
+
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    height: 25rem;
+    justify-content: space-around;
+    margin: 0.5rem;
+    padding: 1rem;
+    width: 25rem;
+
+    &__info {
+      display: flex;
+    }
+
+    &__items {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__notes {
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    &__button {
+      display: flex;
+      justify-content: center;
+      &__progress {
+        background-color: red;
+      }
+
+      &__done {
+
+      }
+    }
+  }
+
+}

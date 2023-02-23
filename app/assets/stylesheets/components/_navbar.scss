@@ -1,7 +1,6 @@
 @import 'abstracts/variables';
 
- .navbar {
-
+.navbar {
 
   &__container {
     align-items: center;
@@ -72,13 +71,14 @@
       color: $navbar-text-color;
       text-decoration: none;
       transition: 0.5s;
+
       &:hover {
         color: $navbar-text-color-hover;
       }
     }
   }
 
-  &__logout{
+  &__logout {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -102,12 +102,9 @@
     }
   }
 
- }
-
+}
 
 #main {
   padding: 0 1rem 0 1rem;
   transition: margin-left .5s;
 }
-
-

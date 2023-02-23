@@ -1,0 +1,114 @@
+@import '../abstracts/variables.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.two-container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+
+  .image-container1 {
+    align-items: center;
+    background-image: url("dishes/1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    width: 100vh;
+
+    img {
+      height: 400px;
+    }
+  }
+
+  .image-container2 {
+    align-items: center;
+    background-image: url("dishes/4.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    width: 100vh;
+
+    img {
+      height: 400px;
+    }
+  }
+
+  .register-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vh;
+
+    .register {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      height: 450px;
+      justify-content: space-around;
+      padding: 150px 150px;
+
+      img {
+        height: 80px;
+      }
+
+      .title-container {
+        margin-bottom: 20px;
+
+        h1 {
+          font-size: larger;
+        }
+      }
+
+      .form-container {
+        form {
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          .info-container {
+            input {
+              border: none;
+              border-bottom: 1px solid black;
+              font-size: medium;
+              margin-top: 20px;
+              padding-bottom: 2px;
+              padding-left: 5px;
+              padding-top: 20px;
+              text-align: left;
+              transition: 1s;
+            }
+          }
+
+          .button-container {
+            margin-top: 70px;
+
+            input {
+              background-color: $red_button;
+              border-radius: 18px;
+              border: 2px white solid;
+              border: none;
+              box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.306);
+              color: $white;
+              padding: 12px 90px;
+              transition: 0.3s;
+            }
+
+            input:hover {
+              background-color: $red_button_hover;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}

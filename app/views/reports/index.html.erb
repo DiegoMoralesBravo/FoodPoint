@@ -1,15 +1,34 @@
 <div class="container">
   <div class="scores">
-    <div class = "tarjeta">Todays Money</div>
-    <div class = "tarjeta">Orders Numbers</div>
-    <div class = "tarjeta">Best Seller</div>
+    <div class = "tarjeta">
+      <div class="tarjeta-titulo">
+        Todays Money
+      </div>
+    </div>
+    <div class = "tarjeta">
+      <div class="tarjeta-titulo">
+        Orders Numbers
+      </div>
+    </div>
+    <div class = "tarjeta">
+      <div class="tarjeta-titulo">
+        Best Seller
+      </div>
+    </div>
   </div>
+
   <div class="reports">
     <div class="dias estilo">
-      dias
+      <%= form_tag reports_path, method: :get do %>
+        <%= label_tag :start_date, "Fecha de inicio" %>
+        <%= date_field_tag :start_date, nil %>
+        <%= submit_tag "Generar reporte" %>
+      <% end %>
     </div>
     <div class="grafica estilo">
-      graficas
+      <%# <%= scatter_chart Item.pluck(:id, :price), xtitle: "Name", ytitle: "Price" %>
+      <%# <%= line_chart Item.group_by_day(:created_at).count, xmin:"2023-02-01" , xmax: @date  %>
+      <%= line_chart @data %>
     </div>
   </div>
 </div>

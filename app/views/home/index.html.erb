@@ -11,11 +11,14 @@
     <div class="buttons-container">
       <button class="button-home">
         <p>Kitchen</p>
-        <span><%= image_tag("restaurant_menu_white_24dp.svg")%> </span> </button>
-      <button class="button-home">
-        <p>Service</p>
-        <span><%= image_tag("supervisor_account_white_24dp.svg")%> </span>  </button>
-      <button class="button-home">
+        <span><%= image_tag("restaurant_menu_white_24dp.svg")%> </span>
+      </button>
+      <%= link_to orders_path do %>
+        <button class="button-home">
+          <p>Service</p>
+          <span><%= image_tag("supervisor_account_white_24dp.svg")%> </span>  </button>
+        <button class="button-home">
+        <% end %>
         <p>Admin</p>
         <span> <%= link_to image_tag("support_agent_white_24dp.svg"), new_user_session_path, method: :get %></span> </button>
     </div>

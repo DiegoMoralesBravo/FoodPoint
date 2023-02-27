@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'orders/index'
 
 
   root 'home#index'
@@ -8,4 +9,5 @@ Rails.application.routes.draw do
   resources :kitchen
   resources :reports
   resources :tables
+  resources :orders
 end

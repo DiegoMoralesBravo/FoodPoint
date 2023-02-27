@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+  before_action :authenticate_user!
   def index
     if params[:start_date].present?
       @start_date = Date.parse(params[:start_date])

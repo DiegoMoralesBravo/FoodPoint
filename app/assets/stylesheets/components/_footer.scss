@@ -1,10 +1,8 @@
 .footer {
-
   &__container {
-
     align-items: center;
     background-color: #253755;
-    bottom: 0; 
+    bottom: 0;
     color: #4a8ebf;
     display: flex;
     flex-direction: row;
@@ -12,14 +10,14 @@
     left: 0;
     min-height: 70px;
     padding: 1rem;
-    position: fixed;
+    position: relative;
     width: 100%;
   }
 
   &__authors {
     display: flex;
     flex-direction: column;
-    
+
     &__author {
       color: white;
       text-decoration: none;
@@ -32,14 +30,10 @@
   }
 
   &__media {
-
     transition: 0.5s;
 
     &:hover {
       opacity: 0.5;
     }
   }
-
-
-
 }

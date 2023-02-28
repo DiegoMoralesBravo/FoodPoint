@@ -27,4 +27,4 @@ OrdersItem.create(orders_id: orders.second.id , items_id: items.first.id)
 OrdersItem.create(orders_id: orders.fourth.id , items_id: items.fifth.id)
 
 #User
-User.create!({:email => "admin@gmail.com", :password => "123456", :password_confirmation => "123456" })
+User.create({:email => "admin@gmail.com", :password => "123456", :password_confirmation => "123456" })

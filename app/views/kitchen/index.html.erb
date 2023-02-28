@@ -1,26 +1,41 @@
 <div class='kitchen__main'>
-  <%= render 'cardorder' %>
-  <%= render 'cardorder' %>
-  <%= render 'cardorder' %>
-  <%= render 'cardorder' %>
-    <%= render 'cardorder' %>
-  <%= render 'cardorder' %>
-  <%= render 'cardorder' %>
-  <%= render 'cardorder' %>
-    <%= render 'cardorder' %>
-  <%= render 'cardorder' %>
-  <%= render 'cardorder' %>
-  <%= render 'cardorder' %>
-    <%= render 'cardorder' %>
-  <%= render 'cardorder' %>
-  <%= render 'cardorder' %>
-  <%= render 'cardorder' %>
-    <%= render 'cardorder' %>
-  <%= render 'cardorder' %>
-  <%= render 'cardorder' %>
-  <%= render 'cardorder' %>
-    <%= render 'cardorder' %>
-  <%= render 'cardorder' %>
-  <%= render 'cardorder' %>
-  <%= render 'cardorder' %>
+  <% @order.each do |data|%>
+  <div class='kitchen__order'>
+  
+    <div class='kitchen__order__info'>
+      <div>
+        <p>Order ID: <%= data.id %></p>
+      </div>
+      <div>
+      <% @tables.each do |table| %>
+        <p><%= table.name if data.tables_id == table.id %></p>
+      <% end %>
+      </div>
+    </div>
+
+    <div class='kitchen__order__items'>
+    <% @orderItems.each do |orderitem| %>
+      <% @items.each do |item| %>
+      <p class='kitchen__order__item'> 
+        <%= 
+          theorder =  orderitem.items_id if orderitem.orders_id == data.id
+          item.name if theorder == item.id 
+        %> 
+      </p>
+      <% end %>
+    <% end %>
+    </div>
+
+    <div class='kitchen__order__notes' >
+      <p>Notes:</p>
+      <p> <%= data.note %> </p>
+    </div>
+
+    <div class='kitchen__order__button'>
+      <button class='kitchen__order__progress'> <%= data.status == 'f' ? 'Mark as Finished' : 'Mark as working' %> </button>
+    </div>
+    
+  </div>
+  <% end %>
+  <%= itemsPerOrder %>
 </div>

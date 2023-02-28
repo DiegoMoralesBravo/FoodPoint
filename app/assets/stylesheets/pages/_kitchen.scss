@@ -9,14 +9,14 @@
 
   &__order {
 
-    background-color: gray;
+    background-color: lightgray;
     display: flex;
     flex-direction: column;
     height: 25rem;
     justify-content: space-around;
     margin: 0.5rem;
     padding: 1rem;
-    width: 25rem;
+    width: 25rem; 
 
     &__info {
       display: flex;

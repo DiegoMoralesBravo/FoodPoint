@@ -1,5 +1,14 @@
 class KitchenController < ApplicationController
+  helper_method :itemsPerOrder
   def index
+    @tables = Table.all
+    @items = Item.all
+    @order  = Order.all
+    @orderItems = OrdersItem.all
+  end
+
+  def itemsPerOrder
+    
   end
 
   def new
@@ -19,4 +28,5 @@ class KitchenController < ApplicationController
 
   def edit
   end
+
 end

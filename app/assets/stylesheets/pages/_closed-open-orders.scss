@@ -23,12 +23,12 @@
     height: 10%;
     justify-content: flex-start;
     .logo-head-orders {
-      background-color: $black-light;
-      border-radius: 20px;
-      border: solid;
       height: 50px;
       margin: 0 30px 0 50px;
       width: 50px;
+      img {
+        width: 60px;
+      }
     }
     .dropdown {
       display: inline-block;

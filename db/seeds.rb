@@ -50,10 +50,23 @@ numberitemsdrink.times do |i|
     image: 'URL')
 end
 
+def randstatus
+  ns = rand(1..3)
+  status = ' '
+  if ns == 1
+    status = 'wait'
+  elsif ns == 2
+    status = 'progress'
+  elsif ns == 3
+    status = 'done'
+  end
+  status
+end
+
 numberOrders.times do |i|
   Order.create(
     tables_id: i+1,
-    status: Faker::Boolean.boolean(true_ratio: 0.5),
+    status: randstatus,
     total: Faker::Number.between(from: 300, to: 1000),
     note: Faker::Food.description
   )

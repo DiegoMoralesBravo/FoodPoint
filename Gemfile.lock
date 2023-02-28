@@ -254,6 +254,7 @@ DEPENDENCIES
   faker
   groupdate (~> 6.2)
   image_processing (~> 1.2)
+
   importmap-rails
   jbuilder
   pg (~> 1.1)

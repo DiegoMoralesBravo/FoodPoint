@@ -33,9 +33,13 @@
 
 /* base */
 
+
 @import 'base/reset';
 @import 'pages/index';
 @import 'pages/indexTables';
 @import 'pages/editTables';
 @import 'pages/items';
 @import 'base/*';
+
+/* pages */
+@import 'pages/*';

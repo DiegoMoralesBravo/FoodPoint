@@ -16,7 +16,9 @@ require 'faker'
 #                       { name: "Mesa E", size: 8 }])
 
 #Items
+
 # Item.create(name: "Te", price: 15, category: "Bebida", image: "URL")
+
 # items = Item.create([{ name: "Hamburguesa", price: 70, category: "Comida", image: "URL" }, 
 #                     { name: "Sprite", price: 15, category: "Bebida", image: "URL" },
 #                     { name: "Pay de queso", price: 45, category: "Postre", image: "URL" },
@@ -98,3 +100,11 @@ numberOrders.times do |i|
     OrdersItem.create(orders_id: i+1  , items_id: itemID)
   end
 end
+
+
+# #Ordersitems
+# OrdersItem.create(orders_id: orders.first.id , items_id: items.second.id)
+# OrdersItem.create(orders_id: orders.third.id , items_id: items.second.id)
+# OrdersItem.create(orders_id: orders.fifth.id , items_id: items.fourth.id)
+# OrdersItem.create(orders_id: orders.second.id , items_id: items.first.id)
+# OrdersItem.create(orders_id: orders.fourth.id , items_id: items.fifth.id)

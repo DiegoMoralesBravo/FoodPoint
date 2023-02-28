@@ -24,7 +24,6 @@
             <td><%= item.price %></td>
             <td><%= item.category %></td>
             <td><%= image_tag item.image, class: "image-display" %></td>
-            <td>
             <%= link_to edit_item_path(item) do%>
               <button class="edit-button">Edit</button>
             <% end %>
@@ -33,6 +32,8 @@
               turbo_method: :delete,
               turbo_confirm: "Are you sure?"
               } do
+
+
             %>
               <button class="delete-button" >X</button>
             <% end %>

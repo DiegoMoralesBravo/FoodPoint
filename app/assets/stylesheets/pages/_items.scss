@@ -1,0 +1,36 @@
+.file-select {
+      display: inline-block;
+      position: relative;
+      width: 200px;
+  }
+
+  .file-select::before {
+      align-items: left;
+      background-color: white;
+      background-size: 200px;
+      bottom: 0px;
+      content: "Image";
+      color: gray;
+      display: flex;
+      justify-content: left;
+      left: 3px;
+      padding-left: 5px;
+      padding-top: 10px;
+      position: absolute;
+      right: 0;
+      top: 16px;
+  }
+
+  .file-select input[type="file"] {
+    opacity: 0;
+    width: 200px;
+    height: 32px;
+    display: inline-block;
+  }
+
+
+  .image-display{
+    border-radius: 10px;
+    padding: 5px;
+  }
+

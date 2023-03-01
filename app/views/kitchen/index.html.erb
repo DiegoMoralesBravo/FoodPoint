@@ -1,2 +1,67 @@
-<h1>Kitchen#index</h1>
-<p>Find me in app/views/kitchen/index.html.erb</p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<%= javascript_include_tag 'popupkitchen' %>
+<div class='kitchen__main'>
+  <% (@order.sort_by {|e| e.status}.reverse).each do |data|%>
+
+    <div class='kitchen__order 
+      <%= if data.status == 'wait'
+          'kitchen__order__wait'
+        elsif data.status == 'progress'
+          'kitchen__order__progress'
+        elsif data.status == 'done'
+          'kitchen__order__done'
+        end  %>'>
+    
+      <div class='kitchen__order__info'>
+        <div>
+          <p>Order ID: <%= data.id %></p>
+        </div>
+        <div>
+        <% @tables.each do |table| %>
+          <p class='kitchen__order__info__table'><%= table.name if data.tables_id == table.id %></p>
+        <% end %>
+        </div>
+        <button class='kitchen__order__info__button' id='btn-more-info'>More info</button>
+      </div>
+
+      <div class='kitchen__order__items'>
+      <% @orderItems.each do |orderitem| %>
+        <% @items.each do |item| %>
+        <p class='kitchen__order__item'> 
+            <%= theorder =  orderitem.items_id if orderitem.orders_id == data.id 
+                item.name if theorder == item.id %> 
+        </p>
+        <% end %>
+      <% end %>
+      </div>
+
+      <div class='kitchen__order__notes' >
+        <p>Notes:</p>
+        <p> <%= data.note %> </p>
+      </div>
+
+      <%= link_to "#{
+        if data.status == 'wait'
+          'Mark as working'
+        elsif data.status == 'progress'
+          'Mark as Done'
+        elsif data.status == 'done'
+          'Delete'
+        end}",
+        kitchen_index_path(data),
+        class: "kitchen__order__button #{
+          if data.status == 'wait'
+          'kitchen__order__button__progress'
+        elsif data.status == 'progress'
+          'kitchen__order__button__done'
+        elsif data.status == 'done'
+          'kitchen__order__button__delete'
+        end
+        }",
+        method: :put
+      %>  
+    </div>
+  <% end %>
+
+</div>
+

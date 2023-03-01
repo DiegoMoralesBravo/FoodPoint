@@ -1,7 +1,6 @@
 @import 'abstracts/variables';
 
- .navbar {
-
+.navbar {
 
   &__container {
     align-items: center;
@@ -49,13 +48,10 @@
 
   &__logo {
     border-radius: 20px;
-    background-color: $navbar-logo;
-    height: 5rem;
-    width: 5rem;
+    height: 8rem;
 
     &__closed {
       border-radius: 10px;
-      background-color: $navbar-logo;
       height: 2rem;
       margin-top: 1rem;
       width: 2rem;
@@ -72,13 +68,14 @@
       color: $navbar-text-color;
       text-decoration: none;
       transition: 0.5s;
+
       &:hover {
         color: $navbar-text-color-hover;
       }
     }
   }
 
-  &__logout{
+  &__logout {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -102,12 +99,18 @@
     }
   }
 
- }
-
+}
 
 #main {
   padding: 0 1rem 0 1rem;
   transition: margin-left .5s;
+  margin-left: 10rem;
 }
 
+#mySidenav {
+  width: 10rem;
+}
 
+#logo {
+  display: none;
+}

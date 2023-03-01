@@ -1,2 +1,43 @@
-<h1>Tables#index</h1>
-<p>Find me in app/views/tables/index.html.erb</p>
+<%= render 'shared/navbarAdmin' %>
+<div class="main-container">
+  <div class="table-container">
+    <div class="tittle-container">
+      <h1>Tables</h1>
+      <%= link_to new_table_path do %>
+        <button>+ New table</button>
+      <% end %>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Size</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tables.each do |table| %>
+          <tr>
+            <td><%= table.id %></td>
+            <td><%= table.name %></td>
+            <td><%= table.size %></td>
+            <td>
+            <%= link_to edit_table_path(table) do%>
+              <button class="edit-button">Edit</button>
+            <% end %>
+
+            <%= link_to table_path(table), data: {
+              turbo_method: :delete,
+              turbo_confirm: "Are you sure?"
+              } do 
+            %>
+              <button class="delete-button" >X</button>
+            <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

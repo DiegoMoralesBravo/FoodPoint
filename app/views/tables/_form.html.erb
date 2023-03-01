@@ -1,0 +1,11 @@
+<%= form_with model: @table do |form| %>
+  <div class="info-container">
+    <%= form.text_field :name, :required => true, placeholder: "Name" %>
+  </div>
+  <div class="info-container">
+    <%= form.text_field :size, :required => true, placeholder: "Size" %>
+  </div>
+  <div class="button-container">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,159 @@
+<%= render 'shared/navbarService' %>
+<main class="service-main-container">
+  <div class="cards-section">
+    <div class="head-cards">
+      <div class="search-input">
+        <%=image_tag("search_black_24dp.svg")%><input type="text" placeholder="Search...">
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Categories <span><%=image_tag("expand_more_white_24dp.svg")%></span></button>
+        <div class="dropdown-content">
+          <a href="#">Food</a>
+          <a href="#">Drinks</a>
+          <a href="#">Desserts</a>
+          <a href="#">Liquor</a>
+          <a href="#">Entries</a>
+        </div>
+      </div>
+    </div>
+    <article class="cards-container">
+      <div class="card">
+        <section class="image-card-container">
+          <%=image_tag("pexels-jonathan-borba-2983101.jpg")%>
+        </section>
+        <section class="food-name">
+          <h3>Hamburguesa </h1>
+        </section>
+        <section class="food-description">
+          <p>Food</p>
+          <div>
+            <span> <%=image_tag("lunch_dining_black_24dp.svg")%></span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem cum fugit iure rem quae ad, voluptatem enim voluptates dolores officia laudantium aspernatur amet! Magnam tempore quasi accusantium possimus facere? Enim. </p>
+          </div>
+        </section>
+      </div>
+      <div class="card">
+        <section class="image-card-container">
+          <%=image_tag("pexels-chan-walrus-1059905.jpg")%>
+        </section>
+        <section class="food-name">
+          <h3>Hamburguesa </h1>
+        </section>
+        <section class="food-description">
+          <p>Food</p>
+          <div>
+            <span> <%=image_tag("lunch_dining_black_24dp.svg")%></span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem cum fugit iure rem quae ad, voluptatem enim voluptates dolores officia laudantium aspernatur amet! Magnam tempore quasi accusantium possimus facere? Enim. </p>
+          </div>
+        </section>
+      </div>
+      <div class="card">
+        <section class="image-card-container">
+          <%=image_tag("pexels-chitokan-c-2087748.jpg")%>
+        </section>
+        <section class="food-name">
+          <h3>Hamburguesa </h1>
+        </section>
+        <section class="food-description">
+          <p>Food</p>
+          <div>
+            <span> <%=image_tag("lunch_dining_black_24dp.svg")%></span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem cum fugit iure rem quae ad, voluptatem enim voluptates dolores officia laudantium aspernatur amet! Magnam tempore quasi accusantium possimus facere? Enim. </p>
+          </div>
+        </section>
+      </div>
+      <div class="card">
+        <section class="image-card-container">
+          <%=image_tag("pexels-harry-dona-2338407.jpg")%>
+        </section>
+        <section class="food-name">
+          <h3>Hamburguesa </h1>
+        </section>
+        <section class="food-description">
+          <p>Food</p>
+          <div>
+            <span> <%=image_tag("lunch_dining_black_24dp.svg")%></span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem cum fugit iure rem quae ad, voluptatem enim voluptates dolores officia laudantium aspernatur amet! Magnam tempore quasi accusantium possimus facere? Enim. </p>
+          </div>
+        </section>
+      </div>
+      <div class="card">
+        <section class="image-card-container">
+          <%=image_tag("pexels-lukas-1352270.jpg")%>
+        </section>
+        <section class="food-name">
+          <h3>Hamburguesa </h1>
+        </section>
+        <section class="food-description">
+          <p>Food</p>
+          <div>
+            <span> <%=image_tag("lunch_dining_black_24dp.svg")%></span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem cum fugit iure rem quae ad, voluptatem enim voluptates dolores officia laudantium aspernatur amet! Magnam tempore quasi accusantium possimus facere? Enim. </p>
+          </div>
+        </section>
+      </div>
+      <div class="card">
+        <section class="image-card-container">
+          <%=image_tag("pexels-narda-yescas-1566837.jpg")%>
+        </section>
+        <section class="food-name">
+          <h3>Hamburguesa </h1>
+        </section>
+        <section class="food-description">
+          <p>Food</p>
+          <div>
+            <span> <%=image_tag("lunch_dining_black_24dp.svg")%></span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem cum fugit iure rem quae ad, voluptatem enim voluptates dolores officia laudantium aspernatur amet! Magnam tempore quasi accusantium possimus facere? Enim. </p>
+          </div>
+        </section>
+      </div>
+    </article>
+  </div>
+  <div class="order-container">
+    <div class="logo-list-container">
+      <%=image_tag("receipt_long_black_48dp.svg")%>
+    </div>
+    <div class="list-headers">
+      <div class="table-order-container">
+        <span>Table:
+          <p>1</p>
+        </span>
+        <span class="order-ticket">Order:
+          <p>102938</p>
+        </span>
+      </div>
+      <div class="status-container">
+        <span>Status:
+          <p>Open</p>
+        </span>
+      </div>
+    </div>
+    <div class="order-list">
+      <ul class="list">
+        <li class="item">
+          <div class="list-icon">
+            <%=image_tag("lunch_dining_black_24dp.svg")%>
+            <p>Wine </p>
+          </div>
+          <div class="list-price">
+            <p>3890<span>$</span></p>
+            <button><%=image_tag("delete_white_24dp.svg")%></button>
+          </div>
+        </li>
+      </ul>
+      <div class="total-list-order">
+        <span>Total items:
+          <p>1</p>
+        </span>
+        <span>Total:
+          <p>102938</p>
+          <p>$</p>
+        </span>
+      </div>
+    </div>
+    <div class="order-buttons-container">
+      <button class="send-to-kitchen">Send order to kitchen</button>
+      <button class="cancel-order">Cancel order</button>
+    </div>
+  </div>
+</main>

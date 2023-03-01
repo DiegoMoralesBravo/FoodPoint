@@ -15,13 +15,13 @@
  */
 
  /* abstracts */
-@import 'abstracts/variables';
-@import 'abstracts/mixins';
+@import 'abstracts/*';
 
 /* Layout */
-@import 'layout/body';
+@import 'layout/*';
 
 /* Views */
+
 
 /* components */
 
@@ -29,8 +29,10 @@
 // Descomentar cuando sea necesario
 // @import 'components/header';
 // @import 'components/footer';
-@import 'components/navbar';
+@import 'components/*';
 
 /* base */
-@import 'base/reset';
-@import 'pages/index';
+@import 'base/*';
+
+/* pages */
+@import 'pages/*';

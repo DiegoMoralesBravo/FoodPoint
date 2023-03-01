@@ -7,20 +7,23 @@
     </div>
   </div>
   <div class="rigth-container">
-    <%=image_tag("1.png")%>
+    <%=image_tag("svg/foodpoint.svg")%>
     <div class="buttons-container">
-    <a href='/kitchen'>
-      <button class="button-home">
-        <p>Kitchen</p>
-        <span><%= image_tag("restaurant_menu_white_24dp.svg")%> </span> 
-      </button>
-    </a>
-      <button class="button-home">
-        <p>Service</p>
-        <span><%= image_tag("supervisor_account_white_24dp.svg")%> </span>  </button>
-      <button class="button-home">
-        <p>Admin</p>
-        <span> <%= image_tag("support_agent_white_24dp.svg")%></span></button>
+      <%= link_to items_path do %>
+        <button class="button-home">
+          <p>Kitchen</p>
+          <span><%= image_tag("restaurant_menu_white_24dp.svg")%> </span>  </button>
+      <% end %>
+      <%= link_to orders_path do %>
+        <button class="button-home">
+          <p>Service</p>
+          <span><%= image_tag("supervisor_account_white_24dp.svg")%> </span>  </button>
+      <% end %>
+      <%= link_to items_path do %>
+        <button class="button-home">
+          <p>Admin</p>
+          <span><%= image_tag("support_agent_white_24dp.svg")%> </span>  </button>
+      <% end %>
     </div>
   </div>
 </div>

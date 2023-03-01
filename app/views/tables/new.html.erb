@@ -1,2 +1,16 @@
-<h1>Tables#new</h1>
-<p>Find me in app/views/tables/new.html.erb</p>
+<div class="two-container">
+  <div class="image-container2">
+      <%=image_tag("svg/foodpoint.svg")%>  
+  </div>
+  <div class="register-container">
+    <div class="register"> 
+      <%=image_tag("svg/new.svg")%>  
+      <div class="title-container">
+        <h1>New table!</h1>
+      </div>
+      <div class="form-container">
+        <%= render "form", employee: @table %>
+      </div>
+    </div>
+  </div>
+</div>

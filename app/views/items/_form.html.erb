@@ -6,13 +6,15 @@
     <%= form.number_field :price, :required => true, placeholder: "Price" %>
   </div>
   <div class="info-container">
-    <%= form.text_field :category, :required => true, placeholder: "Category" %>
+    <%= form.select :category, ["Starter", "Main", "Drink", "Dessert"] %>  
   </div>
   <div class="info-container">
     <%= form.text_field :image, :required => true, placeholder: "Image" %>
   </div>
   <div class="button-container">
     <%= form.submit %>
+    <%= link_to items_path do %>
+      <button>Cancel</button>
+    <% end %>
   </div>
 <% end %>
-

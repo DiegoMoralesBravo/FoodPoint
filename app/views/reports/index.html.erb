@@ -3,6 +3,7 @@
     <div class = "tarjeta">
       <div class="tarjeta-titulo">
         Todays Money
+        <%= @total %>
       </div>
     </div>
     <div class = "tarjeta">
@@ -26,8 +27,6 @@
       <% end %>
     </div>
     <div class="grafica estilo">
-      <%# <%= scatter_chart Item.pluck(:id, :price), xtitle: "Name", ytitle: "Price" %>
-      <%# <%= line_chart Item.group_by_day(:created_at).count, xmin:"2023-02-01" , xmax: @date  %>
       <%= line_chart @data %>
     </div>
   </div>

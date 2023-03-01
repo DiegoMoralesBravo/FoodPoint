@@ -6,7 +6,13 @@ class ReportsController < ApplicationController
     else
       @start_date = Date.today
     end
-    @data = Item.where("created_at >= ?", @start_date.beginning_of_day).where("created_at <= ?", @start_date.end_of_day).group_by_day(:created_at).count
+    @data = Order.where("created_at >= ?", @start_date.beginning_of_day).where("created_at <= ?", @start_date.end_of_day).group_by_day(:created_at).sum(:total)
+    @total = Order.where("created_at >= ?", @start_date.beginning_of_day)
+             .where("created_at <= ?", @start_date.end_of_day)
+             .group_by_day(:created_at)
+             .sum(:total)
+             .values
+             .sum
   end
   
 

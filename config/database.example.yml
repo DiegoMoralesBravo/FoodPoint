@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: reloj_checador_development
+  database: food_point_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: reloj_checador_test
+  database: food_point_test
 
   username: 
 
@@ -86,6 +86,6 @@ test:
 #
 production:
   <<: *default
-  database: reloj_checador_production
-  username: reloj_checador
-  password: <%= ENV["RELOJ_CHECADOR_DATABASE_PASSWORD"] %>
+  database: food_point_production
+  username: food_point
+  password: <%= ENV["FOOD_POINT_DATABASE_PASSWORD"] %>

@@ -1,3 +1,4 @@
+<%= render 'shared/navbarService' %>
 <main class="service-main-container">
   <div class="cards-section">
     <div class="head-cards">
@@ -5,7 +6,7 @@
         <%=image_tag("search_black_24dp.svg")%><input type="text" placeholder="Search...">
       </div>
       <div class="dropdown">
-        <button class="dropbtn">Categories <span><img src="./icons/expand_more_white_24dp.svg" alt=""></span></button>
+        <button class="dropbtn">Categories <span><%=image_tag("expand_more_white_24dp.svg")%></span></button>
         <div class="dropdown-content">
           <a href="#">Food</a>
           <a href="#">Drinks</a>

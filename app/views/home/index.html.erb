@@ -9,18 +9,21 @@
   <div class="rigth-container">
     <%=image_tag("svg/foodpoint.svg")%>
     <div class="buttons-container">
-      <button class="button-home">
-        <p>Kitchen</p>
-        <span><%= image_tag("restaurant_menu_white_24dp.svg")%> </span>
-      </button>
+      <%= link_to items_path do %>
+        <button class="button-home">
+          <p>Kitchen</p>
+          <span><%= image_tag("restaurant_menu_white_24dp.svg")%> </span>  </button>
+      <% end %>
       <%= link_to orders_path do %>
         <button class="button-home">
           <p>Service</p>
           <span><%= image_tag("supervisor_account_white_24dp.svg")%> </span>  </button>
+      <% end %>
+      <%= link_to items_path do %>
         <button class="button-home">
-        <% end %>
-        <p>Admin</p>
-        <span> <%= link_to image_tag("support_agent_white_24dp.svg"),  items_path %></span> </button>
+          <p>Admin</p>
+          <span><%= image_tag("support_agent_white_24dp.svg")%> </span>  </button>
+      <% end %>
     </div>
   </div>
 </div>

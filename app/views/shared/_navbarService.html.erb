@@ -1,0 +1,19 @@
+<div>
+  <%=  javascript_include_tag 'navbar' %>
+  <div id="mySidenav" class="navbar__container">
+    <a class="navbar__close__btn" onclick="closeNav()">&times;</a>
+    <%= image_tag("1.png", class:'navbar__logo')%>
+    <div class='navbar__menu' >
+      <%= link_to 'Service', orders_path, class: 'navbar__menu__option'%>
+      <%= link_to 'Orders', orders_path, class: 'navbar__menu__option'%>
+    </div>
+    <div class="flex-shrink-0">
+    <div class='navbar__logout' >
+      <%= link_to 'Home', root_path, class: "navbar__logout__option"%>
+    </div>
+  </div>
+    <div id='main' class="navbar__container__closed" onclick="openNav()">
+      <%= image_tag("1.png", class:'navbar__logo__closed', id:'logo')%>
+    </div>
+  </div>
+</div>

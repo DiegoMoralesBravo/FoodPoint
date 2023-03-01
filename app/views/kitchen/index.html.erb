@@ -39,23 +39,6 @@
         <p>Notes:</p>
         <p> <%= data.note %> </p>
       </div>
-      
-      <button class='kitchen__order__button 
-        <%= if data.status == 'wait'
-          'kitchen__order__button__progress'
-        elsif data.status == 'progress'
-          'kitchen__order__button__done'
-        elsif data.status == 'done'
-          'kitchen__order__button__delete'
-        end %>'>
-        <%= if data.status == 'wait'
-          'Mark as working'
-        elsif data.status == 'progress'
-          'Mark as Done'
-        elsif data.status == 'done'
-          'Delete'
-        end %> 
-      </button>
 
       <%= link_to "#{
         if data.status == 'wait'
@@ -81,3 +64,4 @@
   <% end %>
 
 </div>
+

@@ -19,7 +19,7 @@ class KitchenController < ApplicationController
   end
 
   def destroy
-    
+
   end
 
   private 
@@ -34,3 +34,5 @@ class KitchenController < ApplicationController
 
 
 end
+
+

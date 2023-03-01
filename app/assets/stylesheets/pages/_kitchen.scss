@@ -1,3 +1,6 @@
+@import 'abstracts/variables';
+
+
 .kitchen {
 
   &__main{
@@ -9,9 +12,9 @@
 
   &__order {
 
-    background: #e0e0e0;
-    box-shadow:  7px 7px 15px #9d9d9d,
-                -7px -7px 15px #ffffff;
+    border-radius: 5px;
+    box-shadow:  5px 5px 10px #9d9d9d,
+                -5px -5px 10px #ffffff;
     display: flex;
     flex-direction: column;
     height: 25rem;
@@ -21,15 +24,15 @@
     width: 25rem; 
 
     &__wait {
-      background-color: lightgray;
+      background-color: $waiting-color;
     }
 
     &__progress {
-      background: rgb(215, 176, 103);
+      background: $progress-color;
     }
 
     &__done {
-      background: rgb(128, 220, 128);
+      background: $done-color;
     }
 
     &__info {
@@ -38,20 +41,20 @@
 
       &__table {
         font-weight: bold;
+        font-size: larger;
       }
 
       &__button {
-        border: none;
-        border-radius: 1px;
-        height: 2rem;
-        width: 6rem;
-        background: #e0e0e0;
-        box-shadow:  7px 7px 15px #9d9d9d,
-                    -7px -7px 15px #ffffff;
 
+        background-color: $moreinfo-color;  
+        border-radius: 5px;
+        border: none;
+        height: 2rem;
         transition: 0.5s;
+        width: 6rem;
+
         &:hover {
-          box-shadow: none;
+          background-color: $moreinfo-color-hover;
         }
       }
     }
@@ -66,13 +69,14 @@
     }
 
     &__button {
-      display: flex;
-      justify-content: center;
       align-items: center;
-      border-radius: 10px;
+      border-radius: 5px;
       border: none;
-      background: #e0e0e0;
+      color: $black-light;
+      display: flex;
       height: 2rem;
+      justify-content: center;
+      text-decoration: none;
       transition: 0.5s;
       width: auto;
 
@@ -81,21 +85,21 @@
       }
 
       &__progress {
-        background: rgb(215, 176, 103);
-        box-shadow:  7px 7px 15px #9d9d9d,
-                    -7px -7px 15px #ffffff;
+        background: $progress-color;
+        box-shadow:  5px 5px 10px #bebebe,
+                    -5px -5px 10px #ffffff;
       }
 
       &__done {
-        background-color: rgb(128, 220, 128);
-        box-shadow:  7px 7px 15px rgb(162, 151, 128),
-        -7px -7px 15px rgb(215, 176, 103);
+        background-color: $done-color;
+        box-shadow:  5px 5px 10px #d99164,
+                    -5px -5px 10px #ffc588;
       }
 
       &__delete {
-        background-color: rgb(236, 140, 140);
-                box-shadow:  7px 7px 15px rgb(128, 162, 137),
-        -7px -7px 15px rgb(128, 220, 128);
+        background-color: $delete-color;
+        box-shadow:  5px 5px 10px #9ed999,
+                    -5px -5px 10px #d6ffcf;
       }
     }
   }

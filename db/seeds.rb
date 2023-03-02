@@ -29,12 +29,23 @@ require "open-uri"
 #OrdersItem.create(orders_id: orders.second.id , items_id: items.first.id)
 #OrdersItem.create(orders_id: orders.fourth.id , items_id: items.fifth.id)
 
-User.create({:email => "admin@gmail.com", :password => "123456", :password_confirmation => "123456" })
+
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+#   Character.create(name: "Luke", movie: movies.first)
+
+
 
 numberTables = 10
 
 numberitemsfood = 10
+
 numberitemsdessert = 8
+
 numberitemsdrink = 5
 totalnumberitems = numberitemsfood + numberitemsdessert + numberitemsdrink
 
@@ -47,16 +58,30 @@ numberOrders = numberTables
     size: Faker::Number.between(from: 2, to: 10))
 end
 
+def randstatus
+  ns = rand(1..3)
+  status = ' '
+  if ns == 1
+    status = 'wait'
+  elsif ns == 2
+    status = 'progress'
+  elsif ns == 3
+    status = 'done'
+  end
+  status
+end
+
 numberOrders.times do |i|
   Order.create(
     tables_id: i+1,
-    status: Faker::Boolean.boolean(true_ratio: 0.5),
+    status: randstatus,
     total: Faker::Number.between(from: 300, to: 1000),
     note: Faker::Food.description
   )
 end
 
 #Ordersitems
+
 numberOrders.times do |i|
   howmanyitems = Faker::Number.between(from: 3, to: 6)
   howmanyitems.times do |j|
@@ -100,3 +125,8 @@ numberitemsdrink.times do
     filename: 'p.jpg'
   )
 end
+
+
+#User
+User.create({:email => "admin@gmail.com", :password => "123456", :password_confirmation => "123456" })
+

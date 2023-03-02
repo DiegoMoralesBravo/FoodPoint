@@ -1,0 +1,108 @@
+@import 'abstracts/variables';
+
+
+.kitchen {
+
+  &__main{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 0 10rem 5rem;
+    width: 95%;
+  }
+
+  &__order {
+
+    border-radius: 5px;
+    box-shadow:  5px 5px 10px #9d9d9d,
+                -5px -5px 10px #ffffff;
+    display: flex;
+    flex-direction: column;
+    height: 25rem;
+    justify-content: space-around;
+    margin: 0.5rem;
+    padding: 1rem;
+    width: 25rem; 
+
+    &__wait {
+      background-color: $waiting-color;
+    }
+
+    &__progress {
+      background: $progress-color;
+    }
+
+    &__done {
+      background: $done-color;
+    }
+
+    &__info {
+      display: flex;
+      justify-content: space-between;
+
+      &__table {
+        font-weight: bold;
+        font-size: larger;
+      }
+
+      &__button {
+
+        background-color: $moreinfo-color;  
+        border-radius: 5px;
+        border: none;
+        height: 2rem;
+        transition: 0.5s;
+        width: 6rem;
+
+        &:hover {
+          background-color: $moreinfo-color-hover;
+        }
+      }
+    }
+
+    &__items {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__notes {
+      font-weight: bold;
+    }
+
+    &__button {
+      align-items: center;
+      border-radius: 5px;
+      border: none;
+      color: $black-light;
+      display: flex;
+      height: 2rem;
+      justify-content: center;
+      text-decoration: none;
+      transition: 0.5s;
+      width: auto;
+
+      &:hover {
+        box-shadow: none;
+      }
+
+      &__progress {
+        background: $progress-color;
+        box-shadow:  5px 5px 10px #bebebe,
+                    -5px -5px 10px #ffffff;
+      }
+
+      &__done {
+        background-color: $done-color;
+        box-shadow:  5px 5px 10px #d99164,
+                    -5px -5px 10px #ffc588;
+      }
+
+      &__delete {
+        background-color: $delete-color;
+        box-shadow:  5px 5px 10px #9ed999,
+                    -5px -5px 10px #d6ffcf;
+      }
+    }
+  }
+
+}
+

@@ -12,7 +12,7 @@
     left: 0;
     font-size: x-large;
     padding-top: 0;
-    position: absolute;
+    position: fixed;
     text-align: center;
     top: 0;
     transition: 0.5s;
@@ -48,13 +48,10 @@
 
   &__logo {
     border-radius: 20px;
-    background-color: $navbar-logo;
-    height: 5rem;
-    width: 5rem;
+    height: 8rem;
 
     &__closed {
       border-radius: 10px;
-      background-color: $navbar-logo;
       height: 2rem;
       margin-top: 1rem;
       width: 2rem;
@@ -107,4 +104,13 @@
 #main {
   padding: 0 1rem 0 1rem;
   transition: margin-left .5s;
+  margin-left: 10rem;
+}
+
+#mySidenav {
+  width: 10rem;
+}
+
+#logo {
+  display: none;
 }

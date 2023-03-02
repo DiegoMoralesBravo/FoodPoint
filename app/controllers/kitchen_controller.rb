@@ -3,7 +3,7 @@ class KitchenController < ApplicationController
   def index
     @tables = Table.all
     @items = Item.all
-    @order  = Order.all
+    @orders  = Order.all
     @orderItems = OrdersItem.all
   end
 
@@ -21,9 +21,7 @@ class KitchenController < ApplicationController
   def destroy
 
   end
-
   private 
-
   def order_params
     params.require(:order).permit(:id, :status)
   end

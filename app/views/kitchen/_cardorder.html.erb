@@ -1,14 +1,7 @@
-
 <% (@orders.sort_by {|e| e.status}.reverse).each do |order|%>
 
-    <div class='kitchen__order 
-      <%= if order.status == 'wait'
-          'kitchen__order__wait'
-        elsif order.status == 'progress'
-          'kitchen__order__progress'
-        elsif order.status == 'done'
-          'kitchen__order__done'
-        end  %>'>
+  <div class='kitchen__order__status <%= statusColorCard(order) %>'>
+    <div class='kitchen__order '>
     
       <div class='kitchen__order__info'>
         <div>
@@ -24,7 +17,6 @@
 
       <div class='kitchen__order__items'>
       <% @orderItems.each do |orderitem| %>
-        <% contador = Hash.new(0) %>
         <% @items.each do |item| %>
         <p class='kitchen__order__item'> 
             <%= 
@@ -42,26 +34,10 @@
         <p>Notes:</p>
         <p> <%= order.note %> </p>
       </div>
-
-      <%= link_to "#{
-        if order.status == 'wait'
-          'Mark as working'
-        elsif order.status == 'progress'
-          'Mark as Done'
-        elsif order.status == 'done'
-          'Delete'
-        end}",
-        kitchen_index_path(order),
-        class: "kitchen__order__button #{
-          if order.status == 'wait'
-          'kitchen__order__button__progress'
-        elsif order.status == 'progress'
-          'kitchen__order__button__done'
-        elsif order.status == 'done'
-          'kitchen__order__button__delete'
-        end
-        }",
-        method: :put
-      %>  
+      <%= button_to "#{statusColorBtn(order)}", 
+        update_status_kitchen_path(order), 
+        class: "kitchen__order__button #{statusText(order)}", 
+        method: :patch %>
     </div>
-  <% end %>
+  </div>
+<% end %>

@@ -8,20 +8,30 @@
     flex-wrap: wrap;
     margin: 1rem 0 10rem 5rem;
     width: 95%;
+    background: $background-beige-principal;
   }
 
   &__order {
-
     border-radius: 5px;
-    box-shadow:  5px 5px 10px #9d9d9d,
-                -5px -5px 10px #ffffff;
     display: flex;
     flex-direction: column;
-    height: 25rem;
+    height: 24.5rem;
     justify-content: space-around;
-    margin: 0.5rem;
     padding: 1rem;
-    width: 25rem; 
+    width: 23.5rem;
+    background-color: $background-beige-principal;
+
+    &__status {
+      height: 28rem;
+      width: 27rem;
+      display: flex;
+      border-radius: 5px;
+      justify-content: center;
+      align-items: center;
+      margin: 0.5rem;
+      box-shadow:  5px 5px 10px #9d9d9d,
+                  -5px -5px 10px #ffffff;
+    }
 
     &__wait {
       background-color: $waiting-color;
@@ -45,11 +55,16 @@
       }
 
       &__button {
-
+        
+        align-items: center;
         background-color: $moreinfo-color;  
         border-radius: 5px;
         border: none;
+        color: grey;
+        display: flex;
         height: 2rem;
+        justify-content: center;
+        text-decoration: none;
         transition: 0.5s;
         width: 6rem;
 
@@ -76,9 +91,8 @@
       display: flex;
       height: 2rem;
       justify-content: center;
-      text-decoration: none;
       transition: 0.5s;
-      width: auto;
+      width: 100%;
 
       &:hover {
         box-shadow: none;
@@ -131,4 +145,5 @@
   }
 
 }
+
 

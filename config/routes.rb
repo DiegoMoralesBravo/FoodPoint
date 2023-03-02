@@ -8,9 +8,12 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
   resources :items
-  resources :kitchen
+  resources :kitchen do
+    patch :update_status, on: :member
+  end
   resources :reports
   resources :tables
-  resources :orders
   resources :close_and_open
+  resources :orders
+  
 end

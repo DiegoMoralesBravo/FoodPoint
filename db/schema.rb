@@ -40,26 +40,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_045948) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
-
-  create_table "checks", force: :cascade do |t|
-    t.integer "id_employee"
-    t.integer "id_sucursal"
-    t.datetime "timestamp"
-    t.string "check"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "employees", force: :cascade do |t|
-    t.string "email"
-    t.string "name"
-    t.string "position"
-    t.integer "employee_number"
-    t.integer "private_number"
-    t.string "status"
-    t.integer "id_store"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "items", force: :cascade do |t|
@@ -87,13 +67,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_045948) do
     t.datetime "updated_at", null: false
     t.index ["items_id"], name: "index_orders_items_on_items_id"
     t.index ["orders_id"], name: "index_orders_items_on_orders_id"
-  end
-
-  create_table "stores", force: :cascade do |t|
-    t.string "name"
-    t.string "adress"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "tables", force: :cascade do |t|

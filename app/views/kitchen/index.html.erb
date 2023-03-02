@@ -1,5 +1,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <%= javascript_include_tag 'popupkitchen' %>
+<%= render 'shared/navbarService' %>
 <div class='kitchen__main'>
   <% (@order.sort_by {|e| e.status}.reverse).each do |data|%>
 
@@ -62,6 +63,4 @@
       %>  
     </div>
   <% end %>
-
 </div>
-

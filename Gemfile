@@ -38,6 +38,10 @@ gem "jbuilder"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
+
+# Faker gem 
+gem 'faker'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
@@ -48,7 +52,9 @@ gem "bootsnap", require: false
 
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
+
+gem "mini_magick"
 
 gem "devise"
 
@@ -78,3 +84,5 @@ end
 gem "chartkick", "~> 5.0"
 
 gem "groupdate", "~> 6.2"
+
+gem 'faker'

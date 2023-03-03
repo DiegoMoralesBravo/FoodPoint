@@ -1,35 +1,49 @@
 <%= render 'shared/navbarAdmin' %>
 <div class="container">
+  <div class="titulo">
+    <h1 class="texto"><%= @start_date.strftime('%A, %b %d') %></h1>
+  </div>
   <div class="scores">
     <div class = "tarjeta">
-      <div class="tarjeta-titulo">
-        Todays Money
+      <div class="two alt-two">
+        <h1 class="tarjeta-texto"><%= @total %>
+          <span class="tarjeta-texto">Todays Money</span>
+        </h1 class="tarjeta-texto">
       </div>
     </div>
-    <div class = "tarjeta">
-      <div class="tarjeta-titulo">
-        Orders Numbers
+    
+    <div class="tarjeta">
+      <div class="two alt-two">
+        <h1 class="tarjeta-texto"><%= @orders %>
+          <span class="tarjeta-texto">Orders Numbers</span>
+        </h1>
       </div>
     </div>
+
     <div class = "tarjeta">
-      <div class="tarjeta-titulo">
-        Best Seller
+      <div class="two alt-two">
+        <h1 class="tarjeta-texto"><%= @max_order %>
+          <span class="tarjeta-texto">Best Seller</span>
+        </h1>
       </div>
     </div>
   </div>
 
   <div class="reports">
-    <div class="dias estilo">
-      <%= form_tag reports_path, method: :get do %>
-        <%= label_tag :start_date, "Fecha de inicio" %>
-        <%= date_field_tag :start_date, nil %>
-        <%= submit_tag "Generar reporte" %>
+    <div class="dias estilo hover">
+      <div class="dias-titulo">
+        Select date
+      </div>
+      <div class="date">
+        <%= form_tag reports_path, method: :get do %>
+        <%# <%= label_tag :start_date, "Fecha de inicio" %>
+        <%= date_field_tag :start_date, nil, type: :date, class: 'hidden' %>
+        <%= submit_tag "Show report", class: 'myButton' %>
       <% end %>
+      </div>
     </div>
-    <div class="grafica estilo">
-      <%# <%= scatter_chart Item.pluck(:id, :price), xtitle: "Name", ytitle: "Price" %>
-      <%# <%= line_chart Item.group_by_day(:created_at).count, xmin:"2023-02-01" , xmax: @date  %>
-      <%= line_chart @data %>
+    <div class="grafica estilo hover">
+      <%= line_chart @data%>
     </div>
   </div>
 </div>

@@ -3,6 +3,9 @@ class KitchenController < ApplicationController
   helper_method :statusColorCard
   helper_method :statusText
   helper_method :update_status
+  helper_method :getItemName
+  helper_method :getTableName
+
   def index
     @tables = Table.all
     @items = Item.all
@@ -51,9 +54,14 @@ class KitchenController < ApplicationController
     end
   end
 
+  def getItemName(item, orderitem, orderl)
+    if orderitem.orders_id == orderl.id && item.id == orderitem.items_id
+      item.name
+    end
+  end
 
-  def destroy
-
+  def getTableName(table, orderl)
+    table.name if orderl.tables_id == table.id
   end
 
   def order_params
@@ -63,7 +71,6 @@ class KitchenController < ApplicationController
   def order
     Order.find(params[:id])
   end
-
 
 end
 

@@ -4,14 +4,16 @@
 .kitchen {
 
   &__main{
+    background: $background-beige-principal;
     display: flex;
     flex-wrap: wrap;
-    margin: 1rem 0 10rem 5rem;
+    height: auto;
+    margin: 0 0 5rem 5rem;
     width: 95%;
-    background: $background-beige-principal;
   }
 
   &__order {
+    background-color: $background-beige-principal;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -19,18 +21,22 @@
     justify-content: space-around;
     padding: 1rem;
     width: 23.5rem;
-    background-color: $background-beige-principal;
 
     &__status {
-      height: 28rem;
-      width: 27rem;
-      display: flex;
-      border-radius: 5px;
-      justify-content: center;
       align-items: center;
+      border-radius: 5px;
+      box-shadow:  5px 5px 10px #9d9d9d, -5px -5px 10px #ffffff;
+      display: flex;
+      height: 28rem;
+      justify-content: center;
       margin: 0.5rem;
-      box-shadow:  5px 5px 10px #9d9d9d,
-                  -5px -5px 10px #ffffff;
+      transition: 0.5s;
+      width: 27rem;
+
+      &.hovered {
+        transform: scale(1.1);
+      }
+      
     }
 
     &__wait {
@@ -121,29 +127,25 @@
   &__popup {
 
     &__overlay {
+      align-items: center;
       backdrop-filter: blur(4px);
+      display: flex;
       height: 100%;
-      left: 0;
+      justify-content: center;
       position: fixed;
-      top: 0;
       width: 100%;
       z-index: 2;
     }
 
-    &__order {
+    &__card {
       background-color: white;
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       height: 40rem;
-      left: 50%;
       padding: 20px;
-      position: absolute;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 35rem;
+      width: 30rem;
     }
   }
-
+  
 }
-
 

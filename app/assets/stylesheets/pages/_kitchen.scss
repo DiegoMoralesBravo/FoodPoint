@@ -77,12 +77,26 @@
         &:hover {
           background-color: $moreinfo-color-hover;
         }
+
+        &__close {
+          border: none;
+          background: none;
+          color: gray;
+          font-size: 2rem;
+          font-weight: bold;
+          transition: 0.5s;
+
+          &:hover {
+            color: $delete-color;
+          }
+        }
       }
     }
 
     &__items {
       display: flex;
       flex-direction: column;
+      
     }
 
     &__notes {
@@ -137,14 +151,27 @@
       z-index: 2;
     }
 
-    &__card {
-      background-color: white;
+    &__status {
+      align-items: center;
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      display: flex;
+      height: 44rem;
+      justify-content: center;
+      width: 34rem;
+    }
+
+    &__card {
+      background: white;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
       height: 40rem;
+      justify-content: space-around;
       padding: 20px;
       width: 30rem;
     }
+
   }
   
 }

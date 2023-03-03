@@ -56,7 +56,7 @@ class KitchenController < ApplicationController
 
   def getItemName(item, orderitem, orderl)
     if orderitem.orders_id == orderl.id && item.id == orderitem.items_id
-      item.name
+      "- #{item.name}"
     end
   end
 

@@ -1,9 +1,13 @@
 $(document).ready(() => {
-  $('#more-info').hide()
-})
+  $('.kitchen__order__info__button').click((event) => {
+    const orderID = event.target.id.split('-')[3];
+    $('#more-info-' + orderID).show();
+  });
+});
 
 $(document).ready(() => {
-  $("#btn-more-info").click(() => {
-    $("#more-info").show();
+  $('.kitchen__order__info__button__close').click((event) => {
+    const orderID = event.target.id.split('-')[3];
+    $('#more-info-' + orderID).hide();
   });
-})
+});

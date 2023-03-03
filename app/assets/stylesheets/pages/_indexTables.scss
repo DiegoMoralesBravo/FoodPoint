@@ -13,12 +13,16 @@
   height: 100vh;
 
   .table-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
     .tittle-container {
       align-items: center;
       display: flex;
       justify-content: space-between;
       padding: 30px 0;
-      width: 800px;
+      width: 1000px;
 
       h1 {
         color: $black;
@@ -43,52 +47,80 @@
 
     table {
       border-collapse: collapse;
-      width: 100%;
-      width: 800px;
+      border-spacing: 0;
 
-      tr {
+      tr:nth-child(even) {
+        background-color: $background-table
+      }
+
+      thead,
+      tbody {
+        display: block;
+      }
+
+      tbody {
+        height: 500px;
+        overflow-y: auto;
+      }
+
+      thead {
         border: 1px solid $border_form;
-        height: 50px;
-        text-align: center;
 
-        th {
-          padding: 0 20px;
+        tr {
+          height: 50px;
+
+          th {
+            padding: 0 20px;
+            text-align: left;
+            min-width: 150px;
+          }
         }
+      }
 
-        td {
-          padding: 0 20px;
+      tbody {
+        tr {
+          border: 1px solid $border_form;
+          height: 50px;
 
-          a {
-            text-decoration: none;
-          }
+          td {
+            padding: 0 20px;
+            text-align: left;
+            min-width: 150px;
+            max-width: 155px;
 
-          button {
-            border-radius: 25%;
-            border: none;
-            color: $white;
-            height: 35px;
-            transition: 0.4s;
-            width: 35px;
-          }
 
-          button:hover {
-            cursor: pointer;
-          }
+            a {
+              text-decoration: none;
+            }
 
-          .delete-button {
-            background-color: $red_button;
-          }
+            button {
+              border-radius: 25%;
+              border: none;
+              color: $white;
+              height: 35px;
+              transition: 0.4s;
+              width: 35px;
+            }
 
-          .delete-button:hover {
-            background-color: $red_button_hover;
-          }
+            button:hover {
+              cursor: pointer;
+            }
 
-          .edit-button {
-            background-color: $gray_button;
-          }
+            .delete-button {
+              background-color: $red_button;
+            }
 
-          .edit-button:hover {
-            background-color: $gray_button_hover;
+            .delete-button:hover {
+              background-color: $red_button_hover;
+            }
+
+            .edit-button {
+              background-color: $gray_button;
+            }
+
+            .edit-button:hover {
+              background-color: $gray_button_hover;
+            }
           }
         }
       }

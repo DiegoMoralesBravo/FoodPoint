@@ -2,7 +2,7 @@
 <div class="main-container">
   <div class="table-container">
     <div class="tittle-container">
-      <h1>Tables</h1>
+      <h1>Items</h1>
       <%= link_to new_item_path do %>
         <button>+ New item</button>
       <% end %>
@@ -14,7 +14,8 @@
           <th>Name</th>
           <th>Price</th>
           <th>Category</th>
-          <th>image</th>
+          <th>Image</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -24,7 +25,7 @@
             <td><%= item.name %></td>
             <td><%= item.price %></td>
             <td><%= item.category %></td>
-            <td><%= item.image %></td>
+            <td><%= image_tag item.image, class: "image-display" %></td>
             <td>
             <%= link_to edit_item_path(item) do%>
               <button class="edit-button">Edit</button>
@@ -33,7 +34,9 @@
             <%= link_to item_path(item), data: {
               turbo_method: :delete,
               turbo_confirm: "Are you sure?"
-              } do 
+              } do
+
+
             %>
               <button class="delete-button" >X</button>
             <% end %>

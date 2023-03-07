@@ -157,21 +157,17 @@
     flex-wrap: wrap;
     justify-content: center; /* centrar horizontalmente el contenido */
     align-items: center; /* centrar verticalmente el contenido */
-    padding-top: 25%;
+    // padding-top: 25%;
   }
   
-  .date input[type=date] {
-    flex: 2;
-    margin-bottom: 10px;
-    margin-left: 20px;
-    display: block;
-  }
+
   
   .date input[type=submit] {
     flex: 1;
     display: block;
-    margin-top: 15%;
-    margin-left: 10px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 25%;
   }
 
   .myButton {
@@ -238,6 +234,6 @@
   }
   .myButton:hover{
     background-color: #848484;
-    color: white;
+    color: white;
   }
 }

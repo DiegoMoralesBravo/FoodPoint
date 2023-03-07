@@ -77,7 +77,8 @@ numberitemsfood = 10
 
 numberitemsdessert = 8
 
-numberitemsdrink = 5
+numberitemsdrink = 15
+
 totalnumberitems = numberitemsfood + numberitemsdessert + numberitemsdrink
 
 numberOrders = numberTables
@@ -111,36 +112,26 @@ numberOrders.times do |i|
   )
 end
 
-#Ordersitems
-
-numberOrders.times do |i|
-  howmanyitems = Faker::Number.between(from: 3, to: 6)
-  howmanyitems.times do |j|
-    itemID = Faker::Number.between(from: 1, to: totalnumberitems)
-    OrdersItem.create(orders_id: i+1  , items_id: itemID)
-  end
-end 
-
 #food
 numberitemsfood.times do
   item = Item.create(
     name: Faker::Food.unique.dish, 
     price: Faker::Number.between(from: 50, to: 200), 
     category: 'Food')
-  item.image.attach(
-    io: File.open('app/assets/images/pasta.jpg'),
-    filename: 'p.jpg'
-  )
-end
+    item.image.attach(
+      io: File.open('app/assets/images/pasta.jpg'),
+      filename: 'p.jpg'
+    )
+  end
 
-#dessert
-numberitemsdessert.times do
-  item = Item.create(
+  #dessert
+  numberitemsdessert.times do
+    item = Item.create(
     name: Faker::Dessert.unique.variety,
     price: Faker::Number.between(from: 20, to: 100),
     category: 'dessert')
-  item.image.attach(
-    io: File.open('app/assets/images/caramel-topped-ice-cream.jpg'),
+    item.image.attach(
+      io: File.open('app/assets/images/caramel-topped-ice-cream.jpg'),
     filename: 'p.jpg'
   )
 end
@@ -151,12 +142,22 @@ numberitemsdrink.times do
     name: Faker::Beer.unique.brand, 
     price: Faker::Number.between(from: 1, to: 50), 
     category: 'drink')
-  item.image.attach(
-    io: File.open('app/assets/images/beer.jpg'),
+    item.image.attach(
+      io: File.open('app/assets/images/beer.jpg'),
     filename: 'p.jpg'
   )
 end
 
+#Ordersitems
+numberOrders.times do |i|
+  howmanyitems = Faker::Number.between(from: 3, to: 6)
+  howmanyitems.times do |j|
+    itemID = Faker::Number.unique.between(from: 1, to: totalnumberitems)
+    OrdersItem.create(orders_id: i+1  , items_id: itemID, quantity: Faker::Number.between(from: 1, to: 3))
+  end
+  Faker::Number.unique.clear
+end 
 
 #User
 User.create({:email => "admin@gmail.com", :password => "123456", :password_confirmation => "123456" })
+

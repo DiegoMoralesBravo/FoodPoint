@@ -16,18 +16,5 @@
     <%= yield %>
     <%# <%= render 'shared/footer' %>
   </body>
-  <script>
-
-    var picker = new Pikaday(
-    {
-        field: document.getElementById('datepicker-input'),
-
-        firstDay: 1,
-        minDate: new Date('2000-01-01'),
-        bound: false,
-        container: document.getElementById('container'),
-    });
-
-    </script>
-
+  <%= javascript_include_tag 'calendar' %>
 </html>

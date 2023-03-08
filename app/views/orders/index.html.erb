@@ -29,20 +29,22 @@
           </section>
           <section class="food-description">
             <div class = "category-container">
-              <% if item.category == "Food" %>
-                <span> <%=image_tag("lunch_dining_black_24dp.svg")%></span>
-              <% elsif item.category == "Dessert" %>
-                <span> <%=image_tag("cake_black_24dp.svg")%></span>
-              <% elsif item.category == "Drink" %>
-                <span> <%=image_tag("local_cafe_black_24dp.svg")%></span>
-              <% end %>
-              <p><%= item.category%></p>
+              <div class="category-name">
+                <% if item.category == "Food" %>
+                  <span> <%=image_tag("lunch_dining_black_24dp.svg")%></span>
+                <% elsif item.category == "Dessert" %>
+                  <span> <%=image_tag("cake_black_24dp.svg")%></span>
+                <% elsif item.category == "Drink" %>
+                  <span> <%=image_tag("local_cafe_black_24dp.svg")%></span>
+                <% end %>
+                <p><%= item.category%></p>
+              </div>
+              <div class="price-card-container">
+                <h3 class="price-title"><span>$</span><%= item.price %><span>.00</span></h3>
+              </div>
             </div>
             <div class= "description-container">
               <p><%= item.description %></p>
-            </div>
-            <div class="price-card-container">
-              <h3 class="price-title"><span>$</span><%= item.price %><span>.00</span></h3>
             </div>
             <button class="button-add" > Add to Order</button>
           </section>

@@ -49,6 +49,7 @@
     .dropdown {
       display: inline-block;
       position: relative;
+      margin-left: 20px;
 
       .dropbtn {
         align-items: center;
@@ -117,32 +118,62 @@
           margin: 10px;
           width: 220px;
         }
+      }
 
+      .food-name {
+        margin-bottom: 10px;
+        h3 {
+          font-size: 18px;
         }
-
-        .food-name{
-          h3{
-            font-size: 18px;
-          }
-
       }
       .food-description {
         color: $text-light-gray;
-        .category-container{
-          display: flex;
-          flex-direction:row;
+        .category-container {
           align-items: center;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .category-name {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            span {
+              margin-right: 10px;
+            }
+          }
         }
         .description-container {
-          background-color: rgba(229, 229, 229, 0.72);
           height: 100px;
+          margin: 10px 0 10px 0;
+          overflow-y: scroll;
         }
-        .price-card-container{
+        .price-card-container {
           display: flex;
-          .price-title{
-
+          margin-right: 20px;
+          .price-title {
             color: $black-light;
+            font-size: 25px;
           }
+        }
+        .button-add {
+          align-items: center;
+          background: $red-color-main-button;
+          border-radius: 45px;
+          border: 6px solid #ffffff;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          color: $white-font-and-lettering;
+          cursor: pointer;
+          display: flex;
+          font-size: 16px;
+          height: 48px;
+          justify-content: center;
+          margin: 10px;
+          text-align: center;
+          width: 200px;
+        }
+        .button-add:hover {
+          background-color: $red-color-main-button-hover;
         }
       }
     }
@@ -245,7 +276,7 @@
           flex-direction: row;
           justify-content: center;
           button {
-            background-color: red-color-main-button;
+            background-color: $red-color-main-button;
             border-radius: 5px;
             border: none;
             height: 30px;

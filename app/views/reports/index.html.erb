@@ -36,14 +36,15 @@
       </div>
       <div class="date">
         <%= form_tag reports_path, method: :get do %>
-        <%# <%= label_tag :start_date, "Fecha de inicio" %>
-        <%= date_field_tag :start_date, nil, type: :date, class: 'hidden' %>
+          <%= text_field_tag :start_date, nil, style: 'display:none;', id: 'datepicker-input' %>
+          <div id="container"></div>
+        <%# <%= date_field_tag :start_date, nil, type: :date, class: 'hidden' %>
         <%= submit_tag "Show report", class: 'myButton' %>
       <% end %>
       </div>
     </div>
     <div class="grafica estilo hover">
       <%= line_chart @data%>
-    </div>
-  </div>
+    </div>
+  </div>
 </div>

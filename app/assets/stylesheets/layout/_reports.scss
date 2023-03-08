@@ -52,6 +52,7 @@
   }
   .tarjeta:hover {
     background-color: #2C2C2C;
+    transition: 1s ease;
 
     .tarjeta-texto{
       color: white;
@@ -216,6 +217,7 @@
 
 .hover:hover{
   background-color: #2C2C2C;
+  transition: 1s ease;
 
   .dias-titulo{
     color: white;

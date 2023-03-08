@@ -130,7 +130,7 @@ numberitemsfood.times do
     item = Item.create(
     name: Faker::Dessert.unique.variety,
     price: Faker::Number.between(from: 20, to: 100),
-    category: 'dessert',
+    category: 'Dessert',
     description:Faker::Food.description)
     item.image.attach(
       io: File.open('app/assets/images/caramel-topped-ice-cream.jpg'),
@@ -143,7 +143,7 @@ numberitemsdrink.times do
   item = Item.create(
     name: Faker::Beer.unique.brand,
     price: Faker::Number.between(from: 1, to: 50),
-    category: 'drink',
+    category: 'Drink',
     description: Faker::Food.description)
     item.image.attach(
       io: File.open('app/assets/images/beer.jpg'),

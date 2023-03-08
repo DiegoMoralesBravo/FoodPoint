@@ -117,9 +117,33 @@
           margin: 10px;
           width: 220px;
         }
+
+        }
+
+        .food-name{
+          h3{
+            font-size: 18px;
+          }
+
       }
       .food-description {
         color: $text-light-gray;
+        .category-container{
+          display: flex;
+          flex-direction:row;
+          align-items: center;
+        }
+        .description-container {
+          background-color: rgba(229, 229, 229, 0.72);
+          height: 100px;
+        }
+        .price-card-container{
+          display: flex;
+          .price-title{
+
+            color: $black-light;
+          }
+        }
       }
     }
   }
@@ -221,7 +245,7 @@
           flex-direction: row;
           justify-content: center;
           button {
-            background-color: #c93e3f;
+            background-color: red-color-main-button;
             border-radius: 5px;
             border: none;
             height: 30px;

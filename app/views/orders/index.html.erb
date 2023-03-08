@@ -25,16 +25,26 @@
             <% end %>
           </section>
           <section class="food-name">
-            <h3><%= item.name %></h1>
-            <h3>3202<span>$</span> </h1>
+            <h3><%= item.name %></h3>
           </section>
           <section class="food-description">
-            <p>Food</p>
-            <div>
-              <span> <%=image_tag("lunch_dining_black_24dp.svg")%></span>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem cum fugit iure rem quae ad, voluptatem enim voluptates dolores officia</p>
-              <button> Add to Order</button>
+            <div class = "category-container">
+              <% if item.category == "Food" %>
+                <span> <%=image_tag("lunch_dining_black_24dp.svg")%></span>
+              <% elsif item.category == "Dessert" %>
+                <span> <%=image_tag("cake_black_24dp.svg")%></span>
+              <% elsif item.category == "Drink" %>
+                <span> <%=image_tag("local_cafe_black_24dp.svg")%></span>
+              <% end %>
+              <p><%= item.category%></p>
             </div>
+            <div class= "description-container">
+              <p><%= item.description %></p>
+            </div>
+            <div class="price-card-container">
+              <h3 class="price-title"><span>$</span><%= item.price %><span>.00</span></h3>
+            </div>
+            <button class="button-add" > Add to Order</button>
           </section>
         </div>
       <% end %>

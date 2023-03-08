@@ -39,7 +39,7 @@ gem "jbuilder"
 # gem "bcrypt", "~> 3.1.7"
 
 
-# Faker gem 
+# Faker gem
 gem 'faker'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -85,4 +85,3 @@ gem "chartkick", "~> 5.0"
 
 gem "groupdate", "~> 6.2"
 
-gem 'faker'

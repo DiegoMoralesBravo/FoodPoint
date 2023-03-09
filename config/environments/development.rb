@@ -11,6 +11,9 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  # Host
+  config.hosts << 'bcdic22-ror-proyecto-final-team3-production.up.railway.app'
+
   # Show full error reports.
   config.consider_all_requests_local = true
 

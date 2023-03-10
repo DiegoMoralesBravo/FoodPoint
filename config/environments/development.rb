@@ -12,7 +12,7 @@ Rails.application.configure do
   config.eager_load = false
 
   # Host
-  config.hosts << 'foodpoint.up.railway.app'
+  config.hosts << 'bcdic22-ror-proyecto-final-team3-production.up.railway.app'
 
   # Show full error reports.
   config.consider_all_requests_local = true

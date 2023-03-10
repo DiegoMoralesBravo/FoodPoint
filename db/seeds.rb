@@ -34,6 +34,7 @@ def randstatus
   status
 end
 
+
 numberOrders.times do |i|
   Order.create(
     tables_id: i+1,

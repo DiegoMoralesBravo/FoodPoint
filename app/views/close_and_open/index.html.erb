@@ -1,5 +1,5 @@
 <%= render 'shared/navbarService' %>
-<main class="orders-main-container">
+<main class="orders-main-container" onload="loadcode()">
   <div class="orders-section">
     <div class="head-orders">
       <div class="logo-head-orders">
@@ -40,69 +40,68 @@
         </div>
       </div>
     </div>
+
     <article class="orders-close-open-container">
-      <div class="open-orders-container">
-        <div class="open-orders">
-          <div class="header-open-orders">
-            <h2>Open orders</h2>
+
+
+        <div class="open-orders-container">
+          <div class="open-orders">
+            <div class="header-open-orders">
+              <h2>Open orders</h2>
+            </div>
+            <ul class="open-order-list" >
+            <% @orders.each do |order| %>
+            <% if order.status == 'progress' && 'wait' %>
+                <li>
+                  <h3 class="order-batch">
+                    Order ID:
+                    <p><%= order.id %></p>
+                  </h3>
+                  <h3 class="time-order">
+                    <%= order.created_at.strftime("%H:%M:%S")   %>
+                  </h3>
+                </li>
+            <%end%>
+            <%end%>  
+            </ul>
           </div>
-          <ul class="open-order-list">
-            <li>
-              <h3 class="order-number">1</h3>
-              <h3 class="order-batch">
-                Order:
-                <p>3049530</p>
-              </h3>
-              <h3 class="time-order">
-                3:00
-                <p>pm</p>
-              </h3>
-            </li>
-          </ul>
         </div>
-      </div>
+
       <div class="closed-orders-container">
         <div class="closed-orders">
           <div class="header-closed-orders">
             <h2>Closed orders</h2>
           </div>
           <ul class="closed-order-list">
+          <% @orders.each do |order| %>
+          <% if order.status == 'done' %>
             <li>
-              <h3 class="closed-order-number">1</h3>
               <h3 class="closed-order-batch">
-                Order:
-                <p>3049530</p>
+                Order ID:
+                <p><%= order.id %></p>
               </h3>
               <div class="time-check">
                 <h3 class="closed-time-order">
-                  3:00
-                  <p>pm</p>
-                </h3>
-                <span>-</span>
-                <h3 class="closed-time-order-closed">
-                  3:00
-                  <p>pm</p>
+                  <%= order.created_at.strftime("%H:%M:%S") %>
                 </h3>
               </div>
               <h3 class="price-order-closed">
-                300
+                  <%= order.total   %>
                 <p>$</p>
               </h3>
             </li>
+          <%end%>
+          <%end%> 
           </ul>
         </div>
+
         <div class="buttons-closed-orders">
           <div class="buttons-section">
             <div class="total-billed">
               <span
                     >Total:
-                <p>200</p>
+                <p><%= @orders.sum(:total) %></p>
                 <p>$</p>
-              </span
-                  >
-              <span
-                    >Closed by:
-                <p>Iker Toscano</p>
               </span
                   >
             </div>

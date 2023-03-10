@@ -1,5 +1,4 @@
 <%= render 'shared/navbarService' %>
-<%=  javascript_include_tag 'service' %>
 <main class="service-main-container">
   <div class="cards-section">
     <div class="head-cards">
@@ -32,16 +31,16 @@
             <div class = "category-container">
               <div class="category-name">
                 <% if item.category == "Food" %>
-                  <span> <%=image_tag("lunch_dining_black_24dp.svg")%></span>
+                  <span> <%=image_tag("lunch_dining_black_24dp.svg", :class => "icon_category")%></span>
                 <% elsif item.category == "Dessert" %>
-                  <span> <%=image_tag("cake_black_24dp.svg")%></span>
+                  <span> <%=image_tag("cake_black_24dp.svg", :class => "icon_category")%></span>
                 <% elsif item.category == "Drink" %>
-                  <span> <%=image_tag("local_cafe_black_24dp.svg")%></span>
+                  <span> <%=image_tag("local_cafe_black_24dp.svg", :class => "icon_category")%></span>
                 <% end %>
                 <p><%= item.category%></p>
               </div>
               <div class="price-card-container">
-                <h3 class="price-title"><span>$</span><%= item.price %><span>.00</span></h3>
+                <h3 class="price-title">$<span class="price"><%= item.price %></span>.00</h3>
               </div>
             </div>
             <div class= "description-container">
@@ -63,12 +62,7 @@
           <p>1</p>
         </span>
         <span class="order-ticket">Order:
-          <p>102938</p>
-        </span>
-      </div>
-      <div class="status-container">
-        <span>Status:
-          <p>Open</p>
+          <p><%= @order + 1 %></p>
         </span>
       </div>
     </div>
@@ -77,11 +71,11 @@
       </ul>
       <div class="total-list-order">
         <span>Total items:
-          <p>1</p>
+          <p class="total-items">0</p>
         </span>
         <span>Total:
-          <p>102938</p>
           <p>$</p>
+          <p class="total-price">0</p>
         </span>
       </div>
     </div>
@@ -91,3 +85,4 @@
     </div>
   </div>
 </main>
+<%=  javascript_include_tag 'service' %>

@@ -104,7 +104,7 @@
 
     .card {
       border-radius: 20px;
-      height: 370px;
+      height: 390px;
       margin: 10px;
       padding: 10px;
       width: 220px;
@@ -123,7 +123,8 @@
       .food-name {
         margin-bottom: 10px;
         h3 {
-          font-size: 18px;
+          font-size: 15px;
+          height: 30px;
         }
       }
       .food-description {
@@ -246,7 +247,7 @@
     padding: 20px;
 
     .list {
-      align-items: flex-start;
+      align-items: center;
       border-radius: 20px;
       border: solid 1px $black-light;
       display: flex;
@@ -263,12 +264,16 @@
         justify-content: space-between;
         margin: 5px;
         padding-bottom: 6px;
-        width: 200px;
+        width: 240px;
         .list-icon {
           align-items: center;
           display: flex;
           flex-direction: row;
           justify-content: center;
+
+          img{
+            padding-right: 5px;
+          }
         }
         .list-price {
           align-items: center;

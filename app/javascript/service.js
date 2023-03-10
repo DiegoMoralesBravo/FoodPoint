@@ -1,17 +1,25 @@
-document.addEventListener("DOMContentLoaded", function (event) {
-  addEvent();
-});
-
 function addEvent() {
   const items = document.querySelectorAll(".card");
   const listItems = document.querySelector(".list");
-
+  const totalItems = document.querySelector(".total-items");
+  const totalPrice = document.querySelector(".total-price");
+  let button;
+  let sumItems = 0;
+  let sumPrice = 0;
+  let newOrder = []
+  
   for (let i = 0; i < items.length; i++) {
-    items[i].onclick = function () {
-      const item = this;
-      const name = item.childNodes[3].childNodes[1].innerText;
-      const category = item.childNodes[5].childNodes[3].childNodes[1].childNodes[1].src
-      const price = 200;
+    button = items[i].querySelector(".button-add");
+
+    button.onclick = function () {
+      const name = items[i].childNodes[3].childNodes[1].innerText;
+      const category = items[i].querySelector(".icon_category").src
+      const price = items[i].querySelector(".price").innerText;
+
+      sumPrice += parseInt(price);
+      sumItems += 1;
+      totalItems.innerText = sumItems;
+      totalPrice.innerText =  sumPrice;
 
       const listItem = document.createElement("li");
       const divIcon = document.createElement("div");
@@ -43,8 +51,14 @@ function addEvent() {
       listItems.append(listItem);
 
       deleteButton.onclick = () => {
+        sumPrice -= price;
+        sumItems -= 1;
+        totalItems.innerText = sumItems;
+        totalPrice.innerText =  sumPrice;
         listItem.remove()
       }
     };
   }
 }
+
+addEvent();

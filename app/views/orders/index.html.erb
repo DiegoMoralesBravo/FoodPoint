@@ -17,96 +17,39 @@
       </div>
     </div>
     <article class="cards-container">
-      <div class="card">
-        <section class="image-card-container">
-          <%=image_tag("pexels-jonathan-borba-2983101.jpg")%>
-        </section>
-        <section class="food-name">
-          <h3>Hamburguesa </h1>
-        </section>
-        <section class="food-description">
-          <p>Food</p>
-          <div>
-            <span> <%=image_tag("lunch_dining_black_24dp.svg")%></span>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem cum fugit iure rem quae ad, voluptatem enim voluptates dolores officia laudantium aspernatur amet! Magnam tempore quasi accusantium possimus facere? Enim. </p>
-          </div>
-        </section>
-      </div>
-      <div class="card">
-        <section class="image-card-container">
-          <%=image_tag("pexels-chan-walrus-1059905.jpg")%>
-        </section>
-        <section class="food-name">
-          <h3>Hamburguesa </h1>
-        </section>
-        <section class="food-description">
-          <p>Food</p>
-          <div>
-            <span> <%=image_tag("lunch_dining_black_24dp.svg")%></span>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem cum fugit iure rem quae ad, voluptatem enim voluptates dolores officia laudantium aspernatur amet! Magnam tempore quasi accusantium possimus facere? Enim. </p>
-          </div>
-        </section>
-      </div>
-      <div class="card">
-        <section class="image-card-container">
-          <%=image_tag("pexels-chitokan-c-2087748.jpg")%>
-        </section>
-        <section class="food-name">
-          <h3>Hamburguesa </h1>
-        </section>
-        <section class="food-description">
-          <p>Food</p>
-          <div>
-            <span> <%=image_tag("lunch_dining_black_24dp.svg")%></span>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem cum fugit iure rem quae ad, voluptatem enim voluptates dolores officia laudantium aspernatur amet! Magnam tempore quasi accusantium possimus facere? Enim. </p>
-          </div>
-        </section>
-      </div>
-      <div class="card">
-        <section class="image-card-container">
-          <%=image_tag("pexels-harry-dona-2338407.jpg")%>
-        </section>
-        <section class="food-name">
-          <h3>Hamburguesa </h1>
-        </section>
-        <section class="food-description">
-          <p>Food</p>
-          <div>
-            <span> <%=image_tag("lunch_dining_black_24dp.svg")%></span>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem cum fugit iure rem quae ad, voluptatem enim voluptates dolores officia laudantium aspernatur amet! Magnam tempore quasi accusantium possimus facere? Enim. </p>
-          </div>
-        </section>
-      </div>
-      <div class="card">
-        <section class="image-card-container">
-          <%=image_tag("pexels-lukas-1352270.jpg")%>
-        </section>
-        <section class="food-name">
-          <h3>Hamburguesa </h1>
-        </section>
-        <section class="food-description">
-          <p>Food</p>
-          <div>
-            <span> <%=image_tag("lunch_dining_black_24dp.svg")%></span>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem cum fugit iure rem quae ad, voluptatem enim voluptates dolores officia laudantium aspernatur amet! Magnam tempore quasi accusantium possimus facere? Enim. </p>
-          </div>
-        </section>
-      </div>
-      <div class="card">
-        <section class="image-card-container">
-          <%=image_tag("pexels-narda-yescas-1566837.jpg")%>
-        </section>
-        <section class="food-name">
-          <h3>Hamburguesa </h1>
-        </section>
-        <section class="food-description">
-          <p>Food</p>
-          <div>
-            <span> <%=image_tag("lunch_dining_black_24dp.svg")%></span>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem cum fugit iure rem quae ad, voluptatem enim voluptates dolores officia laudantium aspernatur amet! Magnam tempore quasi accusantium possimus facere? Enim. </p>
-          </div>
-        </section>
-      </div>
+      <% @items.each do |item| %>
+        <div class="card">
+          <section class="image-card-container">
+            <% if item.image.attached? %>
+              <%=image_tag item.image%>
+            <% end %>
+          </section>
+          <section class="food-name">
+            <h3><%= item.name %></h3>
+          </section>
+          <section class="food-description">
+            <div class = "category-container">
+              <div class="category-name">
+                <% if item.category == "Food" %>
+                  <span> <%=image_tag("lunch_dining_black_24dp.svg", :class => "icon_category")%></span>
+                <% elsif item.category == "Dessert" %>
+                  <span> <%=image_tag("cake_black_24dp.svg", :class => "icon_category")%></span>
+                <% elsif item.category == "Drink" %>
+                  <span> <%=image_tag("local_cafe_black_24dp.svg", :class => "icon_category")%></span>
+                <% end %>
+                <p><%= item.category%></p>
+              </div>
+              <div class="price-card-container">
+                <h3 class="price-title">$<span class="price"><%= item.price %></span>.00</h3>
+              </div>
+            </div>
+            <div class= "description-container">
+              <p><%= item.description %></p>
+            </div>
+            <button class="button-add" > Add to Order</button>
+          </section>
+        </div>
+      <% end %>
     </article>
   </div>
   <div class="order-container">
@@ -119,35 +62,20 @@
           <p>1</p>
         </span>
         <span class="order-ticket">Order:
-          <p>102938</p>
-        </span>
-      </div>
-      <div class="status-container">
-        <span>Status:
-          <p>Open</p>
+          <p><%= @order + 1 %></p>
         </span>
       </div>
     </div>
     <div class="order-list">
       <ul class="list">
-        <li class="item">
-          <div class="list-icon">
-            <%=image_tag("lunch_dining_black_24dp.svg")%>
-            <p>Wine </p>
-          </div>
-          <div class="list-price">
-            <p>3890<span>$</span></p>
-            <button><%=image_tag("delete_white_24dp.svg")%></button>
-          </div>
-        </li>
       </ul>
       <div class="total-list-order">
         <span>Total items:
-          <p>1</p>
+          <p class="total-items">0</p>
         </span>
         <span>Total:
-          <p>102938</p>
           <p>$</p>
+          <p class="total-price">0</p>
         </span>
       </div>
     </div>
@@ -157,3 +85,4 @@
     </div>
   </div>
 </main>
+<%=  javascript_include_tag 'service' %>

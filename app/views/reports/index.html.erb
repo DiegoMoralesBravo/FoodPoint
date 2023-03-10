@@ -11,7 +11,6 @@
         </h1 class="tarjeta-texto">
       </div>
     </div>
-    
     <div class="tarjeta">
       <div class="two alt-two">
         <h1 class="tarjeta-texto"><%= @orders %>
@@ -19,7 +18,6 @@
         </h1>
       </div>
     </div>
-
     <div class = "tarjeta">
       <div class="two alt-two">
         <h1 class="tarjeta-texto"><%= @max_order %>
@@ -28,7 +26,6 @@
       </div>
     </div>
   </div>
-
   <div class="reports">
     <div class="dias estilo hover">
       <div class="dias-titulo">
@@ -36,8 +33,9 @@
       </div>
       <div class="date">
         <%= form_tag reports_path, method: :get do %>
-        <%# <%= label_tag :start_date, "Fecha de inicio" %>
-        <%= date_field_tag :start_date, nil, type: :date, class: 'hidden' %>
+          <%= text_field_tag :start_date, nil, style: 'display:none;', id: 'datepicker-input' %>
+          <div id="container hover"></div>
+        <%# <%= date_field_tag :start_date, nil, type: :date, class: 'hidden' %>
         <%= submit_tag "Show report", class: 'myButton' %>
       <% end %>
       </div>

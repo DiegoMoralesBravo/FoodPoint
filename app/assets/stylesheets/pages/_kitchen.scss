@@ -36,7 +36,7 @@
       &.hovered {
         transform: scale(1.1);
       }
-      
+
     }
 
     &__wait {
@@ -61,9 +61,9 @@
       }
 
       &__button {
-        
+
         align-items: center;
-        background-color: $moreinfo-color;  
+        background-color: $moreinfo-color;
         border-radius: 5px;
         border: none;
         color: grey;
@@ -96,7 +96,7 @@
     &__items {
       display: flex;
       flex-direction: column;
-      
+
     }
 
     &__notes {
@@ -173,6 +173,5 @@
     }
 
   }
-  
-}
 
+}

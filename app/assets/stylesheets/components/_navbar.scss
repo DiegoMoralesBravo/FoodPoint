@@ -114,3 +114,17 @@
 #logo {
   display: none;
 }
+
+#mainService {
+  padding: 0 1rem 0 1rem;
+  transition: margin-left .5s;
+  margin-left: 0;
+}
+
+#mySidenavService {
+  width: 0;
+}
+
+#logo {
+  display: block;
+}

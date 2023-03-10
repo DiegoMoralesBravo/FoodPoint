@@ -8,10 +8,12 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag 'pikaday' %>
   </head>
 
   <body>
     <%= yield %>
     <%# <%= render 'shared/footer' %>
   </body>
+  <%= javascript_include_tag 'calendar' %>
 </html>

@@ -63,6 +63,8 @@ function addEvent() {
   }
 
   cancelButton.onclick = function () {
+    totalItems.innerText = 0;
+    totalPrice.innerText =  0;
     listItems.innerHTML = '';
   }
 }

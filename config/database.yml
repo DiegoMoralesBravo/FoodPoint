@@ -23,13 +23,16 @@ default: &default
 
 development:
   <<: *default
-  database: railway
-  hots: containers-us-west-23.railway.app
-  port: 6592
+  database: food_point_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
+  # the same name as the operating system user running Rails.
+  username: ikertos
+
+  # The password associated with the postgres role (username).
+  password: 123
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -54,7 +57,12 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: railwayapp_test
+  database: food_point_test
+
+  username: ikertos
+
+  # The password associated with the postgres role (username).
+  password: 123
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -78,7 +86,6 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV["DATABASE_URL"] %>
-  database: railwayapp_production
-  username: railwayapp
-  password: <%= ENV["RAILWAYAPP_DATABASE_PASSWORD"] %>
+  database: food_point_production
+  username: food_point
+  password: <%= ENV["FOOD_POINT_DATABASE_PASSWORD"] %>

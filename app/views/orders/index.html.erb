@@ -3,7 +3,12 @@
   <div class="cards-section">
     <div class="head-cards">
       <div class="search-input">
-        <%=image_tag("search_black_24dp.svg")%><input type="text" placeholder="Search...">
+        <%= form_tag @products_path, class: 'search-form', method: :get do%>
+          <%= text_field_tag :name, params[:name],class: 'input-menu', placeholder: "  Search by name..." %>
+          <div class="submit-button">
+            <%=image_submit_tag("search_black_24dp.svg")%>
+          </div>
+        <% end %>
       </div>
       <div class="dropdown">
         <button class="dropbtn">Categories <span><%=image_tag("expand_more_white_24dp.svg")%></span></button>
@@ -17,34 +22,34 @@
       </div>
     </div>
     <article class="cards-container">
-      <% @items.each do |item| %>
+      <% @products.each do |product| %>
         <div class="card">
           <section class="image-card-container">
-            <% if item.image.attached? %>
-              <%=image_tag item.image%>
+            <% if product.image.attached? %>
+              <%=image_tag product.image%>
             <% end %>
           </section>
           <section class="food-name">
-            <h3><%= item.name %></h3>
+            <h3><%= product.name %></h3>
           </section>
           <section class="food-description">
             <div class = "category-container">
               <div class="category-name">
-                <% if item.category == "Food" %>
-                  <span> <%=image_tag("lunch_dining_black_24dp.svg", :class => "icon_category")%></span>
-                <% elsif item.category == "Dessert" %>
-                  <span> <%=image_tag("cake_black_24dp.svg", :class => "icon_category")%></span>
-                <% elsif item.category == "Drink" %>
-                  <span> <%=image_tag("local_cafe_black_24dp.svg", :class => "icon_category")%></span>
+                <% if product.category == "Food" %>
+                  <span> <%=image_tag("lunch_dining_black_24dp.svg")%></span>
+                <% elsif product.category == "Dessert" %>
+                  <span> <%=image_tag("cake_black_24dp.svg")%></span>
+                <% elsif product.category == "Drink" %>
+                  <span> <%=image_tag("local_cafe_black_24dp.svg")%></span>
                 <% end %>
-                <p><%= item.category%></p>
+                <p><%= product.category%></p>
               </div>
               <div class="price-card-container">
-                <h3 class="price-title">$<span class="price"><%= item.price %></span>.00</h3>
+                <h3 class="price-title"><span>$</span><%= product.price %><span>.00</span></h3>
               </div>
             </div>
             <div class= "description-container">
-              <p><%= item.description %></p>
+              <p><%= product.description %></p>
             </div>
             <button class="button-add" > Add to Order</button>
           </section>

@@ -3,14 +3,11 @@
   <div class="cards-section">
     <div class="head-cards">
       <div class="search-input">
-        <%# <form id="search-form">
-          <label for="search-input">Buscar por nombre:</label>
-          <input type="text" id="search-input" name="name">
-          <button type="submit">Buscar</button>
-        </form> %>
-        <%= form_tag @products_path, method: :get do%>
-          <%= text_field_tag :name, params[:name],class: 'input-menu', placeholder: "Buscar por nombre" %>
-          <%= submit_tag "Buscar" %>
+        <%= form_tag @products_path, class: 'search-form', method: :get do%>
+          <%= text_field_tag :name, params[:name],class: 'input-menu', placeholder: "  Search by name..." %>
+          <div class="submit-button">
+            <%=image_submit_tag("search_black_24dp.svg")%>
+          </div>
         <% end %>
       </div>
       <div class="dropdown">

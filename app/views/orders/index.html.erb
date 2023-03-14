@@ -36,16 +36,16 @@
             <div class = "category-container">
               <div class="category-name">
                 <% if product.category == "Food" %>
-                  <span> <%=image_tag("lunch_dining_black_24dp.svg")%></span>
+                  <span> <%=image_tag("lunch_dining_black_24dp.svg", :class => "icon_category")%></span>
                 <% elsif product.category == "Dessert" %>
-                  <span> <%=image_tag("cake_black_24dp.svg")%></span>
+                  <span> <%=image_tag("cake_black_24dp.svg", :class => "icon_category")%></span>
                 <% elsif product.category == "Drink" %>
-                  <span> <%=image_tag("local_cafe_black_24dp.svg")%></span>
+                  <span> <%=image_tag("local_cafe_black_24dp.svg", :class => "icon_category")%></span>
                 <% end %>
                 <p><%= product.category%></p>
               </div>
               <div class="price-card-container">
-                <h3 class="price-title"><span>$</span><%= product.price %><span>.00</span></h3>
+                <h3 class="price-title">$<span class="price"><%= product.price %></span>.00</h3>
               </div>
             </div>
             <div class= "description-container">

@@ -12,16 +12,8 @@
       </div>
       <div class="dropdown">
         <%= form_tag @products_path, method: :get, id: "category-filter" do %>
-          <%= select_tag :category, options_for_select(Item.pluck(:category).uniq), prompt: "Categories", onchange: "document.getElementById('category-filter').submit();" %>
+          <%= select_tag :category, options_for_select(Item.pluck(:category).uniq), prompt: "Categories",class:"dropbtn" ,onchange: "document.getElementById('category-filter').submit();" %>
         <% end %>
-        <button class="dropbtn">Categories <span><%=image_tag("expand_more_white_24dp.svg")%></span></button>
-        <div class="dropdown-content">
-          <a href="#">Food</a>
-          <a href="#">Drinks</a>
-          <a href="#">Desserts</a>
-          <a href="#">Liquor</a>
-          <a href="#">Entries</a>
-        </div>
       </div>
     </div>
     <article class="cards-container">

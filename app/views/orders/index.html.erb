@@ -9,7 +9,7 @@
           <button type="submit">Buscar</button>
         </form> %>
         <%= form_tag @products_path, method: :get do%>
-          <%= text_field_tag :name, params[:name], placeholder: "Buscar por nombre" %>
+          <%= text_field_tag :name, params[:name],class: 'input-menu', placeholder: "Buscar por nombre" %>
           <%= submit_tag "Buscar" %>
         <% end %>
       </div>

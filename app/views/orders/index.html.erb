@@ -11,14 +11,9 @@
         <% end %>
       </div>
       <div class="dropdown">
-        <button class="dropbtn">Categories <span><%=image_tag("expand_more_white_24dp.svg")%></span></button>
-        <div class="dropdown-content">
-          <a href="#">Food</a>
-          <a href="#">Drinks</a>
-          <a href="#">Desserts</a>
-          <a href="#">Liquor</a>
-          <a href="#">Entries</a>
-        </div>
+        <%= form_tag @products_path, method: :get, id: "category-filter" do %>
+          <%= select_tag :category, options_for_select(Item.pluck(:category).uniq), prompt: "Categories",class:"dropbtn" ,onchange: "document.getElementById('category-filter').submit();" %>
+        <% end %>
       </div>
     </div>
     <article class="cards-container">
@@ -67,7 +62,7 @@
           <p>1</p>
         </span>
         <span class="order-ticket">Order:
-          <p><%= @order + 1 %></p>
+          <p><%= @order + 1%></p>
         </span>
       </div>
     </div>

@@ -1,0 +1,22 @@
+/* Estilos para las tarjetas */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
+}
+
+.cards {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cards:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+

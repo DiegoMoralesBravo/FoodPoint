@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def index
     @items = Item.all
+    @tables = Table.all
 
     @input = params[:name]
     if @input

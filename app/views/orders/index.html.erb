@@ -1,4 +1,5 @@
 <%= render 'shared/navbarService' %>
+<%= render 'selecttable' %>
 <main class="service-main-container">
   <div class="cards-section">
     <div class="head-cards">
@@ -85,9 +86,11 @@
       </div>
     </div>
     <div class="order-buttons-container">
+      <button class="send-to-kitchen" id="myBtn">Select table</button>
       <button class="send-to-kitchen">Send order to kitchen</button>
       <button class="cancel-order">Cancel order</button>
     </div>
   </div>
 </main>
 <%=  javascript_include_tag 'service' %>
+<%=  javascript_include_tag 'modaltable' %>

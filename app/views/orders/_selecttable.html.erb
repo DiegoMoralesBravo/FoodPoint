@@ -1,0 +1,16 @@
+<div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <section id="mesas-seleccion" class = "cards-container">
+        <% if @tables.present? %>
+          <% @tables.each do |table| %>
+            <div class="cards" data-mesa-id="<%= table.id %>">
+              <%= table.id %>
+            </div>
+          <% end %>
+        <% else %>
+          <p>No hay mesas disponibles.</p>
+        <% end %>
+      </section>
+    </div>
+  </div>

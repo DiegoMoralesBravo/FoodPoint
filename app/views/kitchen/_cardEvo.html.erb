@@ -1,0 +1,22 @@
+<% (@ordersN.sort_by {|e| e.status}.reverse).group_by(&:order_id).each do |order_id, order_data| %>
+  <div class='postit' id='order-<%= order_id %>'>
+    <h5>Order: <%= order_id %></h5>
+
+    <% order_data.each_with_index do |data, index| %>
+      <div>
+        <% if index == 0 %>
+          <p><%= data.table %></p>
+          <p>Status: <%= data.status %></p>
+          <p><%= data.note.truncate(80, omission: '...') %></p>
+        <% end %>
+        <div>
+          <input type="checkbox" id="scales" name="scales"><label><%= data.item %> x<%= data.quantity %></label>
+        </div>
+      </div>
+    <% end %>
+      <%= button_to "Change",
+      update_status_kitchen_path(order_id),
+      class: "kitchen__order__button",
+      method: :patch %>
+  </div>
+<% end %>

@@ -11,6 +11,12 @@ class KitchenController < ApplicationController
     @items = Item.all
     @orders  = Order.all
     @orderItems = OrdersItem.all
+    @ordersN = Order.
+      select("orders.id as order_id, orders.status, tables.name as table, items.id as item_id, items.name as item, orders_items.quantity, orders.note")
+    .joins("JOIN orders_items ON orders.id = orders_items.orders_id JOIN tables ON orders.tables_id = tables.id JOIN items ON orders_items.items_id = items.id")
+
+
+
   end
 
   def update_status
@@ -41,7 +47,7 @@ class KitchenController < ApplicationController
       'kitchen__order__progress'
     elsif order.status == 'done'
       'kitchen__order__done'
-    end 
+    end
   end
 
   def statusText(order)
@@ -74,5 +80,3 @@ class KitchenController < ApplicationController
   end
 
 end
-
-

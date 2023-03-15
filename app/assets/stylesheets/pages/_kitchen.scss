@@ -10,10 +10,12 @@
     height: auto;
     margin: 0 0 5rem 5rem;
     width: 95%;
+    min-height: 60rem;
+    max-height: max-content;
   }
 
   &__order {
-    background-color: $background-beige-principal;
+    background-color: #ffff88;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -22,10 +24,12 @@
     padding: 1rem;
     width: 23.5rem;
 
+
     &__status {
       align-items: center;
-      border-radius: 5px;
-      box-shadow:  5px 5px 10px #9d9d9d, -5px -5px 10px #ffffff;
+      background-color:  $postit-color;
+      border:1px solid #E8E8E8;
+      //box-shadow:  10px 5px 5px #9d9d9d, 0px 0px 5px #ffffff;
       display: flex;
       height: 28rem;
       justify-content: center;
@@ -33,22 +37,32 @@
       transition: 0.5s;
       width: 27rem;
 
-      &.hovered {
-        transform: scale(1.1);
+      &::after {
+        transform: matrix(-1, -0.1, 0, 1, 0, 0);
+        -o-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+        -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+        -moz-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+        -webkit-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+        background: rgba(0, 0, 0, 0.2);
+        box-shadow:2px 15px 5px rgba(0, 0, 0, 0.40);
+        height: 25px;
+        position:absolute;
+        right:-0px; bottom:20px;
+        width:200px;
+        z-index:-1;
       }
-
     }
 
     &__wait {
-      background-color: $waiting-color;
+      background-color: $postit-color;
     }
 
     &__progress {
-      background: $progress-color;
+      background: $postit-color;
     }
 
     &__done {
-      background: $done-color;
+      background: $postit-color;
     }
 
     &__info {
@@ -173,5 +187,39 @@
     }
 
   }
+
+}
+
+.postit {
+  line-height: 1;
+  text-align: center;
+  width: 27rem;
+  margin: 25px;
+  height: 28rem;
+  padding-top: 35px;
+  position: relative;
+  border: 1px solid #E8E8E8;
+  border-top: 60px solid #fdfd86;
+  font-family: 'Reenie Beanie';
+  border-bottom-right-radius: 60px 5px;
+  display: inline-block;
+  background: #ffff88;
+}
+
+.postit:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -0px;
+  bottom: 20px;
+  width: 200px;
+  height: 25px;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 15px 5px rgba(0, 0, 0, 0.40);
+  -moz-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+  -webkit-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+  -o-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+  -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+  transform: matrix(-1, -0.1, 0, 1, 0, 0);
 
 }

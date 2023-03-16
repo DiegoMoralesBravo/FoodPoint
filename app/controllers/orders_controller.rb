@@ -5,6 +5,8 @@ class OrdersController < ApplicationController
     @mesa_seleccionada = session[:mesa_seleccionada]
     @orders = Order.all
 
+    @category = params[:category]
+
     @input = params[:name]
     if @input
       @products = Item.where('name ILIKE ?', "%#{@input}%")

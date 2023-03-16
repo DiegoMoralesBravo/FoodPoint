@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def index
     @items = Item.all
 
@@ -12,16 +13,31 @@ class OrdersController < ApplicationController
     @category = params[:category]
 
     @input = params[:name]
-    if @input
-      @products = Item.where('name ILIKE ?', "%#{@input}%")
-      @order = Order.count
-      # render json: @products
-    elsif @category.present?
-      @products = Item.where('category ILIKE ?', "%#{@category}%")
-      @order = Order.count
-    else
-      @products = Item.all
-      @order = Order.count
+    @products = if @input
+                  Item.where('name ILIKE ?', "%#{@input}%")
+                elsif @category.present?
+                  Item.where('category ILIKE ?', "%#{@category}%")
+                else
+                  Item.all
+                end
+    @order = Order.count
+  end
+
+  def create
+    items = params[:order]
+    total = params[:total]
+    note = params[:note]
+
+    newOrder = Order.create(
+      tables_id: 1,
+      status: 'wait',
+      total: total,
+      note: note
+    )
+
+    items.each do |item|
+      id = Item.find_by(name: item[:name]).id
+      OrdersItem.create(orders_id: newOrder.id, items_id: id, quantity: item[:quantity])
     end
     @mesa = params[:selected_table_id]
   end

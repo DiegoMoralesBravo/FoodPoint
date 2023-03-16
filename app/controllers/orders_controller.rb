@@ -6,7 +6,6 @@ class OrdersController < ApplicationController
     @input = params[:name]
     @products = if @input
                   Item.where('name ILIKE ?', "%#{@input}%")
-                # render json: @products
                 elsif @category.present?
                   Item.where('category ILIKE ?', "%#{@category}%")
                 else
@@ -16,15 +15,20 @@ class OrdersController < ApplicationController
   end
 
   def create
-    newOrder = params[:_json]
-    puts @order
-    newOrder.each do |item|
-      OrdersItem.create(orders_id: 1, items_id: 1, quantity: 1)
-      # if @order.save
-      #   puts 'GUARDADO'
-      # else
-      #   putes 'NO GUARDADO'
-      # end
+    items = params[:order]
+    total = params[:total]
+    note = params[:note]
+
+    newOrder = Order.create(
+      tables_id: 1,
+      status: 'wait',
+      total: total,
+      note: note
+    )
+
+    items.each do |item|
+      id = Item.find_by(name: item[:name]).id
+      OrdersItem.create(orders_id: newOrder.id, items_id: id, quantity: item[:quantity])
     end
   end
 end

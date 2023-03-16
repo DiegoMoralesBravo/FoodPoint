@@ -5,8 +5,10 @@ function addEvent() {
   const totalPrice = document.querySelector(".total-price");
   const cancelButton = document.querySelector(".cancel-order");
   const sendButton = document.querySelector(".send-to-kitchen");
+  const notes = document.querySelector(".note-order");
   const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
   const csrfParam = document.querySelector('meta[name="csrf-param"]').getAttribute('content');
+  notes.value = '';
 
   let button;
   let sumItems = 0;
@@ -79,18 +81,25 @@ function addEvent() {
     totalPrice.innerText = 0;
     listItems.innerHTML = '';
     newOrder = [];
+    notes.value = '';
   }
 
   sendButton.onclick = function () {
-    console.log('Click')
+    let note = notes.value;
+    console.log(note)
     fetch('/orders', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         [csrfParam]: csrfToken
       },
-      body: JSON.stringify(newOrder)
+      body: JSON.stringify({order: newOrder, total: sumPrice, note: note})
     })
+    totalItems.innerText = 0;
+    totalPrice.innerText = 0;
+    listItems.innerHTML = '';
+    newOrder = [];
+    notes.value = '';
   }
 }
 

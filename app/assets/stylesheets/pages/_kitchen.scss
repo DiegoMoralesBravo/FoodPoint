@@ -15,59 +15,24 @@
   }
 
   &__order {
-    background-color: #ffff88;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    height: 24.5rem;
-    justify-content: space-around;
-    padding: 1rem;
-    width: 23.5rem;
+    background: #ffff88;
+    border-bottom-right-radius: 60px 5px;
+    border:1px solid #E8E8E8;
+    box-shadow: 1px 1px 5px -4px rgba(0, 0, 0, 0.75);
+    display:inline-block;
+    font-size:22px;
+    height:24.5rem;
+    line-height: 1;
+    margin: 25px;
+    padding-top:35px;
+    position:relative;
+    text-align:center;
+    width: 24rem;
 
-
-    &__status {
-      align-items: center;
-      background-color:  $postit-color;
-      border:1px solid #E8E8E8;
-      //box-shadow:  10px 5px 5px #9d9d9d, 0px 0px 5px #ffffff;
-      display: flex;
-      height: 28rem;
-      justify-content: center;
-      margin: 0.5rem;
-      transition: 0.5s;
-      width: 27rem;
-
-      &::after {
-        transform: matrix(-1, -0.1, 0, 1, 0, 0);
-        -o-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-        -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-        -moz-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-        -webkit-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-        background: rgba(0, 0, 0, 0.2);
-        box-shadow:2px 15px 5px rgba(0, 0, 0, 0.40);
-        height: 25px;
-        position:absolute;
-        right:-0px; bottom:20px;
-        width:200px;
-        z-index:-1;
-      }
-    }
-
-    &__wait {
-      background-color: $postit-color;
-    }
-
-    &__progress {
-      background: $postit-color;
-    }
-
-    &__done {
-      background: $postit-color;
-    }
 
     &__info {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
 
       &__table {
         font-weight: bold;
@@ -109,12 +74,14 @@
 
     &__items {
       display: flex;
-      flex-direction: column;
-
+      flex-direction: row;
+      padding-left: 20px;
     }
 
     &__notes {
-      font-weight: bold;
+      text-align: justify;
+      text-justify: inter-word;
+      padding: 20px;
     }
 
     &__button {
@@ -126,28 +93,17 @@
       height: 2rem;
       justify-content: center;
       transition: 0.5s;
-      width: 100%;
+      width: 10rem;
 
       &:hover {
-        box-shadow: none;
+        color: red;
       }
 
-      &__progress {
-        background: $progress-color;
-        box-shadow:  5px 5px 10px #bebebe,
-                    -5px -5px 10px #ffffff;
-      }
+      &__container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
 
-      &__done {
-        background-color: $done-color;
-        box-shadow:  5px 5px 10px #d99164,
-                    -5px -5px 10px #ffc588;
-      }
-
-      &__delete {
-        background-color: $delete-color;
-        box-shadow:  5px 5px 10px #9ed999,
-                    -5px -5px 10px #d6ffcf;
       }
     }
   }
@@ -165,24 +121,9 @@
       z-index: 2;
     }
 
-    &__status {
-      align-items: center;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      display: flex;
-      height: 44rem;
-      justify-content: center;
-      width: 34rem;
-    }
 
     &__card {
-      background: white;
-      border-radius: 5px;
-      display: flex;
-      flex-direction: column;
       height: 40rem;
-      justify-content: space-around;
-      padding: 20px;
       width: 30rem;
     }
 
@@ -190,36 +131,31 @@
 
 }
 
-.postit {
-  line-height: 1;
-  text-align: center;
-  width: 27rem;
-  margin: 25px;
-  height: 28rem;
-  padding-top: 35px;
-  position: relative;
-  border: 1px solid #E8E8E8;
-  border-top: 60px solid #fdfd86;
-  font-family: 'Reenie Beanie';
-  border-bottom-right-radius: 60px 5px;
-  display: inline-block;
-  background: #ffff88;
+.rotated {
+  transform: rotate(-1deg);
 }
 
-.postit:after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  right: -0px;
-  bottom: 20px;
-  width: 200px;
-  height: 25px;
-  background: rgba(0, 0, 0, 0.2);
-  box-shadow: 2px 15px 5px rgba(0, 0, 0, 0.40);
-  -moz-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-  -webkit-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-  -o-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-  -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-  transform: matrix(-1, -0.1, 0, 1, 0, 0);
+.rotated:nth-child(2n) {
+  transform: rotate(2deg);
+}
 
+.rotated:nth-child(3n) {
+  transform: rotate(1deg);
+}
+
+
+.cinta {
+  position: absolute;
+  left: -25px;
+  top: -30px;
+  transform: rotate(110deg);
+  opacity: 0.6;
+}
+
+.check {
+
+  height: 1.5rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.8rem;
+  width: 1.5rem;
 }

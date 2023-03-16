@@ -42,10 +42,12 @@
       &__button {
 
         align-items: center;
-        background-color: $moreinfo-color;
+        background-color: $red-color-main-button;
         border-radius: 5px;
-        border: none;
-        color: grey;
+        border: 5px solid white;
+        box-shadow:  5px 5px 10px #baba63,
+                    -5px -5px 10px #ffffad;
+        color: white;
         display: flex;
         height: 2rem;
         justify-content: center;
@@ -54,7 +56,8 @@
         width: 6rem;
 
         &:hover {
-          background-color: $moreinfo-color-hover;
+          background-color: $red-color-main-button-hover;
+          box-shadow: none;
         }
 
         &__close {
@@ -85,10 +88,13 @@
     }
 
     &__button {
-      align-items: center;
+      background-color: $red-color-main-button;
       border-radius: 5px;
-      border: none;
-      color: $black-light;
+      border: 5px solid white;
+      box-shadow:  5px 5px 10px #baba63,
+                  -5px -5px 10px #ffffad;
+      color: white;
+      align-items: center;
       display: flex;
       height: 2rem;
       justify-content: center;
@@ -96,7 +102,8 @@
       width: 10rem;
 
       &:hover {
-        color: red;
+        background-color: $red-color-main-button-hover;
+        box-shadow: none;
       }
 
       &__container {

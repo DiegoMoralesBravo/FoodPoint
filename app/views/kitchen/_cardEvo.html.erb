@@ -13,7 +13,10 @@
         </div>
         <% end %>
         <div  class='kitchen__order__items'>
-          <input type="checkbox" id="scales" name="scales" class='check'><label><%= data.item %> x<%= data.quantity %></label>
+          <% if data.status == 'progress'%>
+            <input type="checkbox" id="scales" name="scales" class='check'>
+          <% end %>
+          <label><%= data.item %> x<%= data.quantity %></label>
         </div>
       </div>
     <% end %>

@@ -1,9 +1,13 @@
 class OrdersController < ApplicationController
   def index
     @items = Item.all
+
     @tables = Table.all
     @mesa_seleccionada = session[:mesa_seleccionada]
     @orders = Order.all
+
+    @category = params[:category]
+
 
     @category = params[:category]
 
@@ -12,6 +16,9 @@ class OrdersController < ApplicationController
       @products = Item.where('name ILIKE ?', "%#{@input}%")
       @order = Order.count
       # render json: @products
+    elsif @category.present?
+      @products = Item.where('category ILIKE ?', "%#{@category}%")
+      @order = Order.count
     else
       @products = Item.all
       @order = Order.count

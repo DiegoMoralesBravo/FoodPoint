@@ -3,6 +3,8 @@ function addEvent() {
   const listItems = document.querySelector(".list");
   const totalItems = document.querySelector(".total-items");
   const totalPrice = document.querySelector(".total-price");
+  const cancelButton = document.querySelector(".cancel-order");
+
   let button;
   let sumItems = 0;
   let sumPrice = 0;
@@ -58,6 +60,12 @@ function addEvent() {
         listItem.remove()
       }
     };
+  }
+
+  cancelButton.onclick = function () {
+    totalItems.innerText = 0;
+    totalPrice.innerText =  0;
+    listItems.innerHTML = '';
   }
 }
 

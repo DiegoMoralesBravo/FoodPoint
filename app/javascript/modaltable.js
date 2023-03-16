@@ -22,3 +22,20 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+// Script que ayuda a selecionar la mesa
+const cards = document.querySelectorAll('.cards');
+
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+    const mesaId = card.dataset.mesaId;
+    const status = card.classList.contains('cards-green') ? 'progress' : card.classList.contains('cards-red') ? 'done' : 'wait';
+    if (status === 'progress' || status === 'done') {
+      alert('No puedes seleccionar esta mesa porque ya está en progreso o finalizada.');
+    } else {
+      const selectedTableId = document.querySelector('#selected_table_id');
+      selectedTableId.value = mesaId;
+      document.querySelector('form').submit();
+    }
+  });
+});

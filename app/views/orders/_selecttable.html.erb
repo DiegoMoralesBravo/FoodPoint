@@ -1,16 +1,54 @@
-<div id="myModal" class="modal">
+<%= form_tag orders_path, method: :get do %>
+  <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <section id="mesas-seleccion" class = "cards-container">
+      <section id="mesas-seleccion" class="cardscontainer">
+      <% @orders.each do |order| %>
         <% if @tables.present? %>
-          <% @tables.each do |table| %>
-            <div class="cards" data-mesa-id="<%= table.id %>">
-              <%= table.id %>
-            </div>
+          <% @tables.select { |table| table.id == order.tables_id }.each do |table| %>
+            <% if order.status == "wait" %>
+              <div class="cards" data-mesa-id="<%= table.id %>">
+                <span class="table-number">Table <%= table.id %></span>
+                <span class="order-time"><%= order.created_at.strftime("%H:%M") %></span>
+              </div>
+            <% elsif order.status == "progress" %>
+              <div class="cards cards-green" data-mesa-id="<%= table.id %>">
+                <span class="table-number">Table <%= table.id %></span>
+                <span class="order-time"><%= order.created_at.strftime("%H:%M") %></span>
+              </div>
+            <% elsif order.status == "done" %>
+              <div class="cards cards-red" data-mesa-id="<%= table.id %>">
+                <span class="table-number">Table <%= table.id %></span>
+                <span class="order-time"><%= order.created_at.strftime("%H:%M") %></span>
+              </div>
+            <% end %>
           <% end %>
         <% else %>
           <p>No hay mesas disponibles.</p>
         <% end %>
+      <% end %>
       </section>
+      <%= hidden_field_tag :selected_table_id %>
     </div>
   </div>
+
+  <script>
+    const cards = document.querySelectorAll('.cards');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const mesaId = card.dataset.mesaId;
+        const status = card.classList.contains('cards-green') ? 'progress' : card.classList.contains('cards-red') ? 'done' : 'wait';
+        if (status === 'progress' || status === 'done') {
+          alert('No puedes seleccionar esta mesa porque ya está en progreso o finalizada.');
+        } else {
+          const selectedTableId = document.querySelector('#selected_table_id');
+          selectedTableId.value = mesaId;
+          document.querySelector('form').submit();
+        }
+      });
+    });
+  </script>
+
+<% end %>
+

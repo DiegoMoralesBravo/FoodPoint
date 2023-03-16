@@ -2,6 +2,8 @@ class OrdersController < ApplicationController
   def index
     @items = Item.all
     @tables = Table.all
+    @mesa_seleccionada = session[:mesa_seleccionada]
+    @orders = Order.all
 
     @input = params[:name]
     if @input
@@ -12,5 +14,6 @@ class OrdersController < ApplicationController
       @products = Item.all
       @order = Order.count
     end
+    @mesa = params[:selected_table_id]
   end
 end

@@ -50,8 +50,17 @@
               <h2>Open orders</h2>
             </div>
             <ul class="open-order-list" >
+            <li>
+                  <h3 class="order-batch">
+                    Order ID:
+                    <p>00</p>
+                  </h3>
+                  <h3 class="time-order">
+                    00:00:00
+                  </h3>
+            </li>
             <% @orders.each do |order| %>
-            <% if order.status == 'progress' && 'wait' %>
+            <% if order.status == 'progress'  %>
                 <li>
                   <h3 class="order-batch">
                     Order ID:
@@ -62,7 +71,7 @@
                   </h3>
                 </li>
             <%end%>
-            <%end%>  
+            <%end%>
             </ul>
           </div>
         </div>
@@ -73,23 +82,38 @@
             <h2>Closed orders</h2>
           </div>
           <ul class="closed-order-list">
+            <li>
+                <h3 class="closed-order-batch">
+                  Order ID:
+                  <p>00</p>
+                </h3>
+                <div class="time-check">
+                  <h3 class="closed-time-order">
+                    00:00:00
+                  </h3>
+                </div>
+                <h3 class="price-order-closed">
+                    
+                  <p>$$$$</p>
+                </h3>
+              </li>
           <% @orders.each do |order| %>
           <% if order.status == 'done' %>
-            <li>
-              <h3 class="closed-order-batch">
-                Order ID:
-                <p><%= order.id %></p>
-              </h3>
-              <div class="time-check">
-                <h3 class="closed-time-order">
-                  <%= order.created_at.strftime("%H:%M:%S") %>
+              <li>
+                <h3 class="closed-order-batch">
+                  Order ID:
+                  <p><%= order.id %></p>
                 </h3>
-              </div>
-              <h3 class="price-order-closed">
-                  <%= order.total   %>
-                <p>$</p>
-              </h3>
-            </li>
+                <div class="time-check">
+                  <h3 class="closed-time-order">
+                    <%= order.created_at.strftime("%H:%M:%S") %>
+                  </h3>
+                </div>
+                <h3 class="price-order-closed">
+                    <%= order.total   %>
+                  <p>$</p>
+                </h3>
+              </li>
           <%end%>
           <%end%> 
           </ul>
@@ -104,9 +128,6 @@
                 <p>$</p>
               </span
                   >
-            </div>
-            <div class="billed-button">
-              <button>Close billed day</button>
             </div>
           </div>
         </div>

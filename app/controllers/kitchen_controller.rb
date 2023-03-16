@@ -1,7 +1,8 @@
 class KitchenController < ApplicationController
   helper_method :update_status
   helper_method :statusTextBtn
-
+  helper_method :statuscolor
+  helper_method :statusColorOverlay
   def index
     @ordersN = Order.
       select("
@@ -25,14 +26,39 @@ class KitchenController < ApplicationController
     redirect_to kitchen_index_path
   end
 
-  def statusTextBtn(order)
-    if order.status == 'wait'
-      'Mark as working'
-    elsif order.status == 'progress'
-      'Mark as Done'
-    elsif order.status == 'done'
-      'Delete'
+  def statuscolor(status)
+    if status == 'wait'
+      'status_waiting'
+    elsif status == 'progress'
+      'status_progress'
+    elsif status == 'done'
+      'status_done'
     end
   end
 
+
+  def statusColorOverlay(status)
+    if status == 'wait'
+      'status_waiting_overlay'
+    elsif status == 'progress'
+      'status_progress_overlay'
+    elsif status == 'done'
+      'status_done_overlay'
+    end
+  end
+
+  def statusTextBtn(status)
+    if status == 'wait'
+      'Mark as working'
+    elsif status == 'progress'
+      'Mark as Done'
+    elsif status == 'done'
+      'Delete'
+    end
+  end
+  private
+
+  def order
+    Order.find(params[:id])
+  end
 end

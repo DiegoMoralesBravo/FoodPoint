@@ -7,6 +7,10 @@
 
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .orders-main-container {
   align-items: center;
   display: flex;
@@ -93,11 +97,14 @@
       align-items: flex-start;
       display: flex;
       justify-content: center;
-      height: 518px;
+      height: 510px;
       width: 448px;
+
       .open-orders {
         border-radius: 20px;
         border: solid 3px $black-light;
+        overflow: auto;  
+
         .header-open-orders {
           align-items: center;
           background-color: $black-light;
@@ -116,7 +123,6 @@
             display: flex;
             height: 50px;
             justify-content: space-between;
-            overflow: auto;
             padding: 0 40px;
 
             .order-number {
@@ -136,7 +142,7 @@
               color: $red-color-main-button;
               display: flex;
               justify-content: space-evenly;
-              margin-right: 20px;
+              margin-right: 40px;
               p {
                 color: $black-light;
                 margin-left: 5px;
@@ -162,11 +168,13 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      height: 518px;
+      height: 510px;
       width: 448px;
+
       .closed-orders {
         border-radius: 20px;
         border: solid 3px $black-light;
+        overflow: auto;
 
         .header-closed-orders {
           align-items: center;
@@ -176,6 +184,7 @@
           display: flex;
           height: 72px;
           justify-content: center;
+
         }
         .closed-order-list {
           li {
@@ -185,8 +194,8 @@
             display: flex;
             height: 50px;
             justify-content: space-between;
-            overflow: auto;
             padding: 0 40px;
+
 
             .closed-order-number {
               align-items: center;
@@ -468,4 +477,8 @@
       background-color: rgb(66, 66, 66);
     }
   }
+}
+
+.example::-webkit-scrollbar {
+  display: none;
 }

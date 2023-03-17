@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
 
     newOrder = Order.create(
       tables_id: mesa,
-      status: 'progress',
+      status: 'wait',
       total: total,
       note: note
     )

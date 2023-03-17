@@ -8,6 +8,8 @@ function addEvent() {
   const notes = document.querySelector(".note-order");
   const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
   const csrfParam = document.querySelector('meta[name="csrf-param"]').getAttribute('content');
+  const selectedTableId = document.getElementById('selected_table_id').value;
+
   notes.value = '';
 
   let button;
@@ -93,7 +95,7 @@ function addEvent() {
         'Content-Type': 'application/json',
         [csrfParam]: csrfToken
       },
-      body: JSON.stringify({order: newOrder, total: sumPrice, note: note})
+      body: JSON.stringify({order: newOrder, total: sumPrice, note: note, selected_table_id: selectedTableId})
     })
     totalItems.innerText = 0;
     totalPrice.innerText = 0;

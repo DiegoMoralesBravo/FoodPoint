@@ -3,34 +3,37 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <section id="mesas-seleccion" class="cardscontainer">
-      <% @orders.each do |order| %>
         <% if @tables.present? %>
-          <% @tables.select { |table| table.id == order.tables_id }.each do |table| %>
-            <% if order.status == "wait" %>
+          <% @tables.each do |table| %>
+            <% order = Order.find_by(tables_id: table.id) %>
+            <% if order.present? %>
+              <% if order.status == "wait"%>
+                <div class="cards" data-mesa-id="<%= table.id %>">
+                  <span class="table-number">Table <%= table.id %></span>
+                  <span class="order-time"><%= order.created_at.strftime("%H:%M") %></span>
+                </div>
+              <% elsif order.status == "progress" %>
+                <div class="cards cards-green" data-mesa-id="<%= table.id %>">
+                  <span class="table-number">Table <%= table.id %></span>
+                  <span class="order-time"><%= order.created_at.strftime("%H:%M") %></span>
+                </div>
+              <% elsif order.status == "done" %>
+                <div class="cards cards-red" data-mesa-id="<%= table.id %>">
+                  <span class="table-number">Table <%= table.id %></span>
+                  <span class="order-time"><%= order.created_at.strftime("%H:%M") %></span>
+                </div>
+              <% end %>
+            <% else %>
               <div class="cards" data-mesa-id="<%= table.id %>">
                 <span class="table-number">Table <%= table.id %></span>
-                <span class="order-time"><%= order.created_at.strftime("%H:%M") %></span>
-              </div>
-            <% elsif order.status == "progress" %>
-              <div class="cards cards-green" data-mesa-id="<%= table.id %>">
-                <span class="table-number">Table <%= table.id %></span>
-                <span class="order-time"><%= order.created_at.strftime("%H:%M") %></span>
-              </div>
-            <% elsif order.status == "done" %>
-              <div class="cards cards-red" data-mesa-id="<%= table.id %>">
-                <span class="table-number">Table <%= table.id %></span>
-                <span class="order-time"><%= order.created_at.strftime("%H:%M") %></span>
               </div>
             <% end %>
           <% end %>
         <% else %>
           <p>No hay mesas disponibles.</p>
         <% end %>
-      <% end %>
       </section>
-      <%= hidden_field_tag :selected_table_id %>
+      <%= hidden_field_tag :selected_table_id, @mesa %>
     </div>
   </div>
-
 <% end %>
-

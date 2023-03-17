@@ -9,9 +9,6 @@ class OrdersController < ApplicationController
 
     @category = params[:category]
 
-
-    @category = params[:category]
-
     @input = params[:name]
     @products = if @input
                   Item.where('name ILIKE ?', "%#{@input}%")
@@ -21,16 +18,18 @@ class OrdersController < ApplicationController
                   Item.all
                 end
     @order = Order.count
+    @mesa = params[:selected_table_id]
   end
 
   def create
     items = params[:order]
     total = params[:total]
     note = params[:note]
+    mesa = params[:selected_table_id]
 
     newOrder = Order.create(
-      tables_id: 1,
-      status: 'wait',
+      tables_id: mesa,
+      status: 'progress',
       total: total,
       note: note
     )
@@ -39,6 +38,5 @@ class OrdersController < ApplicationController
       id = Item.find_by(name: item[:name]).id
       OrdersItem.create(orders_id: newOrder.id, items_id: id, quantity: item[:quantity])
     end
-    @mesa = params[:selected_table_id]
   end
 end

@@ -7,87 +7,71 @@
     background: $background-beige-principal;
     display: flex;
     flex-wrap: wrap;
+    font-family: Arial, Helvetica, sans-serif;
     height: auto;
     margin: 0 0 5rem 5rem;
     width: 95%;
+    min-height: 60rem;
+    max-height: max-content;
   }
 
   &__order {
-    background-color: $background-beige-principal;
-    border-radius: 5px;
-    display: flex;
+    background: white;
+    border:1px solid red;
+    box-shadow: 1px 1px 5px -4px rgba(0, 0, 0, 0.75);
+    display:flex;
     flex-direction: column;
-    height: 24.5rem;
-    justify-content: space-around;
-    padding: 1rem;
-    width: 23.5rem;
+    font-size:22px;
+    height:24.5rem;
+    justify-content: space-between;
+    line-height: 1;
+    margin: 25px;
+    position:relative;
+    text-align:center;
+    width: 24rem;
 
-    &__status {
-      align-items: center;
-      border-radius: 5px;
-      box-shadow:  5px 5px 10px #9d9d9d, -5px -5px 10px #ffffff;
-      display: flex;
-      height: 28rem;
-      justify-content: center;
-      margin: 0.5rem;
-      transition: 0.5s;
-      width: 27rem;
-
-      &.hovered {
-        transform: scale(1.1);
-      }
-
-    }
-
-    &__wait {
-      background-color: $waiting-color;
-    }
-
-    &__progress {
-      background: $progress-color;
-    }
-
-    &__done {
-      background: $done-color;
-    }
 
     &__info {
       display: flex;
-      justify-content: space-between;
-
-      &__table {
-        font-weight: bold;
-        font-size: larger;
-      }
+      justify-content: space-around;
+      padding: 10px;
 
       &__button {
 
         align-items: center;
-        background-color: $moreinfo-color;
-        border-radius: 5px;
+        background-color: $red-color-main-button;
         border: none;
-        color: grey;
+        color: white;
         display: flex;
-        height: 2rem;
-        justify-content: center;
+        font-size: large;
+        font-weight: bold;
+        height: 2.5rem;
+        justify-content: space-around;
+        margin-bottom: 1rem;
         text-decoration: none;
         transition: 0.5s;
-        width: 6rem;
+        width: 100%;
 
         &:hover {
-          background-color: $moreinfo-color-hover;
+          background-color: $red-color-main-button-hover;
+          box-shadow: none;
         }
 
         &__close {
-          border: none;
+          align-items: center;
           background: none;
-          color: gray;
-          font-size: 2rem;
+          border: none;
+          color: white;
+          display: flex;
+          font-size: large;
           font-weight: bold;
+          height: 4.5rem;
+          justify-content: space-around;
           transition: 0.5s;
+          width: 100%;
 
           &:hover {
-            color: $delete-color;
+            background-color: $red-color-main-button-hover;
           }
         }
       }
@@ -95,19 +79,31 @@
 
     &__items {
       display: flex;
-      flex-direction: column;
-
+      flex-direction: row;
+      font-size: large;
+      padding: 0 1rem 0 1rem ;
     }
 
     &__notes {
-      font-weight: bold;
+
+      &__title {
+        font-weight: bold;
+        font-size: 1.3rem;
+        text-align: justify;
+        padding-left: 1rem;
+      }
+
+      &__description {
+        font-size: 1.2rem;
+        text-align: left;
+        padding: 0 1rem 0 1rem ;
+      }
     }
 
     &__button {
       align-items: center;
-      border-radius: 5px;
       border: none;
-      color: $black-light;
+      color: white;
       display: flex;
       height: 2rem;
       justify-content: center;
@@ -115,25 +111,7 @@
       width: 100%;
 
       &:hover {
-        box-shadow: none;
-      }
-
-      &__progress {
-        background: $progress-color;
-        box-shadow:  5px 5px 10px #bebebe,
-                    -5px -5px 10px #ffffff;
-      }
-
-      &__done {
-        background-color: $done-color;
-        box-shadow:  5px 5px 10px #d99164,
-                    -5px -5px 10px #ffc588;
-      }
-
-      &__delete {
-        background-color: $delete-color;
-        box-shadow:  5px 5px 10px #9ed999,
-                    -5px -5px 10px #d6ffcf;
+        background-color: $red-color-main-button-hover;
       }
     }
   }
@@ -151,27 +129,53 @@
       z-index: 2;
     }
 
-    &__status {
-      align-items: center;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      display: flex;
-      height: 44rem;
-      justify-content: center;
-      width: 34rem;
-    }
-
     &__card {
-      background: white;
-      border-radius: 5px;
-      display: flex;
-      flex-direction: column;
       height: 40rem;
-      justify-content: space-around;
-      padding: 20px;
       width: 30rem;
     }
 
   }
 
+}
+
+.check {
+
+  height: 1.5rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.8rem;
+  width: 1.5rem;
+}
+
+.status {
+
+  &_waiting {
+    background-color: #ceccca;
+
+    &_overlay {
+      border-color: #ceccca;
+
+    }
+  }
+
+  &_progress {
+    background-color: #f09f3c;
+
+    &_overlay {
+      border-color: #f09f3c;
+
+    }
+  }
+
+  &_done {
+    background-color: #4eb05d;
+
+    &_overlay {
+      border-color: #4eb05d;
+
+    }
+  }
+
+  &_delayed {
+    background-color: #ec2526;
+  }
 }

@@ -2,7 +2,7 @@
   <% if order.status == 'done'%>
     <% nil %>
   <% else %>
-    <div class='kitchen__order__status ' id='order-<%= order.id %>'>
+    <div class='postit' id='order-<%= order.id %>'>
       <div class='kitchen__order <%= statusColorCard(order) %>'>
 
         <div class='kitchen__order__info'>

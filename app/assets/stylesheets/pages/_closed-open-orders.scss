@@ -36,6 +36,26 @@
         width: 60px;
       }
     }
+
+    .show-all {
+      align-items: center;
+      background: $red-color-main-button;
+      border-radius: 45px;
+      border: 6px solid $white-font-and-lettering;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      color: $white-font-and-lettering;
+      cursor: pointer;
+      display: flex;
+      font-size: 18px;
+      height: 40px;
+      justify-content: center;
+      margin-left: 20px;
+      text-align: center;
+      width: 150px;
+      text-decoration:none;
+
+    }
+
     .dropdown {
       display: inline-block;
       position: relative;
@@ -60,6 +80,7 @@
           justify-content: center;
         }
       }
+
       .dropdown-content {
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         display: none;
@@ -94,9 +115,10 @@
     
 
     .open-orders-container {
-      align-items: flex-start;
+      align-items: center;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: flex-start;
       height: 510px;
       width: 448px;
 
@@ -113,6 +135,7 @@
           display: flex;
           height: 72px;
           justify-content: center;
+          
         }
 
         .open-order-list {
@@ -153,11 +176,20 @@
               color: $black-light;
               display: flex;
               justify-content: space-evenly;
+              
 
               p {
                 color: $black-light;
                 margin-left: 5px;
               }
+            }
+
+            .status-order{
+              align-items: center;
+              color: $red-color-main-button;
+              display: flex;
+              justify-content: space-evenly;
+              margin-left: 40px;
             }
           }
         }
@@ -195,7 +227,6 @@
             height: 50px;
             justify-content: space-between;
             padding: 0 40px;
-
 
             .closed-order-number {
               align-items: center;
@@ -479,6 +510,4 @@
   }
 }
 
-.example::-webkit-scrollbar {
-  display: none;
-}
+

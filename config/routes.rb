@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   resources :tables
   resources :close_and_open
   resources :orders
-  
+
 end

@@ -8,12 +8,14 @@ class KitchenController < ApplicationController
       select("
         orders.id as order_id, orders.status, orders.note,
         tables.name as table, items.id as item_id,
-        items.name as item, orders_items.quantity").
+        items.name as item, orders_items.quantity, orders_items.status_item").
       joins("
         JOIN orders_items ON orders.id = orders_items.orders_id
         JOIN tables ON orders.tables_id = tables.id
         JOIN items ON orders_items.items_id = items.id")
   end
+
+
 
   def update_status
     if order.status == 'wait'

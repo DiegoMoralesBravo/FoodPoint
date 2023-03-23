@@ -1,4 +1,4 @@
-<% (@ordersN.sort_by {|e| e.status}.reverse).group_by(&:order_id).each do |order_id, order_data| %>
+<% (@ordersN.sort_by {|e| e.order_id}).group_by(&:order_id).each do |order_id, order_data| %>
 
   <div class='kitchen__order <%= statusColorOverlay(order_data.first.status) %>' id='order-<%= order_id %>'>
 
@@ -11,14 +11,14 @@
       </div>
     </div>
 
-    <% order_data.each do |data| %>
+    <% order_data.first(5).each_with_index do |data| %>
       <div class='kitchen__order__items'>
         <% if order_data.first.status == 'progress'%>
-          <%= button_to "#{data.order_id}",
-          update_status_item_kitchen_path(data.items_id),
+          <%= button_to " ",
+          update_status_item_kitchen_path(data.orders_items_id),
           class: "#{data.status_item ? 'checkbox_checked' : 'checkbox'}",
           method: :patch %>
-          <label>- <%= data.item %> x<%= data.quantity %> <%= data.status_item %> <%= data.items_id %> <%= data.order_id %></label>
+          <label>- <%= data.item %> x<%= data.quantity %> <%= data.status_item %> <%= data.items_id %></label>
         <% else %>
           <label>- <%= data.item %> x<%= data.quantity %> <%= data.status_item %> <%= data.items_id %></label>
         <% end %>
@@ -60,10 +60,10 @@
       <% order_data.each_with_index do |data| %>
           <div  class='kitchen__order__items'>
             <% if order_data.first.status == 'progress'%>
-             <!-- <%= button_to "",
-              update_status_item_kitchen_path(data.items_id),
+              <%= button_to "#{data.order_id}",
+              update_status_item_kitchen_path(data.orders_items_id),
               class: "#{data.status_item ? 'checkbox_checked' : 'checkbox'}",
-              method: :patch %> -->
+              method: :patch %>
             <% end %>
             <label><%= data.item %> x<%= data.quantity %></label>
           </div>

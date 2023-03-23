@@ -8,7 +8,8 @@ class KitchenController < ApplicationController
       select("
         orders.id as order_id, orders.status, orders.note,
         tables.name as table, items.id as items_id,
-        items.name as item, orders_items.quantity, orders_items.status_item").
+        items.name as item,
+        orders_items.quantity, orders_items.status_item, orders_items.id as orders_items_id").
       joins("
         JOIN orders_items ON orders.id = orders_items.orders_id
         JOIN tables ON orders.tables_id = tables.id
@@ -39,6 +40,7 @@ class KitchenController < ApplicationController
     end
     redirect_to kitchen_index_path
   end
+
 
 
   def statuscolor(status)

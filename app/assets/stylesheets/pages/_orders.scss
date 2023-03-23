@@ -12,7 +12,7 @@
   justify-content: space-between;
 }
 
-.cards{
+.cards {
   position: relative;
 }
 
@@ -22,12 +22,12 @@
   top: 0;
 }
 
-.cards-green{
+.cards-green {
   background-color: rgb(96, 193, 96);
   color: white;
 }
 
-.cards-red{
+.cards-red {
   background-color: rgb(200, 72, 72);
   color: white;
 }
@@ -339,7 +339,7 @@
       }
     }
   }
-  .table-button{
+  .table-button {
     align-items: center;
     background: $red-color-main-button;
     border-radius: 45px;
@@ -363,14 +363,14 @@
     height: 20%;
     justify-content: center;
 
-    label{
+    label {
       align-self: flex-start;
       font-weight: bolder;
       padding-bottom: 10px;
       padding-left: 30px;
     }
 
-    textarea{
+    textarea {
       background-color: $background-beige-principal;
       font-weight: bolder;
       margin-bottom: 5px;

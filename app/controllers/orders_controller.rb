@@ -13,7 +13,12 @@ class OrdersController < ApplicationController
     @products = if @input
                   Item.where('name ILIKE ?', "%#{@input}%")
                 elsif @category.present?
-                  Item.where('category ILIKE ?', "%#{@category}%")
+                  if @category === 'all'
+                    Item.all
+                  else
+                    Item.where('category ILIKE ?', "%#{@category}%")
+                  end
+
                 else
                   Item.all
                 end

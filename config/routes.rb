@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :items
   resources :kitchen do
     patch :update_status, on: :member
+    patch :update_status_item, on: :member
   end
   resources :reports
   resources :tables
@@ -17,5 +18,5 @@ Rails.application.routes.draw do
     patch :update_status, on: :member
   end
   resources :orders
-  
+
 end

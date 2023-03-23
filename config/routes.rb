@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   end
   resources :reports
   resources :tables
-  resources :close_and_open
+  resources :close_and_open do
+    patch :update_status, on: :member
+  end
   resources :orders
 
 end

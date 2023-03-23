@@ -144,6 +144,10 @@
   margin-bottom: 0.5rem;
   margin-right: 0.8rem;
   width: 1.5rem;
+
+  &:checked {
+    color: greenyellow;
+  }
 }
 
 
@@ -179,6 +183,7 @@
   }
 }
 
+
 .status {
 
   &_waiting {
@@ -210,5 +215,9 @@
 
   &_delayed {
     background-color: #ec2526;
+  }
+
+  &_completed {
+    text-decoration: line-through;
   }
 }

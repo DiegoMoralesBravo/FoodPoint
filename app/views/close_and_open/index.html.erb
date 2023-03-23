@@ -93,12 +93,12 @@
                   </h3>
                 </div>
                 <h3 class="price-order-closed">
-                    
+
                   <p>$$$$</p>
                 </h3>
               </li>
           <% @orders.each do |order| %>
-          <% if order.status == 'done' %>
+          <% if order.status == 'closed' %>
               <li>
                 <h3 class="closed-order-batch">
                   Order ID:
@@ -115,7 +115,7 @@
                 </h3>
               </li>
           <%end%>
-          <%end%> 
+          <%end%>
           </ul>
         </div>
 

@@ -1,84 +1,88 @@
-<% (@ordersN.sort_by {|e| e.order_id}).group_by(&:order_id).each do |order_id, order_data| %>
+<% (@ordersN.sort_by {|e| e.status}.reverse).group_by(&:order_id).each do |order_id, order_data| %>
+  <% if order_data.first.status == 'closed' %>
+    <% nil %>
+  <% else %>
+    <div class='kitchen__order <%= statusColorOverlay(order_data.first.status) %>' id='order-<%= order_id %>'>
 
-  <div class='kitchen__order <%= statusColorOverlay(order_data.first.status) %>' id='order-<%= order_id %>'>
-
-    <div role='button' class='kitchen__order__info__button <%= statuscolor(order_data.first.status) %>' id='btn-more-info-<%= order_id %>'>
-      <div style="pointer-events: none;">
-        Order: <%= order_id %>
-      </div>
-      <div style="pointer-events: none;">
-        <%= order_data.first.table %>
-      </div>
-    </div>
-
-    <% order_data.first(5).each_with_index do |data| %>
-      <div class='kitchen__order__items'>
-        <% if order_data.first.status == 'progress'%>
-          <%= button_to " ",
-          update_status_item_kitchen_path(data.orders_items_id),
-          class: "#{data.status_item ? 'checkbox_checked' : 'checkbox'}",
-          method: :patch %>
-          <label>- <%= data.item %> x<%= data.quantity %> <%= data.status_item %> <%= data.items_id %></label>
-        <% else %>
-          <label>- <%= data.item %> x<%= data.quantity %> <%= data.status_item %> <%= data.items_id %></label>
-        <% end %>
-      </div>
-    <% end %>
-
-    <% if order_data.length > 5 %>
-      <div class='kitchen__order__items'>
-        <label>and <%= (order_data.length - 5).to_s %> more...</label>
-      </div>
-    <% end %>
-
-
-    <div class='postit__note'>
-      <p class='kitchen__order__notes__title'>Notes:</p>
-      <p class='kitchen__order__notes__description'><%= order_data.first.note.truncate(80, omission: '...') %></p>
-    </div>
-
-    <%= button_to "#{statusTextBtn(order_data.first.status)}",
-      update_status_kitchen_path(order_id),
-      class: "kitchen__order__button #{statuscolor(order_data.first.status)}",
-      method: :patch %>
-
-  </div>
-
-  <div class='kitchen__popup__overlay ' id='more-info-<%= order_id %>' style='display: none;'>
-
-    <div class='kitchen__order kitchen__popup__card <%= statusColorOverlay(order_data.first.status) %>' id='order-<%= order_id %>'>
-
-        <div role='button' class='kitchen__order__info__button__close <%= statuscolor(order_data.first.status) %>' id='btn-more-info-<%= order_id %>'>
-          <div style="pointer-events: none;">
-            Order: <%= order_id %>
-          </div>
-          <div style="pointer-events: none;">
-            <%= order_data.first.table %>
-          </div>
+      <div role='button' class='kitchen__order__info__button <%= statuscolor(order_data.first.status) %>' id='btn-more-info-<%= order_id %>'>
+        <div style="pointer-events: none;">
+          Order: <%= order_id %>
         </div>
+        <div style="pointer-events: none;">
+          <%= order_data.first.table %>
+        </div>
+      </div>
 
-      <% order_data.each_with_index do |data| %>
-          <div  class='kitchen__order__items'>
-            <% if order_data.first.status == 'progress'%>
-              <%= button_to "#{data.order_id}",
-              update_status_item_kitchen_path(data.orders_items_id),
-              class: "#{data.status_item ? 'checkbox_checked' : 'checkbox'}",
-              method: :patch %>
-            <% end %>
-            <label><%= data.item %> x<%= data.quantity %></label>
-          </div>
+      <% (order_data.sort_by {|e| e.item}).first(5).each_with_index do |data| %>
+        <div class='kitchen__order__items'>
+          <% if order_data.first.status == 'progress'%>
+            <%= button_to " ",
+            update_status_item_kitchen_path(data.orders_items_id),
+            class: "#{data.status_item ? 'checkbox_checked' : 'checkbox'}",
+            method: :patch %>
+            <label>- <%= data.item %> x<%= data.quantity %></label>
+          <% else %>
+            <label class="<%= data.status_item ? 'status_completed' : '' %>">- <%= data.item %> x<%= data.quantity %></label>
+          <% end %>
+        </div>
       <% end %>
+
+      <% if order_data.length > 5 %>
+        <div class='kitchen__order__items'>
+          <label>and <%= (order_data.length - 5).to_s %> more...</label>
+        </div>
+      <% end %>
+
 
       <div class='postit__note'>
         <p class='kitchen__order__notes__title'>Notes:</p>
-        <p class='kitchen__order__notes__description'><%= order_data.first.note%></p>
+        <p class='kitchen__order__notes__description'><%= order_data.first.note.truncate(80, omission: '...') %></p>
       </div>
 
       <%= button_to "#{statusTextBtn(order_data.first.status)}",
         update_status_kitchen_path(order_id),
         class: "kitchen__order__button #{statuscolor(order_data.first.status)}",
         method: :patch %>
-    </div>
-  </div>
 
+    </div>
+
+    <div class='kitchen__popup__overlay ' id='more-info-<%= order_id %>' style='display: none;'>
+
+      <div class='kitchen__order kitchen__popup__card <%= statusColorOverlay(order_data.first.status) %>' id='order-<%= order_id %>'>
+
+          <div role='button' class='kitchen__order__info__button__close <%= statuscolor(order_data.first.status) %>' id='btn-more-info-<%= order_id %>'>
+            <div style="pointer-events: none;">
+              Order: <%= order_id %>
+            </div>
+            <div style="pointer-events: none;">
+              <%= order_data.first.table %>
+            </div>
+          </div>
+
+          <% (order_data.sort_by {|e| e.item}).first(5).each_with_index do |data| %>
+            <div class='kitchen__order__items'>
+              <% if order_data.first.status == 'progress'%>
+                <%= button_to " ",
+                update_status_item_kitchen_path(data.orders_items_id),
+                class: "#{data.status_item ? 'checkbox_checked' : 'checkbox'}",
+                method: :patch %>
+                <label>- <%= data.item %> x<%= data.quantity %></label>
+              <% else %>
+                <label class="<%= data.status_item ? 'status_completed' : '' %>">- <%= data.item %> x<%= data.quantity %></label>
+              <% end %>
+            </div>
+          <% end %>
+
+        <div class='postit__note'>
+          <p class='kitchen__order__notes__title'>Notes:</p>
+          <p class='kitchen__order__notes__description'><%= order_data.first.note%></p>
+        </div>
+
+        <%= button_to "#{statusTextBtn(order_data.first.status)}",
+          update_status_kitchen_path(order_id),
+          class: "kitchen__order__button #{statuscolor(order_data.first.status)}",
+          method: :patch %>
+      </div>
+    </div>
+  <% end %>
 <% end %>

@@ -25,7 +25,7 @@ class KitchenController < ApplicationController
     elsif order.status == 'progress'
       order.update(status: 'done')
     elsif order.status == 'done'
-      order.update(status: 'wait')
+      order.update(status: 'closed')
     end
     redirect_to kitchen_index_path
   end
@@ -70,7 +70,7 @@ class KitchenController < ApplicationController
     elsif status == 'progress'
       'Mark as Done'
     elsif status == 'done'
-      'Delete'
+      'Close'
     end
   end
 

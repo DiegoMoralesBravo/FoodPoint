@@ -41,6 +41,9 @@ class CloseAndOpenController < ApplicationController
       @quantity = 'SELECT'
     end
 
+    @total_val = Order.where(status: "paid").sum(:total)
+
+
   end
 
   def update_status

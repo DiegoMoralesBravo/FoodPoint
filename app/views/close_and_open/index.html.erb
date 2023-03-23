@@ -148,20 +148,32 @@
       </div>
     </div>
     <div class="order-list-open">
-      <ul class="list-open">
-        <li class="item-open">
-          <div class="list-icon-open">
-            <%=image_tag("lunch_dining_black_24dp.svg")%>
-            <p>Wine</p>
-          </div>
-          <div class="list-price-open">
-            <p>3890<span>$</span></p>
-            <button>
-              <%=image_tag("delete_white_24dp.svg")%>
-            </button>
-          </div>
-        </li>
-      </ul>
+      <% if @order_Items.present? %>
+        <ul class="list-open">
+          <% @order_Items.each do |item| %>
+            <li class="item-open">
+              <div class="list-icon-open">
+                <% name_item = Item.where(id: item.items_id).pluck(:name).first %>
+                <p><%= name_item %></p>
+              </div>
+              <div class="list-price-open">
+                <button>
+                  <%= image_tag("delete_white_24dp.svg") %>
+                </button>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <ul class="list-open">
+            <li class="item-open">
+              <div class="list-icon-open">
+              </div>
+              <div class="list-price-open">
+              </div>
+            </li>
+        </ul>
+      <% end %>
       <div class="total-list-order-open">
         <span
               >Total items:

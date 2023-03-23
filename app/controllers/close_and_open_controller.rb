@@ -13,6 +13,7 @@ class CloseAndOpenController < ApplicationController
 
     if params[:order_id].present?
       @order = params[:order_id]
+      @order_Items = OrdersItem.where(orders_id: @order)
     else
       @order = 'SELECT'
     end

@@ -4,11 +4,13 @@ function addEvent() {
   const totalItems = document.querySelector(".total-items");
   const totalPrice = document.querySelector(".total-price");
   const cancelButton = document.querySelector(".cancel-order");
-  const sendButton = document.querySelector(".send-to-kitchen");
   const notes = document.querySelector(".note-order");
   const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
   const csrfParam = document.querySelector('meta[name="csrf-param"]').getAttribute('content');
-  const selectedTableId = document.getElementById('selected_table_id').value;
+  const modal = document.getElementById("myModal"); // Obtener el modal
+  const cards = document.querySelectorAll('.cards'); // Script que ayuda a selecionar la mesa
+  const sendButton = document.querySelector(".send-to-kitchen"); // Obtener el botón que abre el modal
+  const span = document.getElementsByClassName("close")[0]; // Obtener el botón de cierre
 
   notes.value = '';
 
@@ -87,21 +89,46 @@ function addEvent() {
   }
 
   sendButton.onclick = function () {
-    let note = notes.value;
-    console.log(note)
-    fetch('/orders', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        [csrfParam]: csrfToken
-      },
-      body: JSON.stringify({order: newOrder, total: sumPrice, note: note, selected_table_id: selectedTableId})
-    })
-    totalItems.innerText = 0;
-    totalPrice.innerText = 0;
-    listItems.innerHTML = '';
-    newOrder = [];
-    notes.value = '';
+
+    modal.style.display = "block";
+  }
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const mesaId = card.dataset.mesaId;
+      const status = card.classList.contains('cards-green') ? 'progress' : card.classList.contains('cards-red') ? 'done' : 'wait';
+      if (status === 'progress' || status === 'done') {
+        alert('No puedes seleccionar esta mesa porque ya está en progreso o finalizada.');
+      } else {
+        let note = notes.value;
+        fetch('/orders', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            [csrfParam]: csrfToken
+          },
+          body: JSON.stringify({ order: newOrder, total: sumPrice, note: note, selected_table_id: mesaId })
+        })
+        totalItems.innerText = 0;
+        totalPrice.innerText = 0;
+        listItems.innerHTML = '';
+        newOrder = [];
+        notes.value = '';
+        modal.style.display = "none";
+        alert("New order created for table " + mesaId);
+      }
+    });
+  });
+
+  // Cuando se hace clic en el botón de cierre o fuera del modal, cerrarlo
+  span.onclick = function () {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
   }
 }
 

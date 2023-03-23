@@ -10,10 +10,11 @@ Rails.application.routes.draw do
   resources :items
   resources :kitchen do
     patch :update_status, on: :member
+    patch :update_status_item, on: :member
   end
   resources :reports
   resources :tables
   resources :close_and_open
   resources :orders
-  
+
 end

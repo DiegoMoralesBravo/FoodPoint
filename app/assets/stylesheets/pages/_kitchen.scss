@@ -138,13 +138,51 @@
 
 }
 
-.check {
+.item-check {
 
   height: 1.5rem;
   margin-bottom: 0.5rem;
   margin-right: 0.8rem;
   width: 1.5rem;
+
+  &:checked {
+    color: greenyellow;
+  }
 }
+
+
+.checkbox {
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid black;
+  display: inline-block;
+  height: 1.5rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.8rem;
+  transition: 0.5s;
+  width: 1.5rem;
+
+  &:hover {
+    background-color: lightgrey;
+  }
+
+  &_checked {
+    background-color: greenyellow;
+    border-radius: 3px;
+    border: 1px solid black;
+    display: inline-block;
+    height: 1.5rem;
+    margin-bottom: 0.5rem;
+    margin-right: 0.8rem;
+    transition: 0.5s;
+    width: 1.5rem;
+
+    &:hover {
+      background-color: rgb(96, 114, 69);
+    }
+  }
+}
+
 
 .status {
 
@@ -177,5 +215,9 @@
 
   &_delayed {
     background-color: #ec2526;
+  }
+
+  &_completed {
+    text-decoration: line-through;
   }
 }

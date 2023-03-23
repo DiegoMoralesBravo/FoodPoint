@@ -191,6 +191,14 @@
               justify-content: space-evenly;
               margin-left: 40px;
             }
+
+            .show-order-button{
+              background-color: $red-color-main-button;
+              color: $white-font-and-lettering;
+              padding: 10px;
+              border-radius: 25px;
+              border: 4px solid $white-font-and-lettering;
+            }
           }
         }
       }
@@ -295,6 +303,14 @@
                 margin-left: 2px;
               }
             }
+            .status-order{
+              align-items: center;
+              color: $red-color-main-button;
+              display: flex;
+              justify-content: space-evenly;
+              margin-left: 40px;
+            }
+
           }
         }
       }
@@ -509,5 +525,3 @@
     }
   }
 }
-
-

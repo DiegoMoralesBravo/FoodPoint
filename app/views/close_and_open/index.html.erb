@@ -153,6 +153,16 @@
           <% @order_Items.each do |item| %>
             <li class="item-open">
               <div class="list-icon-open">
+                <% category_item = Item.where(id: item.items_id).pluck(:category).first %>
+                <% if category_item == "Food" %>
+                  <span> <%=image_tag("lunch_dining_black_24dp.svg", :class => "icon_category")%></span>
+                <% elsif category_item == "Dessert" %>
+                  <span> <%=image_tag("cake_black_24dp.svg", :class => "icon_category")%></span>
+                <% elsif category_item == "Drink" %>
+                  <span> <%=image_tag("local_cafe_black_24dp.svg", :class => "icon_category")%></span>
+                <% end %>
+              </div>
+              <div class="list-icon-open">
                 <% name_item = Item.where(id: item.items_id).pluck(:name).first %>
                 <p><%= name_item %></p>
               </div>

@@ -5,62 +5,34 @@
       <div class="logo-head-orders">
         <%=image_tag("1.png")%>
       </div>
-      <div class="dropdown">
-        <button class="dropbtn">
-          Tables<span
-                ><img src="./icons/expand_more_white_24dp.svg" alt=""
-              /></span>
-        </button>
-        <div class="dropdown-content">
-          <a href="#"
-                >Table
-            <p>1</p>
-          </a
-              >
-          <a href="#"
-                >Table
-            <p>2</p>
-          </a
-              >
-          <a href="#"
-                >Table
-            <p>3</p>
-          </a
-              >
-          <a href="#"
-                >Table
-            <p>4</p>
-          </a
-              >
-          <a href="#"
-                >Table
-            <p>5</p>
-          </a
-              >
+        <div class="dropdown">
+          <%= form_tag @orders_path, method: :get, id: "table-filter" do %>
+            <%= select_tag :tables_id, options_for_select(Order.order([:tables_id]).pluck(:tables_id).uniq), prompt: "Tables",class:"dropbtn" ,onchange: "document.getElementById('table-filter').submit();" %>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to "Show all", @orders_path, class:"show-all"%>
         </div>
       </div>
-    </div>
-
     <article class="orders-close-open-container">
-
-
         <div class="open-orders-container">
           <div class="open-orders">
             <div class="header-open-orders">
               <h2>Open orders</h2>
             </div>
             <ul class="open-order-list" >
-            <li>
+                <li>
                   <h3 class="order-batch">
                     Order ID:
-                    <p>00</p>
                   </h3>
                   <h3 class="time-order">
-                    00:00:00
+                    Time:
                   </h3>
-            </li>
-            <% @orders.each do |order| %>
-            <% if order.status == 'progress'  %>
+                  <h3 class="status-order">
+                    Status:
+                  </h3>
+                </li>
+            <% @orders.order([:created_at ]).each do |order| %>
                 <li>
                   <h3 class="order-batch">
                     Order ID:
@@ -69,70 +41,52 @@
                   <h3 class="time-order">
                     <%= order.created_at.strftime("%H:%M:%S")   %>
                   </h3>
+                  <h3 class="status-order">
+                    <%= order.status   %>
+                  </h3>
                 </li>
-            <%end%>
             <%end%>
             </ul>
           </div>
         </div>
 
-      <div class="closed-orders-container">
-        <div class="closed-orders">
-          <div class="header-closed-orders">
-            <h2>Closed orders</h2>
-          </div>
-          <ul class="closed-order-list">
-            <li>
-                <h3 class="closed-order-batch">
-                  Order ID:
-                  <p>00</p>
-                </h3>
-                <div class="time-check">
-                  <h3 class="closed-time-order">
-                    00:00:00
-                  </h3>
-                </div>
-                <h3 class="price-order-closed">
-
-                  <p>$$$$</p>
-                </h3>
-              </li>
-          <% @orders.each do |order| %>
-          <% if order.status == 'closed' %>
+        <div class="closed-orders-container">
+          <div class="closed-orders">
+            <div class="header-closed-orders">
+              <h2>Closed orders</h2>
+            </div>
+            <ul class="closed-order-list" placeholder="Empty">
               <li>
                 <h3 class="closed-order-batch">
                   Order ID:
-                  <p><%= order.id %></p>
                 </h3>
                 <div class="time-check">
                   <h3 class="closed-time-order">
-                    <%= order.created_at.strftime("%H:%M:%S") %>
+                    Time:
                   </h3>
                 </div>
                 <h3 class="price-order-closed">
-                    <%= order.total   %>
-                  <p>$</p>
+                  Total:
                 </h3>
               </li>
-          <%end%>
-          <%end%>
-          </ul>
-        </div>
+            </ul>
+          </div>
 
-        <div class="buttons-closed-orders">
-          <div class="buttons-section">
-            <div class="total-billed">
-              <span
-                    >Total:
-                <p><%= @orders.sum(:total) %></p>
-                <p>$</p>
-              </span
-                  >
+          <div class="buttons-closed-orders">
+            <div class="buttons-section">
+              <div class="total-billed">
+                <span
+                      >Total:
+                  <p><%= @orders.sum(:total) %></p>
+                  <p>$</p>
+                </span
+                    >
+              </div>
             </div>
           </div>
         </div>
-      </div>
     </article>
+
   </div>
   <div class="order-container-open">
     <div class="logo-list-container-open">

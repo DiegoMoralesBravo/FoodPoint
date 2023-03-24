@@ -1,8 +1,8 @@
-function addEvent() {
+function service() {
   const items = document.querySelectorAll(".card");
-  const listItems = document.querySelector(".list");
-  const totalItems = document.querySelector(".total-items");
-  const totalPrice = document.querySelector(".total-price");
+  let listItems = document.querySelector(".list");
+  let totalItems = document.querySelector(".total-items");
+  let totalPrice = document.querySelector(".total-price");
   const cancelButton = document.querySelector(".cancel-order");
   const notes = document.querySelector(".note-order");
   const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
@@ -11,9 +11,6 @@ function addEvent() {
   const cards = document.querySelectorAll('.cards'); // Script que ayuda a selecionar la mesa
   const sendButton = document.querySelector(".send-to-kitchen"); // Obtener el botón que abre el modal
   const span = document.getElementsByClassName("close")[0]; // Obtener el botón de cierre
-
-  notes.value = '';
-
   let button;
   let sumItems = 0;
   let sumPrice = 0;
@@ -81,40 +78,45 @@ function addEvent() {
   }
 
   cancelButton.onclick = function () {
-    totalItems.innerText = 0;
-    totalPrice.innerText = 0;
-    listItems.innerHTML = '';
-    newOrder = [];
-    notes.value = '';
+    clear();
   }
 
   sendButton.onclick = function () {
+    let params = URLValues();
+    let numberOrder = null
+    const data = {
+      order: newOrder,
+      total: sumPrice,
+      note: notes.value,
+      selected_table_id,
+      numberOrder,
+    }
 
-    modal.style.display = "block";
+    if (params.hasOwnProperty('order')) {
+      data.numberOrder = params.order
+      sendKitchen(data);
+      alert("Items added to order " + data.numberOrder);
+    } else {
+      modal.style.display = "block";
+    }
   }
 
   cards.forEach(card => {
     card.addEventListener('click', () => {
       const mesaId = card.dataset.mesaId;
       const status = card.classList.contains('cards-green') ? 'progress' : card.classList.contains('cards-red') ? 'done' : 'wait';
+      const data = {
+        order: newOrder,
+        total: sumPrice,
+        note: notes.value,
+        selected_table_id,
+        numberOrder: null,
+      }
       if (status === 'progress' || status === 'done') {
         alert('No puedes seleccionar esta mesa porque ya está en progreso o finalizada.');
       } else {
-        let note = notes.value;
-        fetch('/orders', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            [csrfParam]: csrfToken
-          },
-          body: JSON.stringify({ order: newOrder, total: sumPrice, note: note, selected_table_id: mesaId })
-        })
-        totalItems.innerText = 0;
-        totalPrice.innerText = 0;
-        listItems.innerHTML = '';
-        newOrder = [];
-        notes.value = '';
-        modal.style.display = "none";
+        data.selected_table_id = mesaId;
+        sendKitchen(data);
         alert("New order created for table " + mesaId);
       }
     });
@@ -130,35 +132,70 @@ function addEvent() {
       modal.style.display = "none";
     }
   }
-}
 
-function itemCheck(item, order, mode) {
-  let i;
-  let flag = false;
-  for (i = 0; i < order.length; i++) {
-    if (order[i].name === item.name) {
-      item = order[i]
-      flag = true;
-      break;
-    }
-  }
 
-  if (flag) {
-    if (mode === 'add') {
-      item.quantity += 1;
-    }
-    if (mode === 'delete') {
-      item.quantity -= 1;
-      if (item.quantity === 0) {
-        order = order.splice(i, i);
+  function itemCheck(item, order, mode) {
+    let i;
+    let flag = false;
+    for (i = 0; i < order.length; i++) {
+      if (order[i].name === item.name) {
+        item = order[i]
+        flag = true;
+        break;
       }
     }
-  } else {
-    if (mode === 'add') {
-      order.push(item);
+
+    if (flag) {
+      if (mode === 'add') {
+        item.quantity += 1;
+      }
+      if (mode === 'delete') {
+        item.quantity -= 1;
+        if (item.quantity === 0) {
+          order = order.splice(i, i);
+        }
+      }
+    } else {
+      if (mode === 'add') {
+        order.push(item);
+      }
     }
+    return order
   }
-  return order
+
+  function URLValues() {
+    let queryString = window.location.search;
+    let queryParams = {};
+    queryString = queryString.substring(1);
+    let queryArray = queryString.split("&");
+
+    for (let i = 0; i < queryArray.length; i++) {
+      let queryPair = queryArray[i].split("=");
+      queryParams[decodeURIComponent(queryPair[0])] = decodeURIComponent(queryPair[1] || "");
+    }
+    return queryParams
+  }
+
+  function clear() {
+    totalItems.innerText = 0;
+    totalPrice.innerText = 0;
+    listItems.innerHTML = '';
+    newOrder = [];
+    notes.value = '';
+    modal.style.display = "none";
+  }
+
+  function sendKitchen(data) {
+    fetch('/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        [csrfParam]: csrfToken
+      },
+      body: JSON.stringify(data)
+    })
+    clear();
+  }
 }
 
-addEvent();
+service();

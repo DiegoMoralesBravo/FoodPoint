@@ -199,7 +199,9 @@
       </div>
     </div>
     <div class="order-buttons-container-open">
-      <button class="send-to-kitchen">Add new item</button>
+      <%= form_tag orders_path, method: 'get' do %>
+        <%= button_tag 'Add new item', value: @order, type: :submit, name: :order %>
+      <% end %>
       <%= button_to "check out", update_status_close_and_open_path(@order),method: :patch %>
     </div>
   </div>

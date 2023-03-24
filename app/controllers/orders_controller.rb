@@ -2,14 +2,12 @@ class OrdersController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
     @items = Item.all
-
     @tables = Table.all
-    @mesa_seleccionada = session[:mesa_seleccionada]
     @orders = Order.all
-
     @category = params[:category]
-
     @input = params[:name]
+    @order = (Order.count + 1) unless (@order = params[:order])
+
     @products = if @input
                   Item.where('name ILIKE ?', "%#{@input}%")
                 elsif @category.present?
@@ -17,8 +15,6 @@ class OrdersController < ApplicationController
                 else
                   Item.all
                 end
-    @order = Order.count
-    @mesa = params[:selected_table_id]
   end
 
   def create

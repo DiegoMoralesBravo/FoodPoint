@@ -13,7 +13,7 @@
       </div>
       <div class="dropdown">
         <%= form_tag @products_path, method: :get, id: "category-filter" do %>
-          <%= select_tag :category, options_for_select(Item.pluck(:category).uniq), prompt: "Categories",class:"dropbtn" ,onchange: "document.getElementById('category-filter').submit();" %>
+          <%= select_tag :category, options_for_select([["Select All", "all"]] + Item.pluck(:category).uniq), prompt: "Categories", class: "dropbtn", onchange: "document.getElementById('category-filter').submit();" %>
         <% end %>
       </div>
     </div>

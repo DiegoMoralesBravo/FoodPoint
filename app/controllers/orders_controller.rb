@@ -26,17 +26,21 @@ class OrdersController < ApplicationController
     total = params[:total]
     note = params[:note]
     mesa = params[:selected_table_id]
+    number_order = params[:numberOrder]
 
-    newOrder = Order.create(
-      tables_id: mesa,
-      status: 'wait',
-      total: total,
-      note: note
-    )
+    unless number_order
+      newOrder = Order.create(
+        tables_id: mesa,
+        status: 'wait',
+        total: total,
+        note: note
+      )
+      number_order = newOrder.id
+    end
 
     items.each do |item|
       id = Item.find_by(name: item[:name]).id
-      OrdersItem.create(orders_id: newOrder.id, items_id: id, quantity: item[:quantity])
+      OrdersItem.create(orders_id: number_order, items_id: id, quantity: item[:quantity])
     end
   end
 end

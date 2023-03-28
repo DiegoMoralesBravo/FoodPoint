@@ -20,15 +20,18 @@ class KitchenController < ApplicationController
 
   def update_status
     order = Order.find(params[:id])
+    orderitems = OrdersItem.find(params[:orders_id])
     if order.status == 'wait'
       order.update(status: 'progress')
     elsif order.status == 'progress'
       order.update(status: 'done')
+      orderitems.update(status_item: true)
     elsif order.status == 'done'
       order.update(status: 'closed')
     end
     redirect_to kitchen_index_path
   end
+
 
 
   def update_status_item

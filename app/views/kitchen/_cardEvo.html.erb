@@ -1,5 +1,5 @@
 <% (@ordersN.sort_by {|e| e.status}.reverse).group_by(&:order_id).each do |order_id, order_data| %>
-  <% if order_data.first.status == 'closed' %>
+  <% if order_data.first.status == 'closed' || order_data.first.status == 'paid'%>
     <% nil %>
   <% else %>
     <div class='kitchen__order <%= statusColorOverlay(order_data.first.status) %>' id='order-<%= order_id %>'>

@@ -22,14 +22,12 @@ numberOrders = numberTables
 end
 
 def randstatus
-  ns = rand(1..3)
+  ns = rand(1..2)
   status = ' '
   if ns == 1
     status = 'wait'
   elsif ns == 2
     status = 'progress'
-  elsif ns == 3
-    status = 'done'
   end
   status
 end
@@ -95,4 +93,3 @@ end
 
 #User
 User.create({:email => "admin@gmail.com", :password => "123456", :password_confirmation => "123456" })
-

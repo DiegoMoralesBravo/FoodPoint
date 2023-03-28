@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'items_planner/index'
   get 'orders/index'
 
   root 'home#index'
@@ -18,5 +19,6 @@ Rails.application.routes.draw do
     patch :update_status, on: :member
   end
   resources :orders
+  resources :items_planner
 
 end

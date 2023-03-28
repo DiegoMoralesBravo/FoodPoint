@@ -29,7 +29,13 @@ class OrdersController < ApplicationController
     mesa = params[:selected_table_id]
     number_order = params[:numberOrder]
 
-    unless number_order
+    if number_order
+      newOrder = Order.find(number_order)
+      newOrder.total += total
+      newOrder.status = 'wait'
+      newOrder.note += "\n #{note}"
+      newOrder.save
+    else
       newOrder = Order.create(
         tables_id: mesa,
         status: 'wait',

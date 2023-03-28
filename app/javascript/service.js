@@ -95,7 +95,10 @@ function service() {
     if (params.hasOwnProperty('order')) {
       data.numberOrder = params.order
       sendKitchen(data);
+      clear();
       alert("Items added to order " + data.numberOrder);
+      window.history.replaceState({}, document.title, "/orders");
+      window.location.reload()
     } else {
       modal.style.display = "block";
     }

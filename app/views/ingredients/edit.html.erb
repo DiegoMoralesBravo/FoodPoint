@@ -1,0 +1,16 @@
+<div class="two-container">
+  <div class="image-container1">
+      <%=image_tag("svg/foodpoint.svg")%>  
+  </div>
+  <div class="register-container">
+    <div class="register"> 
+      <%=image_tag("svg/edit.svg")%>  
+      <div class="title-container">
+        <h1>Edit ingredient!</h1>
+      </div>
+      <div class="form-container">
+        <%= render "form", ingredient: @ingredient %>
+      </div>
+    </div>
+  </div>
+</div>

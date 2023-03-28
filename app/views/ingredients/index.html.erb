@@ -1,0 +1,44 @@
+<%= render 'shared/navbarAdmin' %>
+<div class="main-container">
+  <div class="table-container">
+    <div class="tittle-container">
+      <h1>Ingredients</h1>
+      <%= link_to new_ingredient_path do %>
+        <button>+ New ingredient</button>
+      <% end %>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantification</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @ingredients.each do |ingredient| %>
+          <tr>
+            <td><%= ingredient.id %></td>
+            <td><%= ingredient.name %></td>
+            <td>$<%= ingredient.price %></td>
+            <td><%= ingredient.quant %></td>
+            <td>
+            <%= link_to edit_ingredient_path(ingredient) do%>
+              <button class="edit-button">Edit</button>
+            <% end %>
+
+            <%= link_to ingredient_path(ingredient), data: {
+              turbo_method: :delete,
+              turbo_confirm: "Are you sure?"
+              } do
+            %>
+              <button class="delete-button" >X</button>
+            <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

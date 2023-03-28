@@ -125,85 +125,35 @@
     max-height: 90%;
     overflow-y: scroll;
     background-color: aquamarine;
-
-    .card {
-      border-radius: 20px;
-      height: 390px;
-      margin: 10px;
-      padding: 10px;
-      width: 220px;
-      .planner-card-container {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        background-color: antiquewhite;
-
-        img {
-          border-radius: 10px;
-          height: 150px;
-          margin: 10px;
-          width: 220px;
-        }
-      }
-
-      .food-name {
-        margin-bottom: 10px;
-        h3 {
-          font-size: 15px;
-          height: 30px;
-        }
-      }
-      .food-description {
-        color: $text-light-gray;
-        .category-container {
-          align-items: center;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          .category-name {
-            align-items: center;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            span {
-              margin-right: 10px;
+    .main-planner-container{
+        background-color: bisque;
+        width: 100%;
+        margin: 20px;
+        .planner-table{
+            border: solid 1px chartreuse;
+            height: 100%;
+            width: 100%;
+            thead{
+                tr{
+                    th{
+                        background-color: #c93e3f;
+                        border: solid 2px gray;
+                    }
+                }
             }
-          }
+
         }
-        .description-container {
-          height: 100px;
-          margin: 10px 0 10px 0;
-          overflow-y: scroll;
-        }
-        .price-card-container {
-          display: flex;
-          margin-right: 20px;
-          .price-title {
-            color: $black-light;
-            font-size: 25px;
-          }
-        }
-        .button-add {
-          align-items: center;
-          background: $red-color-main-button;
-          border-radius: 45px;
-          border: 6px solid #ffffff;
-          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-          color: $white-font-and-lettering;
-          cursor: pointer;
-          display: flex;
-          font-size: 16px;
-          height: 48px;
-          justify-content: center;
-          margin: 10px;
-          text-align: center;
-          width: 200px;
-        }
-        .button-add:hover {
-          background-color: $red-color-main-button-hover;
-        }
-      }
     }
+    .second-planner-container{
+        background-color: rgb(67, 117, 155);
+        width: 100%;
+        margin: 20px;
+        .late-planner-table{
+            height: 100%;
+            width: 100%;
+        }
+    }
+
   }
 }
 .order-container {

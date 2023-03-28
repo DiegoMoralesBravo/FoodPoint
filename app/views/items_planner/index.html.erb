@@ -1,2 +1,62 @@
-<h1>ItemsPlanner#index</h1>
-<p>Find me in app/views/items_planner/index.html.erb</p>
+<%= render 'shared/navbarAdmin' %>
+<main class="service-main-container">
+  <div class="cards-section">
+    <div class="head-cards">
+      <div class="search-input">
+        <%# <%= form_tag @products_path, class: 'search-form', method: :get do%>
+          <%# <%= text_field_tag :name, params[:name],class: 'input-menu', placeholder: "  Search by name..." %>
+          <div class="submit-button">
+            <%# <%=image_submit_tag("search_black_24dp.svg")%>
+          </div>
+          <%# <% end %>
+        </div>
+        <div class="dropdown">
+        </div>
+        <div class="dropdown">
+        </div>
+      </div>
+      <article class="cards-container">
+        <div class="card">
+          <section class="image-card-container">
+          </section>
+          <section class="food-name">
+            <h3></h3>
+          </section>
+          <section class="food-description">
+          </section>
+        </div>
+      </article>
+    </div>
+    <div class="order-container">
+      <div class="logo-list-container">
+        <%=image_tag("receipt_long_black_48dp.svg")%>
+      </div>
+      <div class="list-headers">
+        <div class="table-order-container">
+          <span class="order-ticket">Order:
+            <p></p>
+          </span>
+        </div>
+      </div>
+      <div class="order-list">
+        <ul class="list">
+        </ul>
+        <div class="total-list-order">
+          <span>Total items:
+            <p class="total-items">0</p>
+          </span>
+          <span>Total:
+            <p>$</p>
+            <p class="total-price">0</p>
+          </span>
+        </div>
+      </div>
+      <div class="order-buttons-container">
+        <label for="notes">Notes:</label>
+        <textarea class="note-order" rows="3" cols="30" ></textarea>
+        <input type="hidden" name="selected_table_id" id="selected_table_id" value="">
+        <button class="send-to-kitchen">Send order to kitchen</button>
+        <button class="cancel-order">Cancel order</button>
+      </div>
+    </div>
+  </main>

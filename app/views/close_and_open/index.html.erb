@@ -199,10 +199,17 @@
       </div>
     </div>
     <div class="order-buttons-container-open">
+    <% if @order == "SELECT"%>
+      <%= form_tag orders_path, method: 'get' do %>
+        <%= button_tag 'Add new item', value: @order, type: :submit, name: :order, :disabled => true, class: "disabled-button" %>
+      <% end %>
+      <%= button_to "check out", update_status_close_and_open_path(@order),method: :patch, :disabled => true, class: "disabled-button" %>
+    <% else %>
       <%= form_tag orders_path, method: 'get' do %>
         <%= button_tag 'Add new item', value: @order, type: :submit, name: :order %>
       <% end %>
       <%= button_to "check out", update_status_close_and_open_path(@order),method: :patch %>
+    <% end %>
     </div>
   </div>
 </main>

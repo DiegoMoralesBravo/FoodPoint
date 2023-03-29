@@ -522,8 +522,8 @@
       text-align: center;
       width: 200px;
     }
-    button:hover {
-      background-color: rgb(66, 66, 66);
+    .disabled-button {
+      background: rgb(66, 66, 66);
     }
   }
 }

@@ -6,9 +6,9 @@
     <%= image_tag("1.png", class:'navbar__logo')%>
     
     <div class='navbar__menu' >
+      <%= link_to 'Kitchen', kitchen_index_path, class: 'navbar__menu__option'%>
       <%= link_to 'Service', orders_path, class: 'navbar__menu__option'%>
       <%= link_to 'Orders', close_and_open_index_path, class: 'navbar__menu__option'%>
-      <%= link_to 'Kitchen', kitchen_index_path, class: 'navbar__menu__option'%>
     </div>
 
     <div class="flex-shrink-0">

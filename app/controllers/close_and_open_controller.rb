@@ -15,31 +15,31 @@ class CloseAndOpenController < ApplicationController
       @order = params[:order_id]
       @order_Items = OrdersItem.where(orders_id: @order)
     else
-      @order = 'SELECT'
+      @order = 'Select'
     end
 
     if params[:order_status].present?
       @status = params[:order_status]
     else
-      @status = 'SELECT'
+      @status = 'Select'
     end
 
     if params[:order_tables_id].present?
       @tables = params[:order_tables_id]
     else
-      @tables = 'SELECT'
+      @tables = 'Select'
     end
 
     if params[:order_total].present?
       @total = params[:order_total]
     else
-      @total = 'SELECT'
+      @total = 'Select'
     end
 
     if params[:orderitem_quantity].present?
       @quantity = params[:orderitem_quantity]
     else
-      @quantity = 'SELECT'
+      @quantity = 'Select'
     end
 
     @total_val = Order.where(status: "paid", created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).sum(:total)

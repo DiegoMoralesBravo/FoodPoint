@@ -4,7 +4,7 @@ class CloseAndOpenController < ApplicationController
 
   def index
     @tables = Table.all
-    @orders = Order.all
+    @orders = Order.all.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
     @orderitems = OrdersItem.all
 
     if params[:tables_id]
@@ -36,15 +36,13 @@ class CloseAndOpenController < ApplicationController
       @total = 'SELECT'
     end
 
-    if params[:orderitems_quantity].present?
-      @quantity = params[:orderitems_quantity]
+    if params[:orderitem_quantity].present?
+      @quantity = params[:orderitem_quantity]
     else
       @quantity = 'SELECT'
     end
 
-    @total_val = Order.where(status: "paid").sum(:total)
-
-
+    @total_val = Order.where(status: "paid", created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).sum(:total)
   end
 
   def update_status

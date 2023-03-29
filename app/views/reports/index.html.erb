@@ -3,6 +3,13 @@
   <div class="titulo">
     <h1 class="texto"><%= @start_date.strftime('%A, %b %d') %></h1>
   </div>
+  <%= form_tag reports_path, method: :get, class: "form-inline" do %>
+    <div class="btn-group" role="group" aria-label="Period">
+      <%= button_tag "Last 7 days", type: :submit, name: "period", value: "7_days", class: "btn btn-primary" %>
+      <%= button_tag "Last 14 days", type: :submit, name: "period", value: "14_days", class: "btn btn-primary" %>
+      <%= button_tag "Last month", type: :submit, name: "period", value: "1_month", class: "btn btn-primary" %>
+    </div>
+  <% end %>
   <div class="scores">
     <div class = "tarjeta">
       <div class="two alt-two">
@@ -20,6 +27,7 @@
     </div>
     <div class = "tarjeta">
       <div class="two alt-two">
+        <h6><%= @previous_end_date %> = <%= @previous_max_order %></h6>
         <h1 class="tarjeta-texto"><%= @max_order %>
           <span class="tarjeta-texto">Best Seller</span>
         </h1>
@@ -27,20 +35,20 @@
     </div>
   </div>
   <div class="reports">
-    <div class="dias estilo hover">
+    <div class="dias estilo">
       <div class="dias-titulo">
         Select date
       </div>
       <div class="date">
         <%= form_tag reports_path, method: :get do %>
           <%= text_field_tag :start_date, nil, style: 'display:none;', id: 'datepicker-input' %>
-          <div id="container hover"></div>
+          <div id="container"></div>
         <%# <%= date_field_tag :start_date, nil, type: :date, class: 'hidden' %>
         <%= submit_tag "Show report", class: 'myButton' %>
       <% end %>
       </div>
     </div>
-    <div class="grafica estilo hover">
+    <div class="grafica estilo">
       <%= line_chart @data%>
     </div>
   </div>

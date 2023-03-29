@@ -12,9 +12,6 @@
   justify-content: space-between;
 }
 
-
-
-
 .cards-section {
   background-color: $background-beige-principal;
   height: 100vh;
@@ -31,7 +28,7 @@
     .search-input {
       align-items: center;
       align-items: center;
-      background: white;
+      background: $white;
       border-radius: 45px;
       border: 6px solid #c93e3f;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -90,7 +87,7 @@
     overflow-y: scroll;
 
     .main-planner-container {
-      background-color: white;
+      background-color: $white;
       margin: 15px 50px 15px 15px;
       max-height: 500px;
       overflow-y: scroll;
@@ -106,8 +103,8 @@
 
           tr {
             th {
-              background-color: #2f2f2f;
-              color: white;
+              background-color: $black-light;
+              color: $white;
             }
           }
         }
@@ -115,8 +112,11 @@
         tbody {
           tr {
             td {
+              text-align: center;
+              align-items: center;
+              .status-inactive {
                 align-items: center;
-                background-color: #a5a5a5;
+                background-color: $ligth-status;
                 border-radius: 4px;
                 border: none;
                 color: rgb(57, 57, 57);
@@ -126,13 +126,10 @@
                 justify-content: center;
                 margin: auto;
                 width: 65px;
-              .status-inactive {
-              align-items: center;
-              text-align: center;
               }
               .status-short {
                 align-items: center;
-                background-color: #f44d4d;
+                background-color: $ligth-short;
                 border-radius: 4px;
                 border: none;
                 color: rgb(57, 57, 57);
@@ -146,7 +143,7 @@
 
               .status-good {
                 align-items: center;
-                background-color: #96de77;
+                background-color: $ligth-good;
                 border-radius: 4px;
                 border: none;
                 color: rgb(57, 57, 57);
@@ -159,7 +156,7 @@
               }
               .status-low {
                 align-items: center;
-                background-color: #f7ff9a;
+                background-color: $ligth-low;
                 border-radius: 4px;
                 border: none;
                 color: rgb(57, 57, 57);
@@ -172,16 +169,19 @@
               }
 
               button {
-                background-color: #c93e3f;
+                background-color: $red_button;
                 border: none;
                 height: 100%;
                 width: 100%;
+              }
+              button:hover {
+                background-color: $red-color-main-button-hover;
               }
             }
           }
 
           tr:nth-child(even) {
-            background-color: rgb(218, 218, 218);
+            background-color: $gray-planner-table;
           }
         }
       }
@@ -190,7 +190,7 @@
       align-items: center;
       border-bottom: solid 5px #d4d4d4;
       border-radius: 5px;
-      color: gray;
+      color: $ligth-status;
       display: flex;
       font-size: 20px;
       justify-content: center;
@@ -214,8 +214,8 @@
 
           tr {
             th {
-              background-color: #2f2f2f;
-              color: white;
+              background-color: $black-light;
+              color: $white;
             }
           }
         }
@@ -227,10 +227,10 @@
               text-align: center;
               .status-inactive {
                 align-items: center;
-                background-color: #a5a5a5;
+                background-color: $gray-planner-table;
                 border-radius: 4px;
                 border: none;
-                color: rgb(57, 57, 57);
+                color: $black-light;
                 display: flex;
                 font-weight: bold;
                 height: 30px;
@@ -240,10 +240,10 @@
               }
               .status-short {
                 align-items: center;
-                background-color: #f44d4d;
+                background-color: $ligth-short;
                 border-radius: 4px;
                 border: none;
-                color: rgb(57, 57, 57);
+                color: $black-light;
                 display: flex;
                 font-weight: bold;
                 height: 30px;
@@ -257,7 +257,7 @@
                 background-color: #96de77;
                 border-radius: 4px;
                 border: none;
-                color: rgb(57, 57, 57);
+                color: $black-light;
                 display: flex;
                 font-weight: bold;
                 height: 30px;
@@ -267,10 +267,10 @@
               }
               .status-low {
                 align-items: center;
-                background-color: #f7ff9a;
+                background-color:  #f7ff9a;
                 border-radius: 4px;
                 border: none;
-                color: rgb(57, 57, 57);
+                color: $black-light;
                 display: flex;
                 font-weight: bold;
                 height: 30px;
@@ -280,16 +280,20 @@
               }
 
               button {
-                background-color: #c93e3f;
+                background-color: $red_button;
                 border: none;
                 height: 100%;
                 width: 100%;
+              }
+
+              button:hover {
+                background-color: $red-color-main-button-hover;
               }
             }
           }
 
           tr:nth-child(even) {
-            background-color: rgb(218, 218, 218);
+            background-color: $gray-planner-table;
           }
         }
       }
@@ -322,18 +326,17 @@
     justify-content: space-between;
     padding: 0px 20px 10px 20px;
 
-
     .status-planner-edit {
       align-items: center;
       display: flex;
       flex-direction: row;
       justify-content: center;
       h3 {
-        color: #777777;
+        color: $ligth-status;
       }
       .status-lamp {
         align-items: center;
-        background-color: #96de77;
+        background-color: $ligth-good;
         border-radius: 5px;
         display: flex;
         height: 30px;
@@ -344,7 +347,7 @@
     }
   }
 
-  .planner-edit-info{
+  .planner-edit-info {
     height: 40%;
     padding: 0px 20px 10px 20px;
 
@@ -358,7 +361,7 @@
       padding: 10px;
       .item-info-label {
         align-items: center;
-        background: #fefefe;
+        background: $white;
         border-radius: 5px;
         border: 1px solid #373737;
         display: flex;
@@ -373,7 +376,7 @@
         }
         span {
           align-items: center;
-          background-color: #b2b2b2;
+          background-color: $ligth-status;
           display: flex;
           height: 100%;
           justify-content: center;
@@ -382,7 +385,7 @@
       }
       .item-info-description {
         align-items: center;
-        background: #fefefe;
+        background: $white;
         border-radius: 5px;
         border: 1px solid #373737;
         display: flex;
@@ -398,7 +401,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
-      h3{
+      h3 {
         margin: 10px 0 10px 0;
       }
       .assigned-date-container {
@@ -438,40 +441,34 @@
           }
         }
       }
-      .assign-date-container{
+      .assign-date-container {
         width: 100%;
-        .new-date-planned{
+        .new-date-planned {
           align-items: center;
           display: flex;
           flex-direction: row;
           justify-content: space-between;
           margin-top: 10px;
-          p{
+          p {
             font-size: 20px;
           }
-          .new-start-date-planned{
+          .new-start-date-planned {
             border-radius: 5px;
             border: solid 2px gray;
             font-size: 16px;
             height: 30px;
             margin-right: 20px;
             text-align: center;
-
           }
-          .new-finish-date-planned{
+          .new-finish-date-planned {
             border-radius: 5px;
             border: solid 2px gray;
             font-size: 16px;
             height: 30px;
             margin-right: 20px;
             text-align: center;
-
-
           }
         }
-
-
-
       }
     }
   }

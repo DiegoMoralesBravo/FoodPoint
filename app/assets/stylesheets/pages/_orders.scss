@@ -373,7 +373,8 @@
     textarea {
       background-color: $background-beige-principal;
       font-weight: bolder;
-      margin-bottom: 5px;
+      margin: 5px;
+      max-width: 90%;
     }
 
     button {

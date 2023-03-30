@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @ingredients = Ingredient.all
     @item = Item.new
   end
 
@@ -23,6 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @ingredients = Ingredient.all
     if @item.update(item_params)
       redirect_to '/items'
     else

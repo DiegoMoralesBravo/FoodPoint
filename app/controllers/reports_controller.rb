@@ -13,18 +13,73 @@ class ReportsController < ApplicationController
       @end_date = @start_date.advance(days: -6)
       @previous_start_date = @start_date.advance(days: -13)
       @previous_end_date = @start_date.advance(days: -7)
+
+      @previous_total = Order.where("created_at >= ?", @previous_start_date.beginning_of_day)
+                            .where("created_at <= ?", @previous_end_date.end_of_day)
+                            .group_by_day(:created_at)
+                            .sum(:total)
+                            .values
+                            .sum
+
+      @previous_orders = Order.where("created_at >= ?", @previous_start_date.beginning_of_day)
+                              .where("created_at <= ?", @previous_end_date.end_of_day)
+                              .group_by_day(:created_at)
+                              .count
+                              .values
+                              .sum
     when "14_days"
       @end_date = @start_date.advance(days: -13)
       @previous_start_date = @start_date.advance(days: -27)
       @previous_end_date = @start_date.advance(days: -14)
+
+      @previous_total = Order.where("created_at >= ?", @previous_start_date.beginning_of_day)
+                            .where("created_at <= ?", @previous_end_date.end_of_day)
+                            .group_by_day(:created_at)
+                            .sum(:total)
+                            .values
+                            .sum
+
+      @previous_orders = Order.where("created_at >= ?", @previous_start_date.beginning_of_day)
+                            .where("created_at <= ?", @previous_end_date.end_of_day)
+                            .group_by_day(:created_at)
+                            .count
+                            .values
+                            .sum
     when "1_month"
       @end_date = @start_date.advance(months: -1)
       @previous_start_date = @start_date.advance(months: -2)
       @previous_end_date = @start_date.advance(months: -1)
+
+      @previous_total = Order.where("created_at >= ?", @previous_start_date.beginning_of_day)
+                            .where("created_at <= ?", @previous_end_date.end_of_day)
+                            .group_by_day(:created_at)
+                            .sum(:total)
+                            .values
+                            .sum
+
+    @previous_orders = Order.where("created_at >= ?", @previous_start_date.beginning_of_day)
+                            .where("created_at <= ?", @previous_end_date.end_of_day)
+                            .group_by_day(:created_at)
+                            .count
+                            .values
+                            .sum
     else
       @end_date = @start_date
-      @previous_end_date = @start_date.advance(days: -1)
       @previous_start_date = @start_date.advance(days: -2)
+      @previous_end_date = @start_date.advance(days: -1)
+
+      @previous_total = Order.where("created_at >= ?", @previous_end_date.beginning_of_day)
+                            .where("created_at <= ?", @previous_end_date.end_of_day)
+                            .group_by_day(:created_at)
+                            .sum(:total)
+                            .values
+                            .sum
+      @previous_orders = Order.where("created_at >= ?", @previous_start_date.beginning_of_day)
+                            .where("created_at <= ?", @previous_start_date.end_of_day)
+                            .group_by_day(:created_at)
+                            .count
+                            .values
+                            .sum
     end
     
     @data = Order.where("created_at >= ?", @end_date.beginning_of_day)
@@ -51,14 +106,14 @@ class ReportsController < ApplicationController
                       .group_by_day(:created_at)
                       .maximum(:total)
                       .values
-                      .sum
+                      .max
     
     @previous_max_order = Order.where("created_at >= ?", @previous_end_date.beginning_of_day)
-                              .where("created_at <= ?", @previous_start_date.end_of_day)
+                              .where("created_at <= ?", @previous_end_date.end_of_day)
                               .group_by_day(:created_at)
                               .maximum(:total)
                               .values
-                              .sum
+                              .max
     
   end
 end

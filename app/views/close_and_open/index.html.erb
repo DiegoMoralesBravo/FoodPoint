@@ -28,30 +28,37 @@
                   <h3 class="time-order">
                     Time:
                   </h3>
-                  <h3 class="status-order">
-                    Show:
+                  <h3 class="tables-order">
+                    Tables:
                   </h3>  
+                  <h3>
+                  </h3>
                 </li>
             <% @orders.order([:created_at ]).zip(@orderitems).each do |order, item| %>
             <% if order.status != "paid"%>
                 <li>
                   <h3 class="order-batch">
-                    Order ID:
                     <p><%= order.id %></p>
                   </h3>
                   <h3 class="time-order">
-                    <%= order.created_at.strftime("%H:%M:%S")   %>
+                    <p><%= order.created_at.strftime("%H:%M")   %></p>
                   </h3>
-                  <h3 class="status-order">
+                  <h3 class="tables-order">
+                    <p><%= order.tables_id   %></p>
+                  </h3>
+                  <h3>
                     <%= form_tag(close_and_open_index_path, method: :get) do %>
                       <%= hidden_field_tag :order_id, order.id %>
                       <%= hidden_field_tag :order_status, order.status %>
                       <%= hidden_field_tag :order_tables_id, order.tables_id %>
                       <%= hidden_field_tag :order_total, order.total %>
-                      <%= hidden_field_tag :orderitems_quantity, item.quantity %>
-                      <%= submit_tag 'Show Order', class: "show-order-button"%>
+                      <%= hidden_field_tag :orderitem_quantity, item.quantity %>
+                      <%= submit_tag '', class: "show-order-button"%>
                     <% end %>
-
+                  </h3>
+                  
+                  <h3 class="pointer">
+                  ➜
                   </h3>
                 </li>
             <%end%>    
@@ -86,20 +93,19 @@
                 <% if order.status == "paid"%>
                 <li>
                   <h3 class="closed-order-batch">
-                    Order ID:
                     <p><%= order.id %></p>
                   </h3>
                   <div class="time-check">
                     <h3 class="closed-time-order">
-                      <%= order.created_at.strftime("%H:%M:%S") %>
+                      <p><%= order.created_at.strftime("%H:%M") %></p>
                     </h3>
                   </div>
                   <h3 class="status-order">
-                      <%= order.status%>
+                      <p><%= order.status%></p>
                   <h3>
                   <h3 class="price-order-closed">
-                  <p>$</p>
-                      <%= order.total   %>
+                  <p>$ <%= order.total   %> </p>
+                      
                     
                   </h3>
                 </li>
@@ -135,7 +141,7 @@
             >
         <span class="order-ticket-open"
               >Order:
-          <p> <%= @order %> </p>
+          <p id="show-order-data"> <%= @order %> </p>
         </span
             >
       </div>
@@ -199,10 +205,18 @@
       </div>
     </div>
     <div class="order-buttons-container-open">
+    <% if @order == "Select"%>
+      <%= form_tag orders_path, method: 'get' do %>
+        <%= button_tag 'Add new item', value: @order, type: :submit, name: :order, :disabled => true, class: "disabled-button" %>
+      <% end %>
+      <%= button_to "check out", update_status_close_and_open_path(@order),method: :patch, :disabled => true, class: "disabled-button" %>
+    <% else %>
       <%= form_tag orders_path, method: 'get' do %>
         <%= button_tag 'Add new item', value: @order, type: :submit, name: :order %>
       <% end %>
       <%= button_to "check out", update_status_close_and_open_path(@order),method: :patch %>
+    <% end %>
     </div>
   </div>
 </main>
+

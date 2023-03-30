@@ -146,7 +146,7 @@
             display: flex;
             height: 50px;
             justify-content: space-between;
-            padding: 0 40px;
+            padding: 0 30px;
 
             .order-number {
               align-items: center;
@@ -165,41 +165,59 @@
               color: $red-color-main-button;
               display: flex;
               justify-content: space-evenly;
-              margin-right: 40px;
               p {
                 color: $black-light;
-                margin-left: 5px;
+                margin-left: 35px;
+
               }
             }
             .time-order {
               align-items: center;
-              color: $black-light;
+              color: $red-color-main-button;
               display: flex;
               justify-content: space-evenly;
-              
-
+              margin-right: 35px;
+              margin-left: 35px;
               p {
                 color: $black-light;
-                margin-left: 5px;
+                margin-left: 45px;
               }
             }
 
-            .status-order{
+            .tables-order{
               align-items: center;
               color: $red-color-main-button;
               display: flex;
               justify-content: space-evenly;
-              margin-left: 40px;
+              p {
+                color: $black-light;
+                margin-left: 25px;
+              }
             }
 
             .show-order-button{
-              background-color: $red-color-main-button;
-              border-radius: 25px;
-              border: 4px solid $white-font-and-lettering;
-              color: $white-font-and-lettering;
+              border: none;
+              background: none;
+              color: $red-color-main-button;
               cursor: pointer;
               padding: 10px;
+              padding-top: 15px;
+              margin-top: -15px;
+              padding-left: 310px;
+              margin-left: -310px;
+              padding-right: 75px;
+              margin-right: -75px;
+              padding-bottom: 18px;
+              margin-bottom: -18px;
+              border-radius: 0 0 15px 15px;
+              left: 10px;
               box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+
+            .pointer{
+              color: $red-color-main-button;
+              font-size: 20px;
+              margin-left: 20px;
             }
           }
         }
@@ -236,7 +254,7 @@
             display: flex;
             height: 50px;
             justify-content: space-between;
-            padding: 0 40px;
+            padding: 0 30px;
 
             .closed-order-number {
               align-items: center;
@@ -260,7 +278,7 @@
               margin-right: 20px;
               p {
                 color: $black-light;
-                margin-left: 5px;
+                margin-left: 35px;
               }
             }
 
@@ -271,13 +289,15 @@
 
               .closed-time-order {
                 align-items: center;
-                color: $black-light;
+                color: $red-color-main-button;
                 display: flex;
                 justify-content: space-evenly;
+                margin-left: 20px;
+                margin-right: 20px;
 
                 p {
                   color: $black-light;
-                  margin-left: 5px;
+                  margin-left: 25px;
                 }
               }
               span {
@@ -288,7 +308,6 @@
                 align-items: center;
                 display: flex;
                 justify-content: space-evenly;
-
                 color: $black-light;
 
                 p {
@@ -299,9 +318,11 @@
             }
             .price-order-closed {
               align-items: center;
+              color: $red-color-main-button;
               display: flex;
               margin-left: 20px;
               p {
+                color: $black-light;
                 margin-left: 2px;
               }
             }
@@ -310,7 +331,11 @@
               color: $red-color-main-button;
               display: flex;
               justify-content: space-evenly;
-              margin-left: 40px;
+              margin-left: 20px;
+              margin-right: 20px;
+              p {
+                color: $black-light;
+              }
             }
 
           }
@@ -522,8 +547,8 @@
       text-align: center;
       width: 200px;
     }
-    button:hover {
-      background-color: rgb(66, 66, 66);
+    .disabled-button {
+      background: rgb(66, 66, 66);
     }
   }
 }

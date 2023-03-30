@@ -134,6 +134,15 @@
       width: 30rem;
     }
 
+    &_whoops {
+      border: none;
+      background-color: rgb(255, 117, 82);
+      position: absolute;
+      padding: 0.5rem;
+      left: 0.5rem;
+      top: 5rem
+    }
+
   }
 
 }

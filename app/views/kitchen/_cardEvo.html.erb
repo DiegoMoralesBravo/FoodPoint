@@ -59,6 +59,13 @@
             </div>
           </div>
 
+          <% if order_data.first.status == 'done' %>
+          <%= button_to "whoops",
+            whoops_kitchen_path(order_id),
+            class: "kitchen__popup_whoops",
+            method: :patch %>
+          <% end %>
+
           <% (order_data.sort_by {|e| e.item}).first(5).each_with_index do |data| %>
             <div class='kitchen__order__items'>
               <% if order_data.first.status == 'progress'%>

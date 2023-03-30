@@ -1,5 +1,5 @@
 <% (@ordersN.sort_by {|e| e.status}.reverse).group_by(&:order_id).each do |order_id, order_data| %>
-  <% if order_data.first.status == 'closed' %>
+  <% if order_data.first.status == 'closed' || order_data.first.status == 'paid'%>
     <% nil %>
   <% else %>
     <div class='kitchen__order <%= statusColorOverlay(order_data.first.status) %>' id='order-<%= order_id %>'>
@@ -13,7 +13,7 @@
         </div>
       </div>
 
-      <% (order_data.sort_by {|e| e.item}).first(5).each_with_index do |data| %>
+      <% (order_data.sort_by {|e| e.item}).first(4).each_with_index do |data| %>
         <div class='kitchen__order__items'>
           <% if order_data.first.status == 'progress'%>
             <%= button_to " ",
@@ -34,15 +34,16 @@
       <% end %>
 
 
-      <div class='postit__note'>
+      <div class='kitchen__order__notes'>
         <p class='kitchen__order__notes__title'>Notes:</p>
         <p class='kitchen__order__notes__description'><%= order_data.first.note.truncate(80, omission: '...') %></p>
       </div>
-
+    <% if order_data.first.status == 'progress' || order_data.first.status == 'wait'  %>
       <%= button_to "#{statusTextBtn(order_data.first.status)}",
         update_status_kitchen_path(order_id),
         class: "kitchen__order__button #{statuscolor(order_data.first.status)}",
         method: :patch %>
+    <% end %>
 
     </div>
 
@@ -59,6 +60,13 @@
             </div>
           </div>
 
+          <% if order_data.first.status == 'done' %>
+          <%= button_to "whoops",
+            whoops_kitchen_path(order_id),
+            class: "kitchen__popup_whoops",
+            method: :patch %>
+          <% end %>
+
           <% (order_data.sort_by {|e| e.item}).first(5).each_with_index do |data| %>
             <div class='kitchen__order__items'>
               <% if order_data.first.status == 'progress'%>
@@ -73,15 +81,17 @@
             </div>
           <% end %>
 
-        <div class='postit__note'>
+        <div class='kitchen__order__notes'>
           <p class='kitchen__order__notes__title'>Notes:</p>
           <p class='kitchen__order__notes__description'><%= order_data.first.note%></p>
         </div>
 
-        <%= button_to "#{statusTextBtn(order_data.first.status)}",
-          update_status_kitchen_path(order_id),
-          class: "kitchen__order__button #{statuscolor(order_data.first.status)}",
-          method: :patch %>
+        <% if order_data.first.status == 'progress' || order_data.first.status == 'wait'  %>
+          <%= button_to "#{statusTextBtn(order_data.first.status)}",
+            update_status_kitchen_path(order_id),
+            class: "kitchen__order__button #{statuscolor(order_data.first.status)}",
+            method: :patch %>
+        <% end %>
       </div>
     </div>
   <% end %>

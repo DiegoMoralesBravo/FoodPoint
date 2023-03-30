@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :kitchen do
     patch :update_status, on: :member
     patch :update_status_item, on: :member
+    patch :whoops, on: :member
   end
   resources :reports
   resources :tables

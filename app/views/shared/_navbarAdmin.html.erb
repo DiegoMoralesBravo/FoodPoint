@@ -7,12 +7,13 @@
       <%= link_to 'Tables', tables_path, class: 'navbar__menu__option'%>
       <%= link_to 'Items', items_path, class: 'navbar__menu__option'%>
       <%= link_to 'Reports', reports_path, class: 'navbar__menu__option'%>
+      <%= link_to 'Items planner', items_planner_index_path, class: 'navbar__menu__option'%>
     </div>
     <div class="flex-shrink-0">
-    <div class='navbar__logout' >
-      <%= link_to 'Log Out', destroy_user_session_path, class: "navbar__logout__option",:method => 'delete' %>
+      <div class='navbar__logout' >
+        <%= link_to 'Log Out', destroy_user_session_path, class: "navbar__logout__option",:method => 'delete' %>
+      </div>
     </div>
-  </div>
     <div id='main' class="navbar__container__closed" onclick="openNav()">
       <%= image_tag("1.png", class:'navbar__logo__closed', id:'logo')%>
     </div>

@@ -1,0 +1,405 @@
+<%= render 'shared/navbarAdmin' %>
+<main class="service-main-container">
+  <div class="cards-section">
+    <div class="head-cards">
+      <div class="search-input">
+        <div class="submit-button">
+          <h3>Search...</h3>
+        </div>
+      </div>
+      <div class="dropdown">
+      </div>
+      <div class="dropdown">
+      </div>
+    </div>
+    <article class="planner-container">
+      <div class="main-planner-container">
+        <table class="planner-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Name</th>
+              <th>Planned Qty</th>
+              <th>Date Planned</th>
+              <th>Sold Qty</th>
+              <th>Qty Available</th>
+              <th>Sales Value</th>
+              <th>Sales Earned</th>
+              <th>Status</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Appetizer</td>
+              <td>Bruschetta</td>
+              <td>50</td>
+              <td>
+                <p>2023-04-03</p>
+                <p>2023-04-03</p>
+              </td>
+              <td>35</td>
+              <td>15</td>
+              <td>350</td>
+              <td>245</td>
+              <td>
+                <div class="status-inactive" >Inactive</div>
+              </td>
+              <td><button><%=image_tag("edit-planner.svg")%></button></td>
+            </tr>
+            <tr>
+              <td>Main Course</td>
+              <td>Pesto Pasta</td>
+              <td>40</td>
+              <td>2023-04-03</td>
+              <td>20</td>
+              <td>20</td>
+              <td>400</td>
+              <td>200</td>
+              <td>
+                <div class="status-short" >Short</div>
+              </td>
+              <td><button><%=image_tag("edit-planner.svg")%></button></td>
+            </tr>
+            <tr>
+              <td>Side Dish</td>
+              <td>Garlic Bread</td>
+              <td>30</td>
+              <td>2023-04-05</td>
+              <td>10</td>
+              <td>20</td>
+              <td>150</td>
+              <td>50</td>
+              <td>
+                <div class="status-good" >Good</div>
+              </td>
+              <td><button><%=image_tag("edit-planner.svg")%></button></td>
+            </tr>
+            <tr>
+              <td>Dessert</td>
+              <td>Chocolate Cake</td>
+              <td>20</td>
+              <td>2023-04-08</td>
+              <td>5</td>
+              <td>15</td>
+              <td>200</td>
+              <td>50</td>
+              <td>
+                <div class="status-low" >Low</div>
+              </td>
+              <td><button><%=image_tag("edit-planner.svg")%></button></td>
+            </tr>
+            <tr>
+              <td>Drink</td>
+              <td>Mojito</td>
+              <td>25</td>
+              <td>2023-04-10</td>
+              <td>15</td>
+              <td>10</td>
+              <td>250</td>
+              <td>150</td>
+              <td>
+                <div class="status-inactive" >Inactive</div>
+              </td>
+              <td><button><%=image_tag("edit-planner.svg")%></button></td>
+            </tr>
+            <tr>
+              <td>Drink</td>
+              <td>Mojito</td>
+              <td>25</td>
+              <td>2023-04-10</td>
+              <td>15</td>
+              <td>10</td>
+              <td>250</td>
+              <td>150</td>
+              <td>
+                <div class="status-inactive" >Inactive</div>
+              </td>
+              <td><button><%=image_tag("edit-planner.svg")%></button></td>
+            </tr>
+            <tr>
+              <td>Drink</td>
+              <td>Mojito</td>
+              <td>25</td>
+              <td>2023-04-10</td>
+              <td>15</td>
+              <td>10</td>
+              <td>250</td>
+              <td>150</td>
+              <td>
+                <div class="status-inactive" >Inactive</div>
+              </td>
+              <td><button><%=image_tag("edit-planner.svg")%></button></td>
+            </tr>
+            <tr>
+              <td>Drink</td>
+              <td>Mojito</td>
+              <td>25</td>
+              <td>2023-04-10</td>
+              <td>15</td>
+              <td>10</td>
+              <td>250</td>
+              <td>150</td>
+              <td>
+                <div class="status-inactive" >Inactive</div>
+              </td>
+              <td><button><%=image_tag("edit-planner.svg")%></button></td>
+            </tr>
+            <tr>
+              <td>Drink</td>
+              <td>Mojito</td>
+              <td>25</td>
+              <td>2023-04-10</td>
+              <td>15</td>
+              <td>10</td>
+              <td>250</td>
+              <td>150</td>
+              <td>
+                <div class="status-inactive" >Inactive</div>
+              </td>
+              <td><button><%=image_tag("edit-planner.svg")%></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="header-late-plan">
+        <h1>Late date plan table</h1>
+      </div>
+      <div class="second-planner-container">
+        <table class= "late-planner-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Name</th>
+              <th>Planned Qty</th>
+              <th>Date Planned</th>
+              <th>Sold Qty</th>
+              <th>Qty Available</th>
+              <th>Sales Value</th>
+              <th>Sales Earned</th>
+              <th>Status</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Appetizer</td>
+              <td>Bruschetta</td>
+              <td>50</td>
+              <td>
+                <p>2023-04-03</p>
+                <p>2023-04-03</p>
+              </td>
+              <td>35</td>
+              <td>15</td>
+              <td>350</td>
+              <td>245</td>
+              <td>
+                <div class="status-inactive" >Inactive</div>
+              </td>
+              <td><button><%=image_tag("edit-planner.svg")%></button></td>
+            </tr>
+            <tr>
+              <td>Main Course</td>
+              <td>Pesto Pasta</td>
+              <td>40</td>
+              <td>2023-04-03</td>
+              <td>20</td>
+              <td>20</td>
+              <td>400</td>
+              <td>200</td>
+              <td>
+                <div class="status-short" >Short</div>
+              </td>
+              <td><button><%=image_tag("edit-planner.svg")%></button></td>
+            </tr>
+            <tr>
+              <td>Side Dish</td>
+              <td>Garlic Bread</td>
+              <td>30</td>
+              <td>2023-04-05</td>
+              <td>10</td>
+              <td>20</td>
+              <td>150</td>
+              <td>50</td>
+              <td>
+                <div class="status-good" >Good</div>
+              </td>
+              <td><button><%=image_tag("edit-planner.svg")%></button></td>
+            </tr>
+            <tr>
+              <td>Dessert</td>
+              <td>Chocolate Cake</td>
+              <td>20</td>
+              <td>2023-04-08</td>
+              <td>5</td>
+              <td>15</td>
+              <td>200</td>
+              <td>50</td>
+              <td>
+                <div class="status-low" >Low</div>
+              </td>
+              <td><button><%=image_tag("edit-planner.svg")%></button></td>
+            </tr>
+            <tr>
+              <td>Drink</td>
+              <td>Mojito</td>
+              <td>25</td>
+              <td>2023-04-10</td>
+              <td>15</td>
+              <td>10</td>
+              <td>250</td>
+              <td>150</td>
+              <td>
+                <div class="status-inactive" >Inactive</div>
+              </td>
+              <td><button><%=image_tag("edit-planner.svg")%></button></td>
+            </tr>
+            <tr>
+              <td>Drink</td>
+              <td>Mojito</td>
+              <td>25</td>
+              <td>2023-04-10</td>
+              <td>15</td>
+              <td>10</td>
+              <td>250</td>
+              <td>150</td>
+              <td>
+                <div class="status-inactive" >Inactive</div>
+              </td>
+              <td><button><%=image_tag("edit-planner.svg")%></button></td>
+            </tr>
+            <tr>
+              <td>Drink</td>
+              <td>Mojito</td>
+              <td>25</td>
+              <td>2023-04-10</td>
+              <td>15</td>
+              <td>10</td>
+              <td>250</td>
+              <td>150</td>
+              <td>
+                <div class="status-inactive" >Inactive</div>
+              </td>
+              <td><button><%=image_tag("edit-planner.svg")%></button></td>
+            </tr>
+            <tr>
+              <td>Drink</td>
+              <td>Mojito</td>
+              <td>25</td>
+              <td>2023-04-10</td>
+              <td>15</td>
+              <td>10</td>
+              <td>250</td>
+              <td>150</td>
+              <td>
+                <div class="status-inactive" >Inactive</div>
+              </td>
+              <td><button><%=image_tag("edit-planner.svg")%></button></td>
+            </tr>
+            <tr>
+              <td>Drink</td>
+              <td>Mojito</td>
+              <td>25</td>
+              <td>2023-04-10</td>
+              <td>15</td>
+              <td>10</td>
+              <td>250</td>
+              <td>150</td>
+              <td>
+                <div class="status-inactive" >Inactive</div>
+              </td>
+              <td><button><%=image_tag("edit-planner.svg")%></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </div>
+  <div class="item-planner-container">
+    <div class="item-planner-image-container">
+      <%=image_tag("pexels-jonathan-borba-2983101.jpg")%>
+    </div>
+    <div class="item-name-footer">
+      <h3 class= "planner-item-name">Hamburguesa</h3>
+      <div class="status-planner-edit">
+        <h3>Status: </h3>
+        <div class="status-lamp">
+          <p>Good</p>
+        </div>
+      </div>
+    </div>
+    <div class="planner-edit-info">
+      <div class="item-info-container">
+        <h3>Category:</h3>
+        <div class="item-info-label">
+          <p>Food</p>
+          <span><%=image_tag("lunch_dining_black_24dp.svg")%></span>
+        </div>
+        <h3>Price:</h3>
+        <div class="item-info-label">
+          <p>Food</p>
+          <span>$</span>
+        </div>
+        <h3>Description:</h3>
+        <div class="item-info-description">
+        </div>
+      </div>
+      <div class="date-planner-display">
+        <h3>Actual assigned date:</h3>
+        <div class="assigned-date-container">
+          <div class="assigned-date-column">
+            <p>D</p>
+            <div class="date-assigned">
+              <p>01</p>
+              <span>-</span>
+            </div>
+            <p>M</p>
+            <div class="date-assigned">
+              <p>01</p>
+              <span>-</span>
+            </div>
+            <p>Y</p>
+            <div class="date-assigned">
+              <p>01</p>
+              <span>-</span>
+            </div>
+          </div>
+          <div class="assigned-date-column">
+            <p>D</p>
+            <div class="date-assigned">
+              <p>01</p>
+              <span>-</span>
+            </div>
+            <p>M</p>
+            <div class="date-assigned">
+              <p>01</p>
+              <span>-</span>
+            </div>
+            <p>Y</p>
+            <div class="date-assigned">
+              <p>01</p>
+              <span>-</span>
+            </div>
+          </div>
+        </div>
+        <h3>New planned date:</h3>
+        <div class="assign-date-container">
+          <div class="new-date-planned">
+            <p>From:</p>
+            <input class="new-start-date-planned" type="date" id="start" name="trip-start"value="2018-07-22">
+          </div>
+          <div class="new-date-planned">
+            <p>To:</p>
+            <input class="new-finish-date-planned"  type="date" id="start" name="trip-start"value="2018-07-22">
+          </div>
+        </div>
+      </div>
+      <div class="order-buttons-container">
+        <button class="send-date">Update  <span><%=image_tag("refresh.svg")%></span></button>
+        <button class="cacel-edit">Cancel  <span><%=image_tag("cancel.svg")%></span></button>
+      </div>
+    </div>
+  </div>
+</div>
+</main>

@@ -8,6 +8,8 @@ class ReportsController < ApplicationController
       @start_date = Date.today
     end
 
+    
+
     case params[:period]
     when "7_days"
       @end_date = @start_date.advance(days: -6)
@@ -27,6 +29,11 @@ class ReportsController < ApplicationController
                               .count
                               .values
                               .sum
+      @previous_data = Order.where("created_at >= ?", @previous_start_date.beginning_of_day)
+                              .where("created_at <= ?", @previous_end_date.end_of_day)
+                              .group(:id)
+                              .sum(:total)
+      @text = "Last 7 days"
     when "14_days"
       @end_date = @start_date.advance(days: -13)
       @previous_start_date = @start_date.advance(days: -27)
@@ -45,6 +52,12 @@ class ReportsController < ApplicationController
                             .count
                             .values
                             .sum
+
+      @previous_data = Order.where("created_at >= ?", @previous_start_date.beginning_of_day)
+                            .where("created_at <= ?", @previous_end_date.end_of_day)
+                            .group(:id)
+                            .sum(:total)
+      @text = "Last 14 days"
     when "1_month"
       @end_date = @start_date.advance(months: -1)
       @previous_start_date = @start_date.advance(months: -2)
@@ -63,6 +76,12 @@ class ReportsController < ApplicationController
                             .count
                             .values
                             .sum
+    
+    @previous_data = Order.where("created_at >= ?", @previous_start_date.beginning_of_day)
+                            .where("created_at <= ?", @previous_end_date.end_of_day)
+                            .group(:id)
+                            .sum(:total)
+    @text = "Last month"
     else
       @end_date = @start_date
       @previous_start_date = @start_date.advance(days: -2)
@@ -80,13 +99,18 @@ class ReportsController < ApplicationController
                             .count
                             .values
                             .sum
+      @previous_data = Order.where("created_at >= ?", @previous_end_date.beginning_of_day)
+                            .where("created_at <= ?", @previous_end_date.end_of_day)
+                            .group(:id)
+                            .sum(:total)
+      @text = @previous_end_date.strftime('%A, %b %d')
     end
     
     @data = Order.where("created_at >= ?", @end_date.beginning_of_day)
                  .where("created_at <= ?", @start_date.end_of_day)
                  .group(:id)
                  .sum(:total)
-    
+
     @total = Order.where("created_at >= ?", @end_date.beginning_of_day)
                   .where("created_at <= ?", @start_date.end_of_day)
                   .group_by_day(:created_at)
@@ -114,6 +138,14 @@ class ReportsController < ApplicationController
                               .maximum(:total)
                               .values
                               .max
+
     
+    @item_ids = OrdersItem.select("items_id, SUM(quantity) AS quantity")
+                              .where("created_at >= ?", @end_date.beginning_of_day)
+                              .where("created_at <= ?", @start_date.end_of_day)
+                              .group(:items_id, :quantity)
+                              .order('quantity DESC')
+                              .pluck(:items_id)
+                          
   end
 end

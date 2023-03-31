@@ -3,35 +3,42 @@
   <div class="titulo">
     <h1 class="texto"><%= @start_date.strftime('%A, %b %d') %></h1>
   </div>
-  <%= form_tag reports_path, method: :get, class: "form-inline" do %>
+  <%= form_tag reports_path, method: :get, class: "btn-group" do %>
     <div class="btn-group" role="group" aria-label="Period">
-      <%= button_tag "Last 7 days", type: :submit, name: "period", value: "7_days", class: "btn btn-primary" %>
-      <%= button_tag "Last 14 days", type: :submit, name: "period", value: "14_days", class: "btn btn-primary" %>
-      <%= button_tag "Last month", type: :submit, name: "period", value: "1_month", class: "btn btn-primary" %>
+      <%= button_tag "Last 7 days", type: :submit, name: "period", value: "7_days", class: "btn-date" %>
+      <%= button_tag "Last 14 days", type: :submit, name: "period", value: "14_days", class: "btn-date" %>
+      <%= button_tag "Last month", type: :submit, name: "period", value: "1_month", class: "btn-date" %>
     </div>
-  <% end %>
+  <% end %> 
   <div class="scores">
-    <div class = "tarjeta">
+    <div class="tarjeta" style="<% if @previous_total && @total %>
+                              background-color: <%= @previous_total > @total ? 'rgba(213, 30, 30, 0.6)' : 'rgba(164, 223, 125, 0.6)' %>;
+                            <% end %>">
       <div class="two alt-two">
-        <h6><%= @previous_end_date %> = <%= @previous_total %></h6>
+        <h4><%= @text %> = <%= @previous_total %></h4>
         <h1 class="tarjeta-texto"><%= @total %>
           <span class="tarjeta-texto">Todays Money</span>
-        </h1 class="tarjeta-texto">
+        </h1>
       </div>
     </div>
-    <div class="tarjeta">
+
+    <div class="tarjeta" style="<% if @previous_orders && @orders %>
+                              background-color: <%= @previous_orders > @orders ? 'rgba(213, 30, 30, 0.6)' : 'rgba(164, 223, 125, 0.6)' %>;
+                            <% end %>">
       <div class="two alt-two">
-        <h6><%= @previous_end_date %> = <%= @previous_orders %></h6>
+        <h4><%= @text %> = <%= @previous_orders %></h4>
         <h1 class="tarjeta-texto"><%= @orders %>
           <span class="tarjeta-texto">Orders Numbers</span>
         </h1>
       </div>
     </div>
-    <div class = "tarjeta">
+    <div class="tarjeta" style="<% if @previous_max_order && @max_order %>
+                              background-color: <%= @previous_max_order > @max_order ? 'rgba(213, 30, 30, 0.6)' : 'rgba(164, 223, 125, 0.6)' %>;
+                            <% end %>">
       <div class="two alt-two">
-        <h6><%= @previous_end_date %> = <%= @previous_max_order %></h6>
+        <h4><%= @text %> = <%= @previous_max_order %></h4>
         <h1 class="tarjeta-texto"><%= @max_order %>
-          <span class="tarjeta-texto">Best Seller</span>
+          <span class="tarjeta-texto">Best Sell</span>
         </h1>
       </div>
     </div>
@@ -51,7 +58,8 @@
       </div>
     </div>
     <div class="grafica estilo">
-      <%= line_chart @data%>
+      <%= line_chart @data, title: 'Actual Date', dataset: { borderColor: 'red', pointBackgroundColor: 'dark' } %>
+      <%= line_chart @previous_data, title: 'Last Date', dataset: { pointBackgroundColor: 'dark' } %>
     </div>
   </div>
 </div>

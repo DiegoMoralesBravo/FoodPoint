@@ -14,6 +14,16 @@ class KitchenController < ApplicationController
         JOIN orders_items ON orders.id = orders_items.orders_id
         JOIN tables ON orders.tables_id = tables.id
         JOIN items ON orders_items.items_id = items.id")
+
+    @validate = Order.
+      select("
+        orders.id as order_id,
+        items.id as items_id,
+        items.name as item,
+        orders_items.status_item, orders_items.id as orders_items_id").
+      joins("
+        JOIN orders_items ON orders.id = orders_items.orders_id
+        JOIN items ON orders_items.items_id = items.id")
   end
 
 
@@ -24,9 +34,21 @@ class KitchenController < ApplicationController
       order.update(status: 'progress')
     elsif order.status == 'progress'
       order.update(status: 'done')
+      finished(order)
     elsif order.status == 'done'
       order.update(status: 'closed')
     end
+    redirect_to kitchen_index_path
+  end
+
+  def finished(order)
+    orderitems = OrdersItem.where(orders_id: order)
+    orderitems.update_all(status_item: true)
+  end
+
+  def whoops
+    order = Order.find(params[:id])
+    order.update(status: 'progress')
     redirect_to kitchen_index_path
   end
 

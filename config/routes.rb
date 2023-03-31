@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'items_planner/index'
   get 'orders/index'
 
   root 'home#index'
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   resources :kitchen do
     patch :update_status, on: :member
     patch :update_status_item, on: :member
+    patch :whoops, on: :member
   end
   resources :reports
   resources :tables
@@ -19,5 +21,6 @@ Rails.application.routes.draw do
   end
   resources :orders
   resources :ingredients
+  resources :items_planner
 
 end

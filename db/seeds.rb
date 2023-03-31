@@ -24,27 +24,30 @@ numberIngredients = 20
 end
 
 def randstatus
-  ns = rand(1..3)
+  ns = rand(1..2)
   status = ' '
   if ns == 1
     status = 'wait'
   elsif ns == 2
     status = 'progress'
-  elsif ns == 3
-    status = 'done'
   end
   status
 end
 
 
-numberOrders.times do |i|
-  Order.create(
-    tables_id: i+1,
-    status: randstatus,
-    total: Faker::Number.between(from: 300, to: 1000),
-    note: Faker::Food.description
-  )
+60.times do |i|
+  10.times do |j|
+    Order.create(
+      tables_id: i+1,
+      status: randstatus,
+      total: Faker::Number.between(from: 300, to: 1000),
+      note: Faker::Food.description,
+      created_at: i.days.ago.beginning_of_day
+    )
+  end
 end
+
+
 
 #food
 numberitemsfood.times do

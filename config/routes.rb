@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     patch :update_status, on: :member
   end
   resources :orders
+  resources :ingredients
   resources :items_planner
 
 end

@@ -11,6 +11,9 @@
   <div class="info-container">
     <%= form.file_field :image, :required => true, placeholder: "Image", class: "file-select"%>
   </div>
+  <div class="info-container">
+    <div class="recipe">Create recipe</div>
+  </div>
   <div class="button-container">
     <%= form.submit %>
     <%= link_to items_path do %>
@@ -18,3 +21,4 @@
     <% end %>
   </div>
 <% end %>
+<%=  javascript_include_tag 'recipe-modal' %>

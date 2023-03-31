@@ -1,0 +1,67 @@
+<div class="modal">
+  <div class="modal-content">
+    <div class="header-modal">
+      <h1 class="title">Make recipe for <span class="dish"></span>!</h1>
+      <h1 class="close">X</h1>
+    </div>
+    <div class="main-modal">
+      <div class="table-container">
+        <div class="tittle-main-modal">
+          <h1>Select ingredients</h1>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Units</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @ingredients.each do |ingredient| %>
+              <tr class="ingredient">
+                <td class="id-ing"><%= ingredient.id %></td>
+                <td class="name-ing"><%= ingredient.name %></td>
+                <td>$<span class="price-ing"><%= ingredient.price %></span></td>
+                <td class="units-ing"><%= ingredient.quant %></td>
+                <td>
+                  <button class="add-button">Add</button>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-container">
+        <div class="tittle-main-modal">
+          <h1>Recipe</h1>
+        </div>
+        <h1 class="alert">
+            No ingredients
+        </h1>
+        <table class="recipe-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Quant.</th>
+              <th>Price</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody class="recipe-tbody">
+          </tbody>
+        </table>
+        <div class="prices-recipe">
+          <h1>Total price:&nbsp &nbsp  &nbsp &nbsp &nbsp$<span class="prices-total">0</span></h1>
+          <h1>Suggest prices: &nbsp $<span class="suggest-total">0</span></h1>
+        </div>
+        <div class="button-container">
+          <button class="button-recipe">Create recipe!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -23,7 +23,7 @@ class IngredientsController < ApplicationController
 
   def update
     if @ingredient.update(ingredient_params)
-      redirect_to '/ingredients'
+      redirect_to ingredients_path
     else
       render :edit, status: :unprocessable_entity
     end

@@ -47,14 +47,14 @@
   .tarjeta{
     -moz-box-shadow: 7px 9px 22px -5px rgba(0,0,0,0.5);
     -webkit-box-shadow: 7px 9px 22px -5px rgba(0,0,0,0.5);
-    align-items: center; /* centrar verticalmente el contenido */
+    align-items: center;
     background-color: #D9D9D9;
     border-radius: 10px;
     box-shadow: 7px 9px 22px -5px rgba(0,0,0,0.5);
     display: flex;
     flex-wrap: wrap;
     height: 72%;
-    justify-content: center; /* centrar horizontalmente el contenido */
+    justify-content: center;
     padding-bottom: 10px;
     width: 60%;
   }

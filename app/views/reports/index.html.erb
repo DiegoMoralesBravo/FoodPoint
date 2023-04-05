@@ -54,7 +54,6 @@
         <%= form_tag reports_path, method: :get do %>
           <%= text_field_tag :start_date, nil, style: 'display:none;', id: 'datepicker-input' %>
           <div id="container"></div>
-        <%# <%= date_field_tag :start_date, nil, type: :date, class: 'hidden' %>
         <%= submit_tag "Show report", class: 'myButton' %>
       <% end %>
       </div>

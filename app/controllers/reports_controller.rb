@@ -8,8 +8,6 @@ class ReportsController < ApplicationController
       @start_date = Date.today
     end
 
-    
-
     case params[:period]
     when "7_days"
       @end_date = @start_date.advance(days: -6)
@@ -131,6 +129,7 @@ class ReportsController < ApplicationController
                       .maximum(:total)
                       .values
                       .max
+                      .to_i
     
     @previous_max_order = Order.where("created_at >= ?", @previous_end_date.beginning_of_day)
                               .where("created_at <= ?", @previous_end_date.end_of_day)
@@ -138,6 +137,7 @@ class ReportsController < ApplicationController
                               .maximum(:total)
                               .values
                               .max
+                              .to_i
 
     
     @item_ids = OrdersItem.select("items_id, SUM(quantity) AS quantity")

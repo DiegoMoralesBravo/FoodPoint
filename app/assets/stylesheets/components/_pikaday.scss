@@ -39,7 +39,7 @@
     display: inline-block;
     font-size: 14px;
     font-weight: bold;
-    line-height: 20px;
+    line-height: 5px;
     margin: 0;
     overflow: hidden;
     padding: 5px 3px;
@@ -64,10 +64,10 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 75% 75%;
-    border: 0;
+    border: 1;
     cursor: pointer;
     display: block;
-    height: 30px;
+    height: 15px;
     opacity: .5;
     outline: none;
     overflow: hidden;
@@ -105,10 +105,10 @@
     display: inline-block;
 }
 .pika-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    border: 0;
-    width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 0;
+  width: 100%;
 }
 .pika-table th,
 .pika-table td {
@@ -119,19 +119,20 @@
     color: #080808; // Days title
     font-size: 12px;
     font-weight: bold;
-    line-height: 25px;
+    line-height: 5px;
     text-align: center;
 }
 .pika-button {
     -moz-box-sizing: border-box;
     background-color: transparent;
-    border: 0;
+    border-color: black;
+    border: 1;
     box-sizing: border-box;
     color: #080808; //Numbers of day
     cursor: pointer;
     display: block;
     font-size: 12px;
-    line-height: 15px;
+    line-height: 5px;
     margin: 0;
     outline: none;
     padding: 5px;

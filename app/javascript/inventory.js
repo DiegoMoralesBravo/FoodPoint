@@ -1,5 +1,4 @@
 function inventory() {
-    console.log('first')
     const ingredients = document.querySelectorAll(".ingredient-inventory");
     for (let i = 0; i < ingredients.length; i++) {
         let ingredient = ingredients[i];

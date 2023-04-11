@@ -121,6 +121,8 @@ function service() {
         data.selected_table_id = mesaId;
         sendKitchen(data);
         alert("New order created for table " + mesaId);
+        window.history.replaceState({}, document.title, "/orders");
+        window.location.reload()
       }
     });
   });

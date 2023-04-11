@@ -194,11 +194,10 @@
     display: none;
   }
 
-  .btn-group {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    }
+ .btn-group {
+  display: flex;
+  flex-direction: row;
+}
   .btn-date {
     background-color:#2C2C2C;
     border-radius:28px;
@@ -221,14 +220,21 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  }
-  
-  .botones {
-    width: 50%;
+  margin-top: 2%;
   }
     
   .dias{
     height: auto;
-    margin-left: 25%;
+    // margin-left: 25%;
     width: 20%;
   }
+
+  .botones {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .ct-chart {
+    color: black;
+  }
+  

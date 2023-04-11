@@ -36,7 +36,6 @@ end
 
 
 60.times do |i|
-  10.times do |j|
     Order.create(
       tables_id: i+1,
       status: randstatus,
@@ -44,7 +43,6 @@ end
       note: Faker::Food.description,
       created_at: i.days.ago.beginning_of_day
     )
-  end
 end
 
 
@@ -93,7 +91,7 @@ numberOrders.times do |i|
   howmanyitems = Faker::Number.between(from: 3, to: 6)
   howmanyitems.times do |j|
     itemID = Faker::Number.unique.between(from: 1, to: totalnumberitems)
-    OrdersItem.create(orders_id: i+1  , items_id: itemID, quantity: Faker::Number.between(from: 1, to: 3))
+    OrdersItem.create(order_id: i+1  , item_id: itemID, quantity: Faker::Number.between(from: 1, to: 3))
   end
   Faker::Number.unique.clear
 end

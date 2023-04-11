@@ -7,23 +7,14 @@ class KitchenController < ApplicationController
     @ordersN = Order.
       select("
         orders.id as order_id, orders.status, orders.note,
-        tables.name as table, items.id as items_id,
+        tables.name as table, tables.id as table_id, items.id as item_id,
         items.name as item,
         orders_items.quantity, orders_items.status_item, orders_items.id as orders_items_id").
       joins("
-        JOIN orders_items ON orders.id = orders_items.orders_id
+        JOIN orders_items ON orders.id = orders_items.order_id
         JOIN tables ON orders.tables_id = tables.id
-        JOIN items ON orders_items.items_id = items.id")
+        JOIN items ON orders_items.item_id = items.id")
 
-    @validate = Order.
-      select("
-        orders.id as order_id,
-        items.id as items_id,
-        items.name as item,
-        orders_items.status_item, orders_items.id as orders_items_id").
-      joins("
-        JOIN orders_items ON orders.id = orders_items.orders_id
-        JOIN items ON orders_items.items_id = items.id")
   end
 
 

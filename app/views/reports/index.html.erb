@@ -3,29 +3,6 @@
   <div class="titulo">
     <h1 class="texto"><%= @start_date.strftime('%A, %b %d') %></h1>
   </div>
-   <div class="botones">
-      <%= form_tag reports_path, method: :get do %>
-        <div class="btn-group" role="group" aria-label="Period">
-          <%= button_tag "Last 7 days", type: :submit, name: "period", value: "7_days", class: "btn-date" %>
-          <%= button_tag "Last 14 days", type: :submit, name: "period", value: "14_days", class: "btn-date" %>
-          <%= button_tag "Last month", type: :submit, name: "period", value: "1_month", class: "btn-date" %>
-        </div>
-      <% end %> 
-    </div>
-  <div class="seleccion">
-    <div class="dias estilo">
-      <div class="dias-titulo">
-        Select date
-      </div>
-      <div class="date">
-        <%= form_tag reports_path, method: :get do %>
-          <%= text_field_tag :start_date, nil, style: 'display:none;', id: 'datepicker-input' %>
-          <div id="container"></div>
-        <%= submit_tag "Show report", class: 'myButton' %>
-      <% end %>
-      </div>
-    </div>
-  </div>
   <div class="scores">
     <div class="tarjeta" style="<% if @previous_total && @total %>
                               background-color: <%= @previous_total > @total ? 'rgba(213, 30, 30, 0.6)' : 'rgba(164, 223, 125, 0.6)' %>;
@@ -59,16 +36,43 @@
       </div>
     </div>
   </div>
-  <div class="reports">
-    <div class="grafica estilo" style="<% if @previous_total && @total %>
-                              background-color: <%= @previous_total > @total ? 'rgba(164, 223, 125, 0.6)' : 'rgba(213, 30, 30, 0.6)' %>;
-                            <% end %>">
-      <%= line_chart @previous_data, title: 'Last Date', dataset: {  borderColor: 'gray', pointBackgroundColor: 'dark'}, height: '200px'%>
-    </div>
-    <div class="grafica estilo" style="<% if @previous_total && @total %>
-                              background-color: <%= @previous_total > @total ? 'rgba(213, 30, 30, 0.6)' : 'rgba(164, 223, 125, 0.6)' %>;
-                            <% end %>">
-      <%= line_chart @data, title: 'Actual Date', dataset: { borderColor: 'gray', pointBackgroundColor: 'dark' }, height: '200px'%>
+  <div class="contenedor">
+
+    <div class="seleccion">
+      <div class="botones">
+        <%= form_tag reports_path, method: :get do %>
+          <div class="btn-group" role="group" aria-label="Period">
+            <%= button_tag "Last 7 days", type: :submit, name: "period", value: "7_days", class: "btn-date" %>
+            <%= button_tag "Last 14 days", type: :submit, name: "period", value: "14_days", class: "btn-date" %>
+            <%= button_tag "Last month", type: :submit, name: "period", value: "1_month", class: "btn-date" %>
+          </div>
+        <% end %> 
+      </div>
+        <div class="dias estilo">
+          <div class="dias-titulo">
+            Select date
+          </div>
+          <div class="date">
+            <%= form_tag reports_path, method: :get do %>
+              <%= text_field_tag :start_date, nil, style: 'display:none;', id: 'datepicker-input' %>
+              <div id="container"></div>
+            <%= submit_tag "Show report", class: 'myButton' %>
+          <% end %>
+          </div>
+        </div>
+        
+      </div>
+    <div class="reports">
+      <div class="grafica estilo" style="<% if @previous_total && @total %>
+                                background-color: <%= @previous_total > @total ? 'rgba(164, 223, 125, 0.6)' : 'rgba(213, 30, 30, 0.6)' %>;
+                              <% end %>">
+        <%= line_chart @previous_data, title: 'Last Date', dataset: {  borderColor: 'gray', pointBackgroundColor: 'dark'}, height: '250px', width: '525px'%>
+      </div>
+      <div class="grafica estilo" style="<% if @previous_total && @total %>
+                                background-color: <%= @previous_total > @total ? 'rgba(213, 30, 30, 0.6)' : 'rgba(164, 223, 125, 0.6)' %>;
+                              <% end %>">
+        <%= line_chart @data, title: 'Actual Date', dataset: { borderColor: 'gray', pointBackgroundColor: 'dark' }, height: '250px', width: '525px'%>
+      </div>
     </div>
   </div>
 </div>

@@ -121,6 +121,24 @@
             .edit-button:hover {
               background-color: $gray_button_hover;
             }
+
+            .confirm-button {
+              background-color: $gray_button;
+              display: none;
+            }
+
+            .confirm-button:hover {
+              background-color: $gray_button_hover;
+            }
+
+            .cancel-button {
+              background-color: $red_button;
+              display: none;
+            }
+
+            .cancel-button:hover {
+              background-color: $red_button_hover;
+            }
           }
         }
       }

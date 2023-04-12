@@ -1,0 +1,41 @@
+<%= render 'shared/navbarAdmin' %>
+<div class="main-container">
+  <div class="table-container">
+    <div class="tittle-container">
+      <h1>Inventory</h1>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Qty</th>
+          <th>Unit</th>
+          <th>Last update</th>
+          <th>Status</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @ingredients.each do |ingredient| %>
+          <tr class="ingredient-inventory">
+            <td class="ingredient-id"><%= ingredient.id %></td>
+            <td><%= ingredient.name %></td>
+            <td class="ingredient-total"><span class="value-total"><%= ingredient.total != nil ? ingredient.total : 'Sin registro' %></span></td>
+            <td ><%= ingredient.quant %></span></td>
+            <td><%= ingredient.updated_at.strftime("%Y-%m-%d")%></td>
+            <td>
+              <div class="status-good" >Good</div>
+            </td>
+            <td>
+              <button class="delete-button"><%=image_tag("edit-planner.svg")%></button>
+              <button class="confirm-button">✔</button>
+              <button class="cancel-button">X</button>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%=  javascript_include_tag 'inventory' %>

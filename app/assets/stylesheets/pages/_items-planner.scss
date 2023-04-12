@@ -45,13 +45,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    max-height: 80%;
+    max-height: 85%;
     overflow-y: scroll;
 
     .main-planner-container {
       background-color: $white;
       margin: 15px 50px 15px 15px;
-      max-height: 350px;
+      max-height: 1200px;
       overflow-y: scroll;
       width: 100%;
 
@@ -134,7 +134,7 @@
                 background-color: $red_button;
                 border: none;
                 height: 80%;
-                width: 80%;
+                width: 100%;
               }
               button:hover {
                 background-color: $red-color-main-button-hover;

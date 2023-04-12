@@ -15,7 +15,7 @@ function inventory() {
       const input = document.createElement("input");
 
       input.setAttribute("type", "text");
-      input.setAttribute("value", totalValue.innerText == 'Sin registro' ? 0 : totalValue.value);
+      input.setAttribute("value", totalValue.innerText == 'Sin registro' ? 0 : totalValue.innerText);
       input.style.width = "40%"
       input.className = "input-total";
 

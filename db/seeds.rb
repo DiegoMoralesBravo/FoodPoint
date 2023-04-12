@@ -1,6 +1,7 @@
 require 'faker'
 require "open-uri"
 
+totalDays= 6 * 30
 
 numberTables = 10
 
@@ -35,14 +36,14 @@ def randstatus
 end
 
 
-60.times do |i|
-    Order.create(
-      tables_id: i+1,
-      status: randstatus,
-      total: Faker::Number.between(from: 300, to: 1000),
-      note: Faker::Food.description,
-      created_at: i.days.ago.beginning_of_day
-    )
+numberOrders.times do |i|
+  Order.create(
+    tables_id: i+1,
+    status: randstatus,
+    total: Faker::Number.between(from: 300, to: 1000),
+    note: Faker::Food.description,
+    created_at: Date.today
+  )
 end
 
 
@@ -120,4 +121,19 @@ numberIngredients.times do
     quant: 'grams',
     price: Faker::Number.between(from: 0.12, to: 0.05).round(2)
   )
+end
+
+totalDays.times do |i|
+  rand(1..20).times do |_|
+    order = Order.create(
+      tables_id: rand(1..numberTables),
+      status: 'paid',
+      total: Faker::Number.between(from: 300, to: 1000),
+      note: Faker::Food.description,
+      created_at: (i + 1).days.ago
+    )
+    rand(1..5).times do |_|
+      OrdersItem.create(order_id: order.id, item_id: rand(1..totalnumberitems), quantity: Faker::Number.between(from: 1, to: 3))
+    end
+  end
 end

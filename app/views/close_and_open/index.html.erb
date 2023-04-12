@@ -154,9 +154,9 @@
       </div>
     </div>
     <div class="order-list-open">
-      <% if @order_Items.present? %>
+      <% if @orders_Items.present? %>
         <ul class="list-open">
-          <% @order_Items.each do |item| %>
+          <% @orders_Items.each do |item| %>
             <li class="item-open">
               <div class="list-icon-open">
                 <% category_item = Item.where(id: item.items_id).pluck(:category).first %>
@@ -219,4 +219,3 @@
     </div>
   </div>
 </main>
-

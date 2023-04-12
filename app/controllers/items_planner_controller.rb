@@ -3,6 +3,8 @@ class ItemsPlannerController < ApplicationController
 
   def index
     @items = Item.order(id: :asc).all
+    @ingredients = Ingredient.all
+    
     months = 2
     @orders = OrdersItem.where(created_at: months.months.ago..Time.now).order(item_id: :asc).all
     lastId = @orders[0].item_id
@@ -31,7 +33,6 @@ class ItemsPlannerController < ApplicationController
       bSearch(list, target, mid, top, total)
     else
       bSearch(list, target, bot, mid, total)
-    end
-    
+    end    
   end
 end

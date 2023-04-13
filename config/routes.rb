@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   resources :orders
   resources :ingredients
   resources :items_planner
+  resources :inventory
 
 end

@@ -10,7 +10,10 @@
       <div class="dropdown">
       </div>
       <div class="dropdown">
-      </div>
+      </div> 
+      <%= link_to inventory_index_path do %>
+        <button class="dropdown">Inventory</button>
+      <% end %>
     </div>
     <article class="planner-container">
       <div class="main-planner-container">
@@ -162,39 +165,6 @@
           </tbody>
         </table>
       </div>
-      <div class="header-late-plan">
-        <h1>Inventory</h1>
-      </div>
-      <div class="second-planner-container">
-        <table class= "late-inventory-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Qty</th>
-              <th>Last update</th>
-              <th>Status</th>
-              <th>Edit</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @ingredients.each do |ingredient| %>
-              <tr class="ingredient-inventory">
-                <td><%= ingredient.id %></td>
-                <td><%= ingredient.name %></td>
-                <td class="ingredient-total"><span class="value-total"><%= ingredient.total != 0 ? 'Sin registro' : ingredient.total %></span></td>
-                <td><%= ingredient.updated_at.strftime("%Y-%m-%d")%></td>
-                <td>
-                  <div class="status-good" >Good</div>
-                </td>
-                <td>
-                  <button class="edit-inventory"><%=image_tag("edit-planner.svg")%></button>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
     </article>
   </div>
   <div class="item-planner-container">
@@ -284,4 +254,3 @@
   </div>
 </div>
 </main>
-<%=  javascript_include_tag 'inventory' %>

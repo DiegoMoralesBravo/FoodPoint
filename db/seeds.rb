@@ -1,7 +1,7 @@
 require 'faker'
 require "open-uri"
 
-totalDays= 6 * 30
+totalDays= 4 * 30
 
 numberTables = 10
 

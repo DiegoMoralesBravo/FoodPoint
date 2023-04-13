@@ -19,7 +19,7 @@
       <div class="main-planner-container">
         <table class="planner-table">
           <thead>
-            <tr>
+            <tr >
               <th>Category</th>
               <th>Name</th>
               <th>Qty Available</th>
@@ -34,19 +34,19 @@
           </thead>
           <tbody>
             <% @items.each do |item| %>
-              <tr>
+              <tr class="items-row">
                 <td><%= item.category %></td>
-                <td><%= item.name %></td>
+                <td class="items-planner-name" ><%= item.name %></td>
                 <td>50</td>
                 <td>50</td>
                 <td>35</td>
                 <td>15</td>
                 <td>350</td>
-                <td>245</td>
+                <td>503</td>
                 <td>
                   <div class="status-inactive" >Inactive</div>
                 </td>
-                <td><button><%=image_tag("edit-planner.svg")%></button></td>
+                <td><button class= "button-planner-edit"><%=image_tag("edit-planner.svg")%></button></td>
               </tr>
             <% end %>
           </tbody>
@@ -82,55 +82,8 @@
         <h3>Description:</h3>
         <div class="item-info-description">
         </div>
-      </div>
-      <div class="date-planner-display">
-        <h3>Actual assigned date:</h3>
-        <div class="assigned-date-container">
-          <div class="assigned-date-column">
-            <p>D</p>
-            <div class="date-assigned">
-              <p>01</p>
-              <span>-</span>
-            </div>
-            <p>M</p>
-            <div class="date-assigned">
-              <p>01</p>
-              <span>-</span>
-            </div>
-            <p>Y</p>
-            <div class="date-assigned">
-              <p>01</p>
-              <span>-</span>
-            </div>
-          </div>
-          <div class="assigned-date-column">
-            <p>D</p>
-            <div class="date-assigned">
-              <p>01</p>
-              <span>-</span>
-            </div>
-            <p>M</p>
-            <div class="date-assigned">
-              <p>01</p>
-              <span>-</span>
-            </div>
-            <p>Y</p>
-            <div class="date-assigned">
-              <p>01</p>
-              <span>-</span>
-            </div>
-          </div>
-        </div>
-        <h3>New planned date:</h3>
-        <div class="assign-date-container">
-          <div class="new-date-planned">
-            <p>From:</p>
-            <input class="new-start-date-planned" type="date" id="start" name="trip-start"value="2018-07-22">
-          </div>
-          <div class="new-date-planned">
-            <p>To:</p>
-            <input class="new-finish-date-planned"  type="date" id="start" name="trip-start"value="2018-07-22">
-          </div>
+        <h3>Recipy:</h3>
+        <div class="item-info-description">
         </div>
       </div>
       <div class="order-buttons-container">
@@ -141,3 +94,4 @@
   </div>
 </div>
 </main>
+<%=  javascript_include_tag 'planner' %>

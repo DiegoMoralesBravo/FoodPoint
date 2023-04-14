@@ -39,6 +39,7 @@
                 <td class="items-planner-price"><%= item.price %></td>
                 <td class="items-planner-category"><%= item.category %></td>
                 <td class="items-planner-name" ><%= item.name %></td>
+                <td class="items-planner-description" ><%= item.description %></td>
                 <td>50</td>
                 <td>50</td>
                 <td>35</td>
@@ -61,7 +62,7 @@
       <%=image_tag("pexels-jonathan-borba-2983101.jpg")%>
     </div>
     <div class="item-name-footer">
-      <h3 class= "planner-item-name">Hamburguesa</h3>
+      <h3 class= "planner-item-name"> -- </h3>
       <div class="status-planner-edit">
         <h3>Status: </h3>
         <div class="status-lamp">
@@ -84,8 +85,47 @@
         <h3>Description:</h3>
         <div class="item-info-description">
         </div>
-        <h3>Recipy:</h3>
-        <div class="item-info-description">
+        <h3>Recipe:</h3>
+        <div class="item-info-recipe">
+          <table class="planner-recipe-table">
+            <thead>
+              <tr >
+                <th>Ingredient</th>
+                <th>Qty</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="items-row">
+                <td>Tomatto</td>
+                <td>350</td>
+                <td>
+                  <div class="status-inactive" >Inactive</div>
+                </td>
+              </tr>
+              <tr class="items-row">
+                <td>Tomatto</td>
+                <td>350</td>
+                <td>
+                  <div class="status-inactive" >Inactive</div>
+                </td>
+              </tr>
+              <tr class="items-row">
+                <td>Tomatto</td>
+                <td>350</td>
+                <td>
+                  <div class="status-inactive" >Inactive</div>
+                </td>
+              </tr>
+              <tr class="items-row">
+                <td>Tomatto</td>
+                <td>350</td>
+                <td>
+                  <div class="status-inactive" >Inactive</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
       <div class="order-buttons-container">

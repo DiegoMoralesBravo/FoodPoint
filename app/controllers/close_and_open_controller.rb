@@ -4,7 +4,7 @@ class CloseAndOpenController < ApplicationController
 
   def index
     @tables = Table.all
-    @orders = Order.all.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+    @orders = Order.all.where(created_at: Time.now.all_day)
     @orderitems = OrdersItem.all
 
     if params[:tables_id]
@@ -43,6 +43,12 @@ class CloseAndOpenController < ApplicationController
     end
 
     @total_val = Order.where(status: "paid", created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).sum(:total)
+  end
+
+  def destroy
+    @order = Order.find_by_id(params[:id])
+    @order.destroy
+    redirect_to close_and_open_path
   end
 
   def update_status

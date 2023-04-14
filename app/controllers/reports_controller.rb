@@ -140,12 +140,12 @@ class ReportsController < ApplicationController
                               .to_i
 
     
-    @item_ids = OrdersItem.select("items_id, SUM(quantity) AS quantity")
+    @item_ids = OrdersItem.select("item_id, SUM(quantity) AS quantity")
                               .where("created_at >= ?", @end_date.beginning_of_day)
                               .where("created_at <= ?", @start_date.end_of_day)
-                              .group(:items_id, :quantity)
+                              .group(:item_id, :quantity)
                               .order('quantity DESC')
-                              .pluck(:items_id)
+                              .pluck(:item_id)
                           
   end
 end

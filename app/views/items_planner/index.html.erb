@@ -35,7 +35,9 @@
           <tbody>
             <% @items.each do |item| %>
               <tr class="items-row">
-                <td><%= item.category %></td>
+                <td class="items-planner-image"><%=image_tag item.image%></td>
+                <td class="items-planner-price"><%= item.price %></td>
+                <td class="items-planner-category"><%= item.category %></td>
                 <td class="items-planner-name" ><%= item.name %></td>
                 <td>50</td>
                 <td>50</td>
@@ -71,12 +73,12 @@
       <div class="item-info-container">
         <h3>Category:</h3>
         <div class="item-info-label">
-          <p>Food</p>
+          <p class= "planner-item-category">Food</p>
           <span><%=image_tag("lunch_dining_black_24dp.svg")%></span>
         </div>
         <h3>Price:</h3>
         <div class="item-info-label">
-          <p>Food</p>
+          <p class= "planner-item-price">--</p>
           <span>$</span>
         </div>
         <h3>Description:</h3>

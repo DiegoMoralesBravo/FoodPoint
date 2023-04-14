@@ -384,24 +384,26 @@
         border-radius: 5px;
         border: 1px solid #373737;
         display: flex;
-        min-height: 130px;
         justify-content: space-between;
         margin: 10px;
-        width: 200px;
+        min-height: 120px;
         padding: 8px;
+        width: 200px;
       }
       .item-info-recipe {
         background: $white;
         border-radius: 5px;
         border: 1px solid #373737;
         display: flex;
-        min-height: 150px;
         justify-content: space-between;
         margin: 10px;
-        width: 200px;
-        .planner-recipe-table{
+        max-height: 180px;
+        min-height: 180px;
+        overflow-y: scroll;
+        width: 217px;
+        .planner-recipe-table {
           width: 100%;
-          thead{
+          thead {
             background-color: #373737;
             color: white;
           }

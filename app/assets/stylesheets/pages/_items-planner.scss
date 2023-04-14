@@ -39,6 +39,31 @@
       margin-left: 20px;
       width: 327px;
     }
+    
+    a{
+      text-decoration: none;
+    }
+
+    button {
+      align-items: center;
+      background: $red-color-main-button;
+      border-radius: 45px;
+      border: 6px solid #ffffff;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      color: $white-font-and-lettering;
+      cursor: pointer;
+      display: flex;
+      font-size: 16px;
+      height: 48px;
+      justify-content: center;
+      margin: 10px;
+      text-align: center;
+      width: 200px;
+    }
+
+    button:hover {
+      background-color: $red-color-main-button-hover;
+    }
   }
 
   .planner-container {

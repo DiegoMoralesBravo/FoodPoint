@@ -23,9 +23,8 @@
               <th>Category</th>
               <th>Name</th>
               <th>Qty Available</th>
-              <th>Qty recomended</th>
-              <th>Sold Qty</th>
-              <th>Qty Available</th>
+              <th>Average 15-day sales</th>
+              <th>Two months sales</th>
               <th>Sales Value</th>
               <th>Sales Earned</th>
               <th>Status</th>
@@ -41,9 +40,8 @@
                 <td class="items-planner-name" ><%= item.name %></td>
                 <td class="items-planner-description" ><%= item.description %></td>
                 <td>50</td>
-                <td>50</td>
-                <td>35</td>
-                <td>15</td>
+                <td><%= item.average %></td>
+                <td><%= item.sales %></td>
                 <td>350</td>
                 <td>503</td>
                 <td>

@@ -14,7 +14,7 @@ class ItemsPlannerController < ApplicationController
       if order.item_id == lastId
         totalorders += order.quantity
       else
-        bSearch(@items, lastId, 0, @items.length, totalorders / (months * 30))
+        bSearch(@items, lastId, 0, @items.length, totalorders)
         totalorders = 0
       end
       lastId = order.item_id
@@ -27,7 +27,8 @@ class ItemsPlannerController < ApplicationController
     mid = (bot + top) / 2
 
     if list[mid].id == target
-      list[mid].average = total
+      list[mid].average = (total * 0.25).ceil
+      list[mid].sales = total
       true
     elsif target > list[mid].id
       bSearch(list, target, mid, top, total)

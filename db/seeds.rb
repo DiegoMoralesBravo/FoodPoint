@@ -124,7 +124,7 @@ numberIngredients.times do
 end
 
 totalDays.times do |i|
-  rand(1..20).times do |_|
+  rand(1..8).times do |_|
     order = Order.create(
       tables_id: rand(1..numberTables),
       status: 'paid',
@@ -132,7 +132,7 @@ totalDays.times do |i|
       note: Faker::Food.description,
       created_at: (i + 1).days.ago
     )
-    rand(1..5).times do |_|
+    rand(1..4).times do |_|
       OrdersItem.create(order_id: order.id, item_id: rand(1..totalnumberitems),
                         quantity: Faker::Number.between(from: 1, to: 3))
     end

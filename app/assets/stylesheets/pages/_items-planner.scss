@@ -73,9 +73,20 @@
 
         tbody {
           tr {
+
+            .items-planner-price{
+
+              display: none;
+
+
+            }
+            .items-planner-image{
+              display: none;
+            }
             td {
               text-align: center;
               align-items: center;
+
               .status-inactive {
                 align-items: center;
                 background-color: $ligth-status;

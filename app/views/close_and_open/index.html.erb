@@ -159,7 +159,7 @@
           <% @order_Items.each do |item| %>
             <li class="item-open">
               <div class="list-icon-open">
-                <% category_item = Item.where(id: item.items_id).pluck(:category).first %>
+                <% category_item = Item.where(id: item.item_id).pluck(:category).first %>
                 <% if category_item == "Food" %>
                   <span> <%=image_tag("lunch_dining_black_24dp.svg", :class => "icon_category")%></span>
                 <% elsif category_item == "Dessert" %>
@@ -169,7 +169,7 @@
                 <% end %>
               </div>
               <div class="list-icon-open">
-                <% name_item = Item.where(id: item.items_id).pluck(:name).first %>
+                <% name_item = Item.where(id: item.item_id).pluck(:name).first %>
                 <p><%= name_item %></p>
               </div>
               <div class="list-price-open">

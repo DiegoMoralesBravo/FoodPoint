@@ -154,9 +154,9 @@
       </div>
     </div>
     <div class="order-list-open">
-      <% if @orders_Items.present? %>
+      <% if @order_Items.present? %>
         <ul class="list-open">
-          <% @orders_Items.each do |item| %>
+          <% @order_Items.each do |item| %>
             <li class="item-open">
               <div class="list-icon-open">
                 <% category_item = Item.where(id: item.items_id).pluck(:category).first %>
@@ -210,12 +210,16 @@
         <%= button_tag 'Add new item', value: @order, type: :submit, name: :order, :disabled => true, class: "disabled-button" %>
       <% end %>
       <%= button_to "check out", update_status_close_and_open_path(@order),method: :patch, :disabled => true, class: "disabled-button" %>
+      <%= button_to 'Delete', close_and_open_path(@order), class: "disabled-button", method: :delete %>
+
     <% else %>
       <%= form_tag orders_path, method: 'get' do %>
         <%= button_tag 'Add new item', value: @order, type: :submit, name: :order %>
       <% end %>
       <%= button_to "check out", update_status_close_and_open_path(@order),method: :patch %>
+      <%= button_to 'Delete', close_and_open_path(@order), method: :delete %>
     <% end %>
     </div>
+
   </div>
 </main>

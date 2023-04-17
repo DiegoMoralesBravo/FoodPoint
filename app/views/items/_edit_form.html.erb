@@ -1,0 +1,21 @@
+<%= form_with model: @item do |form| %>
+  <div class="info-container">
+    <%= form.text_field :name, :required => true, placeholder: "Name" %>
+  </div>
+  <div class="info-container">
+    <%= form.number_field :price, :required => true, placeholder: "Price" %>
+  </div>
+  <div class="info-container">
+    <%= form.select :category, ["Starter", "Main", "Drink", "Dessert"] %>  
+  </div>
+  <div class="info-container">
+    <%= form.file_field :image, placeholder: "Image", class: "file-select"%>
+  </div>
+  <div class="button-container">
+    <%= form.submit %>
+    <%= link_to items_path do %>
+      <button>Cancel</button>
+    <% end %>
+  </div>
+<% end %>
+<%=  javascript_include_tag 'recipe-modal' %>

@@ -3,6 +3,8 @@ class ItemsPlannerController < ApplicationController
 
   def index
     @items = Item.order(id: :asc).all
+    @ingredients = Ingredient.all
+    
     months = 2
     @orders = OrdersItem.where(created_at: months.months.ago..Time.now).order(item_id: :asc).all
     lastId = @orders[0].item_id
@@ -12,7 +14,7 @@ class ItemsPlannerController < ApplicationController
       if order.item_id == lastId
         totalorders += order.quantity
       else
-        bSearch(@items, lastId, 0, @items.length, totalorders / (months * 30))
+        bSearch(@items, lastId, 0, @items.length, totalorders)
         totalorders = 0
       end
       lastId = order.item_id
@@ -25,13 +27,13 @@ class ItemsPlannerController < ApplicationController
     mid = (bot + top) / 2
 
     if list[mid].id == target
-      list[mid].average = total
+      list[mid].average = (total * 0.25).ceil
+      list[mid].sales = total
       true
     elsif target > list[mid].id
       bSearch(list, target, mid, top, total)
     else
       bSearch(list, target, bot, mid, total)
-    end
-    
+    end    
   end
 end

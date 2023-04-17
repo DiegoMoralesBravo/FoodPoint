@@ -1,6 +1,6 @@
 <%= render 'shared/navbarAdmin' %>
 <main class="service-main-container">
-  <div class="cards-section">
+  <div class="planner-section">
     <div class="head-cards">
       <div class="search-input">
         <div class="submit-button">
@@ -19,13 +19,12 @@
       <div class="main-planner-container">
         <table class="planner-table">
           <thead>
-            <tr>
+            <tr >
               <th>Category</th>
               <th>Name</th>
-              <th>Planned Qty</th>
-              <th>Date Planned</th>
-              <th>Sold Qty</th>
               <th>Qty Available</th>
+              <th>Average 15-day sales</th>
+              <th>Two months sales</th>
               <th>Sales Value</th>
               <th>Sales Earned</th>
               <th>Status</th>
@@ -33,135 +32,24 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Appetizer</td>
-              <td>Bruschetta</td>
-              <td>50</td>
-              <td>
-                <p>2023-04-03</p>
-                <p>2023-04-03</p>
-              </td>
-              <td>35</td>
-              <td>15</td>
-              <td>350</td>
-              <td>245</td>
-              <td>
-                <div class="status-inactive" >Inactive</div>
-              </td>
-              <td><button><%=image_tag("edit-planner.svg")%></button></td>
-            </tr>
-            <tr>
-              <td>Main Course</td>
-              <td>Pesto Pasta</td>
-              <td>40</td>
-              <td>2023-04-03</td>
-              <td>20</td>
-              <td>20</td>
-              <td>400</td>
-              <td>200</td>
-              <td>
-                <div class="status-short" >Short</div>
-              </td>
-              <td><button><%=image_tag("edit-planner.svg")%></button></td>
-            </tr>
-            <tr>
-              <td>Side Dish</td>
-              <td>Garlic Bread</td>
-              <td>30</td>
-              <td>2023-04-05</td>
-              <td>10</td>
-              <td>20</td>
-              <td>150</td>
-              <td>50</td>
-              <td>
-                <div class="status-good" >Good</div>
-              </td>
-              <td><button><%=image_tag("edit-planner.svg")%></button></td>
-            </tr>
-            <tr>
-              <td>Dessert</td>
-              <td>Chocolate Cake</td>
-              <td>20</td>
-              <td>2023-04-08</td>
-              <td>5</td>
-              <td>15</td>
-              <td>200</td>
-              <td>50</td>
-              <td>
-                <div class="status-low" >Low</div>
-              </td>
-              <td><button><%=image_tag("edit-planner.svg")%></button></td>
-            </tr>
-            <tr>
-              <td>Drink</td>
-              <td>Mojito</td>
-              <td>25</td>
-              <td>2023-04-10</td>
-              <td>15</td>
-              <td>10</td>
-              <td>250</td>
-              <td>150</td>
-              <td>
-                <div class="status-inactive" >Inactive</div>
-              </td>
-              <td><button><%=image_tag("edit-planner.svg")%></button></td>
-            </tr>
-            <tr>
-              <td>Drink</td>
-              <td>Mojito</td>
-              <td>25</td>
-              <td>2023-04-10</td>
-              <td>15</td>
-              <td>10</td>
-              <td>250</td>
-              <td>150</td>
-              <td>
-                <div class="status-inactive" >Inactive</div>
-              </td>
-              <td><button><%=image_tag("edit-planner.svg")%></button></td>
-            </tr>
-            <tr>
-              <td>Drink</td>
-              <td>Mojito</td>
-              <td>25</td>
-              <td>2023-04-10</td>
-              <td>15</td>
-              <td>10</td>
-              <td>250</td>
-              <td>150</td>
-              <td>
-                <div class="status-inactive" >Inactive</div>
-              </td>
-              <td><button><%=image_tag("edit-planner.svg")%></button></td>
-            </tr>
-            <tr>
-              <td>Drink</td>
-              <td>Mojito</td>
-              <td>25</td>
-              <td>2023-04-10</td>
-              <td>15</td>
-              <td>10</td>
-              <td>250</td>
-              <td>150</td>
-              <td>
-                <div class="status-inactive" >Inactive</div>
-              </td>
-              <td><button><%=image_tag("edit-planner.svg")%></button></td>
-            </tr>
-            <tr>
-              <td>Drink</td>
-              <td>Mojito</td>
-              <td>25</td>
-              <td>2023-04-10</td>
-              <td>15</td>
-              <td>10</td>
-              <td>250</td>
-              <td>150</td>
-              <td>
-                <div class="status-inactive" >Inactive</div>
-              </td>
-              <td><button><%=image_tag("edit-planner.svg")%></button></td>
-            </tr>
+            <% @items.each do |item| %>
+              <tr class="items-row">
+                <td class="items-planner-image"><%=image_tag item.image%></td>
+                <td class="items-planner-price"><%= item.price %></td>
+                <td class="items-planner-category"><%= item.category %></td>
+                <td class="items-planner-name" ><%= item.name %></td>
+                <td class="items-planner-description" ><%= item.description %></td>
+                <td>50</td>
+                <td><%= item.average %></td>
+                <td><%= item.sales %></td>
+                <td>350</td>
+                <td>503</td>
+                <td>
+                  <div class="status-inactive" >Inactive</div>
+                </td>
+                <td><button class= "button-planner-edit"><%=image_tag("edit-planner.svg")%></button></td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>
@@ -172,7 +60,7 @@
       <%=image_tag("pexels-jonathan-borba-2983101.jpg")%>
     </div>
     <div class="item-name-footer">
-      <h3 class= "planner-item-name">Hamburguesa</h3>
+      <h3 class= "planner-item-name"> -- </h3>
       <div class="status-planner-edit">
         <h3>Status: </h3>
         <div class="status-lamp">
@@ -184,66 +72,93 @@
       <div class="item-info-container">
         <h3>Category:</h3>
         <div class="item-info-label">
-          <p>Food</p>
+          <p class= "planner-item-category">Food</p>
           <span><%=image_tag("lunch_dining_black_24dp.svg")%></span>
         </div>
         <h3>Price:</h3>
         <div class="item-info-label">
-          <p>Food</p>
+          <p class= "planner-item-price">--</p>
           <span>$</span>
         </div>
         <h3>Description:</h3>
         <div class="item-info-description">
         </div>
-      </div>
-      <div class="date-planner-display">
-        <h3>Actual assigned date:</h3>
-        <div class="assigned-date-container">
-          <div class="assigned-date-column">
-            <p>D</p>
-            <div class="date-assigned">
-              <p>01</p>
-              <span>-</span>
-            </div>
-            <p>M</p>
-            <div class="date-assigned">
-              <p>01</p>
-              <span>-</span>
-            </div>
-            <p>Y</p>
-            <div class="date-assigned">
-              <p>01</p>
-              <span>-</span>
-            </div>
-          </div>
-          <div class="assigned-date-column">
-            <p>D</p>
-            <div class="date-assigned">
-              <p>01</p>
-              <span>-</span>
-            </div>
-            <p>M</p>
-            <div class="date-assigned">
-              <p>01</p>
-              <span>-</span>
-            </div>
-            <p>Y</p>
-            <div class="date-assigned">
-              <p>01</p>
-              <span>-</span>
-            </div>
-          </div>
-        </div>
-        <h3>New planned date:</h3>
-        <div class="assign-date-container">
-          <div class="new-date-planned">
-            <p>From:</p>
-            <input class="new-start-date-planned" type="date" id="start" name="trip-start"value="2018-07-22">
-          </div>
-          <div class="new-date-planned">
-            <p>To:</p>
-            <input class="new-finish-date-planned"  type="date" id="start" name="trip-start"value="2018-07-22">
-          </div>
+        <h3>Recipe:</h3>
+        <div class="item-info-recipe">
+          <table class="planner-recipe-table">
+            <thead>
+              <tr >
+                <th>Ingredient</th>
+                <th>Qty</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="items-row">
+                <td>Tomatto</td>
+                <td>350</td>
+                <td>
+                  <div class="status-inactive" >Inactive</div>
+                </td>
+              </tr>
+              <tr class="items-row">
+                <td>Ground beef</td>
+                <td>350</td>
+                <td>
+                  <div class="status-inactive-side" >Inactive</div>
+                </td>
+              </tr>
+              <tr class="items-row">
+                <td>TomaHamburger bunstto</td>
+                <td>350</td>
+                <td>
+                  <div class="status-inactive-side" >Inactive</div>
+                </td>
+              </tr>
+              <tr class="items-row">
+                <td>Lettuce</td>
+                <td>350</td>
+                <td>
+                  <div class="status-inactive-side" >Inactive</div>
+                </td>
+              </tr>
+              <tr class="items-row">
+                <td>Tomato</td>
+                <td>350</td>
+                <td>
+                  <div class="status-inactive-side" >Inactive</div>
+                </td>
+              </tr>
+              <tr class="items-row">
+                <td>Onion</td>
+                <td>350</td>
+                <td>
+                  <div class="status-inactive-side" >Inactive</div>
+                </td>
+              </tr>
+              <tr class="items-row">
+                <td>Cheese</td>
+                <td>350</td>
+                <td>
+                  <div class="status-inactive-side" >Inactive</div>
+                </td>
+              </tr>
+              <tr class="items-row">
+                <td>Ketchup</td>
+                <td>350</td>
+                <td>
+                  <div class="status-inactive-side" >Inactive</div>
+                </td>
+              </tr>
+              <tr class="items-row">
+                <td>Mustard</td>
+                <td>350</td>
+                <td>
+                  <div class="status-inactive-side" >Inactive</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
       <div class="order-buttons-container">
@@ -254,3 +169,4 @@
   </div>
 </div>
 </main>
+<%=  javascript_include_tag 'planner' %>

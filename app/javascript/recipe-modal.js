@@ -10,6 +10,9 @@ function main() {
   const pricesRecipe = document.querySelector(".prices-recipe");
   const pricesTotal = document.querySelector(".prices-total");
   const suggestTotal = document.querySelector(".suggest-total");
+  const buttonCreate = document.querySelector(".button-recipe");
+  const form = document.querySelector('.form');
+  const listIngredient = [];
 
   let dishName;
   let flagRecipeTable = false;
@@ -64,7 +67,10 @@ function main() {
     const tdButton = document.createElement("td");
     const buttonRemove = document.createElement("button");
 
+    trIng.className = 'value-ingredient'
     tdID.textContent = ingredient.id;
+    tdID.className = 'id-ingredient'
+    input.className = 'input-ingredient'
     tdName.textContent = ingredient.name;
     tdsignSpan.textContent = "$";
     tdPriceSpan.textContent = 0;
@@ -110,6 +116,20 @@ function main() {
     }
     pricesTotal.innerText = totalPrice.toFixed(2);
     suggestTotal.innerText = (totalPrice * 1.4).toFixed(2);
+  }
+
+  buttonCreate.onclick = () => {
+    let ingredients = document.querySelectorAll('.value-ingredient');
+    
+    for (let i = 0; i < ingredients.length; i++) {
+      const ingredient = ingredients[i];
+      const id = ingredient.querySelector('.id-ingredient').innerText
+      const value = ingredient.querySelector('.input-ingredient').value
+      listIngredient.push({id, value})
+    }
+
+    form.elements['item[recipe]'].value = JSON.stringify(listIngredient);
+    form.submit();
   }
 }
 

@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.all
+    @items = Item.order("id ASC").all
   end
 
   def new
@@ -12,8 +12,12 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @params = item_params
+    @item = Item.new(@params.except('recipe'))
     if @item.save
+      JSON.parse(@params[:recipe]).each do |ingredient|
+        Recipe.create(id_item: @item.id, id_ingredient: ingredient['id'], quantity: ingredient['value'])
+      end
       redirect_to '/items'
     else
       render :new, status: :unprocessable_entity
@@ -42,7 +46,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :price, :category, :image)
+    params.require(:item).permit(:name, :price, :category, :image, :recipe)
   end
 
   def set_item

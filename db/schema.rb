@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_28_181417) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_18_014131) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -80,6 +80,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_181417) do
     t.boolean "status_item", default: false
     t.index ["item_id"], name: "index_orders_items_on_item_id"
     t.index ["order_id"], name: "index_orders_items_on_order_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.integer "id_item"
+    t.integer "id_ingredient"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tables", force: :cascade do |t|

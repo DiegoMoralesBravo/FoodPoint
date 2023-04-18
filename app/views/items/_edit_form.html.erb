@@ -9,10 +9,7 @@
     <%= form.select :category, ["Starter", "Main", "Drink", "Dessert"] %>  
   </div>
   <div class="info-container">
-    <%= form.file_field :image, :required => true, placeholder: "Image", class: "file-select"%>
-  </div>
-  <div class="info-container">
-    <div class="recipe">Create recipe</div>
+    <%= form.file_field :image, placeholder: "Image", class: "file-select"%>
   </div>
   <div class="button-container">
     <%= form.submit %>

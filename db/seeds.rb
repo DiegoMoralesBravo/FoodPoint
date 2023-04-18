@@ -1,7 +1,7 @@
 require 'faker'
 require "open-uri"
 
-totalDays= 4 * 30
+totalDays= 2 * 30
 
 numberTables = 10
 
@@ -59,7 +59,11 @@ numberitemsfood.times do
       io: File.open('app/assets/images/pasta.jpg'),
       filename: 'p.jpg'
     )
+  rand(1..3).times do |_|
+    Recipe.create(id_item: item.id, id_ingredient: Faker::Number.unique.between(from: 1, to: numberIngredients), quantity: rand(100..300))
   end
+  Faker::Number.unique.clear
+end
 
   #dessert
   numberitemsdessert.times do
@@ -72,6 +76,10 @@ numberitemsfood.times do
       io: File.open('app/assets/images/caramel-topped-ice-cream.jpg'),
     filename: 'p.jpg'
   )
+  rand(1..3).times do |_|
+    Recipe.create(id_item: item.id, id_ingredient: Faker::Number.unique.between(from: 1, to: numberIngredients), quantity: rand(100..300))
+  end
+  Faker::Number.unique.clear
 end
 
 #Items drinks
@@ -85,6 +93,10 @@ numberitemsdrink.times do
       io: File.open('app/assets/images/beer.jpg'),
     filename: 'p.jpg'
   )
+  rand(1..3).times do |_|
+    Recipe.create(id_item: item.id, id_ingredient: Faker::Number.unique.between(from: 1, to: numberIngredients), quantity: rand(100..300))
+  end
+  Faker::Number.unique.clear
 end
 
 #Ordersitems

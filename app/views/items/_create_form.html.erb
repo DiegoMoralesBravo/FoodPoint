@@ -6,7 +6,7 @@
     <%= form.number_field :price, :required => true, placeholder: "Price" %>
   </div>
   <div class="info-container">
-    <%= form.select :category, ["Starter", "Main", "Drink", "Dessert"] %>  
+    <%= form.select :category, ["Food", "Dessert", "Drink"] %>  
   </div>
   <div class="info-container">
     <%= form.file_field :image, :required => true, placeholder: "Image", class: "file-select"%>

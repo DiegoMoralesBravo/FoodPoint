@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   def index
     @items = Item.all
     @tables = Table.all
-    @orders = Order.all
+    @orders = Order.all.where(created_at: Date.today)
     @category = params[:category]
     @input = params[:name]
     @order = (Order.count + 1) unless (@order = params[:order])

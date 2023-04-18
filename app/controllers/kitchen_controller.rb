@@ -33,7 +33,7 @@ class KitchenController < ApplicationController
   end
 
   def finished(order)
-    orderitems = OrdersItem.where(orders_id: order)
+    orderitems = OrdersItem.where(order_id: order)
     orderitems.update_all(status_item: true)
   end
 

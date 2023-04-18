@@ -47,7 +47,13 @@ class OrdersController < ApplicationController
 
     items.each do |item|
       id = Item.find_by(name: item[:name]).id
-      OrdersItem.create(orders_id: number_order, items_id: id, quantity: item[:quantity])
+      OrdersItem.create(order_id: number_order, item_id: id, quantity: item[:quantity])
+      ingredients = Recipe.all.where(id_item: id)
+      ingredients.each do |ingredientRecipe|
+        ingredient = Ingredient.find(ingredientRecipe.id_ingredient)
+        ingredient.total -=  ingredientRecipe.quantity * item[:quantity]
+        ingredient.save
+      end
     end
   end
 end

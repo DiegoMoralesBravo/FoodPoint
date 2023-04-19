@@ -1,4 +1,5 @@
 <%= render 'shared/navbarAdmin' %>
+<%= render 'shared/supplies_modal' %>
 <main class="service-main-container">
   <div class="planner-section">
     <div class="head-cards">
@@ -14,6 +15,7 @@
       <%= link_to inventory_index_path do %>
         <button class="dropdown">Inventory</button>
       <% end %>
+      <button class="supplier-button">Supplies</button>
     </div>
     <article class="planner-container">
       <div class="main-planner-container">
@@ -170,3 +172,4 @@
 </div>
 </main>
 <%=  javascript_include_tag 'planner' %>
+<%=  javascript_include_tag 'supplie-modal' %>

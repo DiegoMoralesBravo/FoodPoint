@@ -9,7 +9,7 @@
         <section id="mesas-seleccion" class="cardscontainer">
           <% if @tables.present? %>
             <% @tables.each do |table| %>
-              <% order = Order.find_by(tables_id: table.id) %>
+              <% order = @orders.find { |order| order.tables_id == table.id } %>
               <% if order.present? %>
                 <% if order.status == "paid"%>
                   <div class="cards" data-mesa-id="<%= table.id %>">

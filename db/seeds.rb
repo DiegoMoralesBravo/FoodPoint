@@ -42,7 +42,6 @@ numberOrders.times do |i|
     status: randstatus,
     total: Faker::Number.between(from: 300, to: 1000),
     note: Faker::Food.description,
-    created_at: Date.today
   )
 end
 

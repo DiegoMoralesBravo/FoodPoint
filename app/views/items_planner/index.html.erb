@@ -10,7 +10,7 @@
       <div class="dropdown">
       </div>
       <div class="dropdown">
-      </div> 
+      </div>
       <%= link_to inventory_index_path do %>
         <button class="dropdown">Inventory</button>
       <% end %>
@@ -39,13 +39,13 @@
                 <td class="items-planner-category"><%= item.category %></td>
                 <td class="items-planner-name" ><%= item.name %></td>
                 <td class="items-planner-description" ><%= item.description %></td>
-                <td>50</td>
+                <td><%= item.available_qty %></td>
                 <td><%= item.average %></td>
                 <td><%= item.sales %></td>
                 <td>350</td>
                 <td>503</td>
                 <td>
-                  <div class="status-inactive" >Inactive</div>
+                  <%= item.average == nil || item.available_qty < item.average ?  content_tag(:div, "short", class: "status-short") : "good" %>
                 </td>
                 <td><button class= "button-planner-edit"><%=image_tag("edit-planner.svg")%></button></td>
               </tr>

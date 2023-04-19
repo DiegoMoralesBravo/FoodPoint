@@ -113,25 +113,26 @@ end
 User.create({:email => "admin@gmail.com", :password => "123456", :password_confirmation => "123456" })
 
 # Ingredients
-Ingredient.create({:name => "Beef", :quant => "grams", :price => 0.12 })
-Ingredient.create({:name => "Chicken", :quant => "grams", :price => 0.10 })
-Ingredient.create({:name => "Bacon", :quant => "grams", :price => 0.11 })
-Ingredient.create({:name => "Cheese", :quant => "grams", :price => 0.08 })
-Ingredient.create({:name => "Onion", :quant => "grams", :price => 0.05 })
-Ingredient.create({:name => "Tomato", :quant => "grams", :price => 0.07 })
-Ingredient.create({:name => "Lettuce", :quant => "grams", :price => 0.08 })
-Ingredient.create({:name => "Tomato sauce", :quant => "milliliters", :price => 0.05 })
-Ingredient.create({:name => "BBQ sauce", :quant => "milliliters", :price => 0.08 })
-Ingredient.create({:name => "Vegetable oil", :quant => "milliliters", :price => 0.02 })
-Ingredient.create({:name => "Olive oil", :quant => "milliliters", :price => 0.15 })
-Ingredient.create({:name => "Hot sauce", :quant => "milliliters", :price => 0.10 })
-Ingredient.create({:name => "Mustard", :quant => "milliliters", :price => 0.04 })
+Ingredient.create({:name => "Beef", :quant => "grams", :price => 0.12, :total => 500})
+Ingredient.create({:name => "Chicken", :quant => "grams", :price => 0.10 , :total => 500})
+Ingredient.create({:name => "Bacon", :quant => "grams", :price => 0.11,:total => 500 })
+Ingredient.create({:name => "Cheese", :quant => "grams", :price => 0.08 ,:total => 500})
+Ingredient.create({:name => "Onion", :quant => "grams", :price => 0.05,:total => 500 })
+Ingredient.create({:name => "Tomato", :quant => "grams", :price => 0.07,:total => 500 })
+Ingredient.create({:name => "Lettuce", :quant => "grams", :price => 0.08 ,:total => 500})
+Ingredient.create({:name => "Tomato sauce", :quant => "milliliters", :price => 0.05 ,:total => 500})
+Ingredient.create({:name => "BBQ sauce", :quant => "milliliters", :price => 0.08 ,:total => 500})
+Ingredient.create({:name => "Vegetable oil", :quant => "milliliters", :price => 0.02,:total => 500 })
+Ingredient.create({:name => "Olive oil", :quant => "milliliters", :price => 0.15,:total => 500 })
+Ingredient.create({:name => "Hot sauce", :quant => "milliliters", :price => 0.10,:total => 500 })
+Ingredient.create({:name => "Mustard", :quant => "milliliters", :price => 0.04 ,:total => 500})
 
 numberIngredients.times do
   Ingredient.create(
     name: Faker::Food.ingredient,
     quant: 'grams',
-    price: Faker::Number.between(from: 0.12, to: 0.05).round(2)
+    price: Faker::Number.between(from: 0.12, to: 0.05).round(2),
+    total: Faker::Number.between(from: 500, to: 1000)
   )
 end
 

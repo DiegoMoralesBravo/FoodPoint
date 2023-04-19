@@ -3,8 +3,6 @@ class ItemsPlannerController < ApplicationController
 
   def index
     @items = Item.order(id: :asc).all
-    @ingredients = Ingredient.all
-    
     months = 2
     @orders = OrdersItem.where(created_at: months.months.ago..Time.now).order(item_id: :asc).all
     lastId = @orders[0].item_id
@@ -19,7 +17,18 @@ class ItemsPlannerController < ApplicationController
       end
       lastId = order.item_id
     end
-
+    @items.each do |item|
+      recipes = Recipe.where(id_item: item.id).all
+      min = 9999
+      recipes.each do |recipe|
+        ingredients = Ingredient.find(recipe.id_ingredient)
+        available =  ingredients.total / recipe.quantity
+        if available < min
+          min = available
+        end
+      end
+      item.available_qty = min
+    end
   end
 
   def bSearch(list, target, bot, top, total)
@@ -34,6 +43,6 @@ class ItemsPlannerController < ApplicationController
       bSearch(list, target, mid, top, total)
     else
       bSearch(list, target, bot, mid, total)
-    end    
+    end
   end
 end

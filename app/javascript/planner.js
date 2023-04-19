@@ -6,8 +6,6 @@ function planner() {
   let itemDescription = document.querySelector(".item-info-description");
   let itemImage = document.querySelector(".item-planner-image-container");
 
-  console.log(itemImage);
-
   itemList.forEach((item) => {
     let button = item.querySelector(".button-planner-edit");
     let name = item.querySelector(".items-planner-name").innerHTML;
@@ -19,9 +17,6 @@ function planner() {
     let image = item.querySelector(".items-planner-image").innerHTML;
 
     button.addEventListener("click", (e) => {
-      console.log(name);
-      console.log(price);
-      console.log(image);
 
       itemName.innerHTML = name;
       itemCategory.innerHTML = category;

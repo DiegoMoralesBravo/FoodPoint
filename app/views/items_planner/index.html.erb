@@ -45,7 +45,7 @@
                 <td>350</td>
                 <td>503</td>
                 <td>
-                  <%= item.average == nil || item.available_qty < item.average ? <div class="status-inactive" >active</div> : "good" %>
+                  <%= item.average == nil || item.available_qty < item.average ?  content_tag(:div, "short", class: "status-short") : "good" %>
                 </td>
                 <td><button class= "button-planner-edit"><%=image_tag("edit-planner.svg")%></button></td>
               </tr>

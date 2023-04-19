@@ -11,17 +11,11 @@
             <% @tables.each do |table| %>
               <% order = Order.find_by(tables_id: table.id) %>
               <% if order.present? %>
-                <% if order.status == "wait"%>
+                <% if order.status == "paid"%>
                   <div class="cards" data-mesa-id="<%= table.id %>">
                     <span class="table-number">Table <%= table.id %></span>
-                    <span class="order-time"><%= order.created_at.strftime("%H:%M") %></span>
                   </div>
-                <% elsif order.status == "progress" %>
-                  <div class="cards cards-green" data-mesa-id="<%= table.id %>">
-                    <span class="table-number">Table <%= table.id %></span>
-                    <span class="order-time"><%= order.created_at.strftime("%H:%M") %></span>
-                  </div>
-                <% elsif order.status == "done" %>
+                <% elsif order.status == "wait" || order.status == "progress" || order.status == "done"%>
                   <div class="cards cards-red" data-mesa-id="<%= table.id %>">
                     <span class="table-number">Table <%= table.id %></span>
                     <span class="order-time"><%= order.created_at.strftime("%H:%M") %></span>

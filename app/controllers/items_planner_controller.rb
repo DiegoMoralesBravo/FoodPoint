@@ -18,8 +18,6 @@ class ItemsPlannerController < ApplicationController
       lastId = order.item_id
     end
 
-
-
     @items.each do |item|
       recipes = Recipe.where(id_item: item.id).all
       min = 9999
@@ -36,8 +34,26 @@ class ItemsPlannerController < ApplicationController
 
   def getIngredients
     item_id = params[:item_id]
+    avg = params[:avg].to_i()
     ingredients = Recipe.where(id_item: item_id).all
-    render json: ingredients
+
+    listIngredients = []
+    ingredientObj = {}
+    ingredients.each do |ingredient|
+      ingName = Ingredient.find(ingredient.id_ingredient);
+      available = ingName.total/ingredient.quantity;
+      if(available < avg)
+        status = "short"
+      else
+        status = "good"
+      end
+      ingredientObj = {name: ingName.name, current_qty: ingName.total, recipe_qty: ingredient.quantity, available: available, status: status}
+      listIngredients.push(ingredientObj)
+
+    end
+
+    render json: listIngredients
+
   end
 
   def bSearch(list, target, bot, top, total)

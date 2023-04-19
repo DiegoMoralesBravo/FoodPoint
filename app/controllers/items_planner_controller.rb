@@ -3,6 +3,7 @@ class ItemsPlannerController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
     @items = Item.order(id: :asc).all
+    @ingredients = Ingredient.order(id: :asc).all
     months = 2
     @orders = OrdersItem.where(created_at: months.months.ago..Time.now).order(item_id: :asc).all
     lastId = @orders[0].item_id

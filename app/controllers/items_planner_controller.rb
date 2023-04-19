@@ -1,6 +1,6 @@
 class ItemsPlannerController < ApplicationController
   before_action :authenticate_user!
-
+  skip_before_action :verify_authenticity_token
   def index
     @items = Item.order(id: :asc).all
     months = 2
@@ -17,6 +17,9 @@ class ItemsPlannerController < ApplicationController
       end
       lastId = order.item_id
     end
+
+
+
     @items.each do |item|
       recipes = Recipe.where(id_item: item.id).all
       min = 9999
@@ -31,6 +34,12 @@ class ItemsPlannerController < ApplicationController
     end
   end
 
+  def getIngredients
+    item_id = params[:item_id]
+    ingredients = Recipe.where(id_item: item_id).all
+    render json: ingredients
+  end
+
   def bSearch(list, target, bot, top, total)
     false if bot > top
     mid = (bot + top) / 2
@@ -40,9 +49,9 @@ class ItemsPlannerController < ApplicationController
       list[mid].sales = total
       true
     elsif target > list[mid].id
-      bSearch(list, target, mid, top, total)
+      bSearch(list, target, mid + 1, top, total)
     else
-      bSearch(list, target, bot, mid, total)
+      bSearch(list, target, bot, mid - 1, total)
     end
   end
 end

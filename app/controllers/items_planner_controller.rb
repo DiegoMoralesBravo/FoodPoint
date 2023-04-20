@@ -3,10 +3,12 @@ class ItemsPlannerController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
     @items = Item.order(id: :asc).all
+    @ingredients = Ingredient.order(id: :asc).all
     months = 2
     @orders = OrdersItem.where(created_at: months.months.ago..Time.now).order(item_id: :asc).all
     lastId = @orders[0].item_id
     totalorders = 0
+    @ingSupplieList = []
 
     @orders.each do |order|
       if order.item_id == lastId
@@ -17,6 +19,7 @@ class ItemsPlannerController < ApplicationController
       end
       lastId = order.item_id
     end
+    bSearch(@items, lastId, 0, @items.length, totalorders)
 
     @items.each do |item|
       recipes = Recipe.where(id_item: item.id).all
@@ -26,6 +29,19 @@ class ItemsPlannerController < ApplicationController
         available =  ingredients.total / recipe.quantity
         if available < min
           min = available
+        end
+        if available < item.average
+          requiredSupplie = (item.average - available) * recipe.quantity
+          total = (requiredSupplie * ingredients.price)
+          ingredient = { id: ingredients.id, name: ingredients.name, reqSupp: requiredSupplie, units: ingredients.quant, price: ingredients.price,
+                         total: }
+          ingredientRepeat = @ingSupplieList.find { |ing| ing[:id] == ingredient[:id] }
+          if ingredientRepeat.present?
+            ingredientRepeat[:reqSupp] += ingredient[:reqSupp]
+            ingredientRepeat[:total] += ingredient[:total]
+          else
+            @ingSupplieList.push(ingredient)
+          end
         end
       end
       item.available_qty = min
@@ -57,6 +73,9 @@ class ItemsPlannerController < ApplicationController
         [3, item]
       end
     }
+
+    @ingSupplieList = @ingSupplieList.sort_by { |ingredient| ingredient[:id] }
+
   end
 
   def getIngredients

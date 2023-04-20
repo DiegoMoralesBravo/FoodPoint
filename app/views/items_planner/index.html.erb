@@ -1,4 +1,5 @@
 <%= render 'shared/navbarAdmin' %>
+<%= render 'shared/supplies_modal' %>
 <main class="service-main-container">
   <div class="planner-section">
     <div class="head-cards">
@@ -14,6 +15,7 @@
       <%= link_to inventory_index_path do %>
         <button class="dropdown">Inventory</button>
       <% end %>
+      <button class="supplier-button">Supplies</button>
     </div>
     <article class="planner-container">
       <div class="main-planner-container">
@@ -35,12 +37,13 @@
             <% @items.each do |item| %>
               <tr class="items-row">
                 <td class="items-planner-image"><%=image_tag item.image%></td>
+                <td class="items-planner-id"><%= item.id%></td>
                 <td class="items-planner-price"><%= item.price %></td>
                 <td class="items-planner-category"><%= item.category %></td>
                 <td class="items-planner-name" ><%= item.name %></td>
                 <td class="items-planner-description" ><%= item.description %></td>
                 <td><%= item.available_qty %></td>
-                <td><%= item.average %></td>
+                <td class="items-planner-avg"><%= item.average %></td>
                 <td><%= item.sales %></td>
                 <td>350</td>
                 <td>503</td>
@@ -94,67 +97,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="items-row">
+              <tr class="items-row-sidebar">
                 <td>Tomatto</td>
                 <td>350</td>
                 <td>
                   <div class="status-inactive" >Inactive</div>
-                </td>
-              </tr>
-              <tr class="items-row">
-                <td>Ground beef</td>
-                <td>350</td>
-                <td>
-                  <div class="status-inactive-side" >Inactive</div>
-                </td>
-              </tr>
-              <tr class="items-row">
-                <td>TomaHamburger bunstto</td>
-                <td>350</td>
-                <td>
-                  <div class="status-inactive-side" >Inactive</div>
-                </td>
-              </tr>
-              <tr class="items-row">
-                <td>Lettuce</td>
-                <td>350</td>
-                <td>
-                  <div class="status-inactive-side" >Inactive</div>
-                </td>
-              </tr>
-              <tr class="items-row">
-                <td>Tomato</td>
-                <td>350</td>
-                <td>
-                  <div class="status-inactive-side" >Inactive</div>
-                </td>
-              </tr>
-              <tr class="items-row">
-                <td>Onion</td>
-                <td>350</td>
-                <td>
-                  <div class="status-inactive-side" >Inactive</div>
-                </td>
-              </tr>
-              <tr class="items-row">
-                <td>Cheese</td>
-                <td>350</td>
-                <td>
-                  <div class="status-inactive-side" >Inactive</div>
-                </td>
-              </tr>
-              <tr class="items-row">
-                <td>Ketchup</td>
-                <td>350</td>
-                <td>
-                  <div class="status-inactive-side" >Inactive</div>
-                </td>
-              </tr>
-              <tr class="items-row">
-                <td>Mustard</td>
-                <td>350</td>
-                <td>
-                  <div class="status-inactive-side" >Inactive</div>
                 </td>
               </tr>
             </tbody>
@@ -170,3 +117,4 @@
 </div>
 </main>
 <%=  javascript_include_tag 'planner' %>
+<%=  javascript_include_tag 'supplie-modal' %>

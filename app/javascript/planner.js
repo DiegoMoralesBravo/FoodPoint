@@ -5,14 +5,23 @@ function planner() {
   let itemPrice = document.querySelector(".planner-item-price");
   let itemDescription = document.querySelector(".item-info-description");
   let itemImage = document.querySelector(".item-planner-image-container");
-  let itemRecipeContainer = document.querySelector(".item-info-recipe");
-
 
   async function getIngredients(item_id, avg) {
     try {
-      const response = await fetch(`/items_planner/getIngredients?item_id=${item_id}&avg=${avg}`);
-      const data = await response.json()
-      console.log(data); // Aquí puedes hacer algo con la lista de ingredientes
+      const response = await fetch(
+        `/items_planner/getIngredients?item_id=${item_id}&avg=${avg}`
+      );
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function saveData() {
+    try {
+      const data = await getIngredients(id, avg);
+      return data;
     } catch (error) {
       console.error(error);
     }
@@ -30,15 +39,54 @@ function planner() {
     let image = item.querySelector(".items-planner-image").innerHTML;
     let id = item.querySelector(".items-planner-id").innerHTML;
 
-
     button.addEventListener("click", (e) => {
-
       itemName.innerHTML = name;
       itemCategory.innerHTML = category;
       itemPrice.innerHTML = price;
       itemDescription.innerHTML = description;
       itemImage.innerHTML = image;
+
+      let itemRecipeContainer = document.querySelector(
+        ".rows-ingredients-container"
+      );
+
+      itemRecipeContainer.innerHTML = " ";
+
       getIngredients(id, avg)
+        .then((IngredientsList) => {
+          let data = IngredientsList;
+
+          data.forEach((element) => {
+            console.log(element);
+
+            let row = document.createElement("tr")
+
+            row.classList.add("items-row-sidebar");
+            let columnName = document.createElement("td");
+            let columnNamQty = document.createElement("td");
+            let columnAvailable = document.createElement("td");
+            let columnStatus = document.createElement("td");
+
+
+
+            columnName.innerHTML = element.name;
+            columnNamQty.innerHTML = element.recipe_qty;
+            columnAvailable.innerHTML = element.available
+            columnStatus.innerHTML = element.status
+
+
+
+            row.append(columnName);
+            row.append(columnNamQty);
+            row.append(columnAvailable);
+            row.append(columnStatus);
+
+            itemRecipeContainer.append(row);
+          });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     });
   });
 }

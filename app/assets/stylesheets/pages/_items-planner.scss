@@ -430,13 +430,27 @@
         max-height: 180px;
         min-height: 180px;
         overflow-y: scroll;
-        width: 217px;
+        width: 280px;
         .planner-recipe-table {
           width: 100%;
           thead {
             background-color: #373737;
             color: white;
           }
+          tbody{
+            max-height: 30px;
+            background-color: #96de77;
+            .items-row-sidebar{
+              border: none;
+              td{
+                height: 10px;
+                border: solid 3px black;
+                text-align: center;
+              }
+            }
+
+          }
+
         }
       }
     }

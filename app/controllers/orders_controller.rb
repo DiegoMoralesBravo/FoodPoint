@@ -52,6 +52,7 @@ class OrdersController < ApplicationController
       ingredients.each do |ingredientRecipe|
         ingredient = Ingredient.find(ingredientRecipe.id_ingredient)
         ingredient.total -=  ingredientRecipe.quantity * item[:quantity]
+        ingredient.total = 0 if ingredient.total < 0
         ingredient.save
       end
     end

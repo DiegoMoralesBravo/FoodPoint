@@ -440,33 +440,31 @@
             color: white;
           }
           tbody{
-            .items-row-sidebar{
+        tbody { 
+            .items-row-sidebar {
               height: 30px;
-              td{
+              
+              td {
                 height: 10px;
                 text-align: center;
                 border-bottom: solid 2px rgb(205, 205, 205);
               }
 
-              .ingredient-status-column{
-
+              .ingredient-status-column {
                 background-color: $ligth-status;
                 border: none;
               }
-              .ingredient-status-column-short{
-
+              
+              .ingredient-status-column-short {
                 background-color: $ligth-short;
                 border: none;
               }
-              .ingredient-status-column-good{
-
+              
+              .ingredient-status-column-good {
                 background-color: $ligth-good;
                 border: none;
               }
-
-
             }
-
           }
 
         }

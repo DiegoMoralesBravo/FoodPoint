@@ -129,7 +129,7 @@
                 margin: auto;
                 width: 65px;
               }
-              .status-short {
+              .status-short{
                 align-items: center;
                 background-color: $ligth-short;
                 border-radius: 4px;
@@ -418,7 +418,7 @@
         margin: 10px;
         min-height: 120px;
         padding: 8px;
-        width: 200px;
+        width: 260px;
       }
       .item-info-recipe {
         background: $white;
@@ -432,21 +432,39 @@
         overflow-y: scroll;
         width: 280px;
         .planner-recipe-table {
+
           width: 100%;
+          height: 30px;
           thead {
             background-color: #373737;
             color: white;
           }
           tbody{
-            max-height: 30px;
-            background-color: #96de77;
             .items-row-sidebar{
-              border: none;
+              height: 30px;
               td{
                 height: 10px;
-                border: solid 3px black;
                 text-align: center;
+                border-bottom: solid 2px rgb(205, 205, 205);
               }
+
+              .ingredient-status-column{
+
+                background-color: $ligth-status;
+                border: none;
+              }
+              .ingredient-status-column-short{
+
+                background-color: $ligth-short;
+                border: none;
+              }
+              .ingredient-status-column-good{
+
+                background-color: $ligth-good;
+                border: none;
+              }
+
+
             }
 
           }

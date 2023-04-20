@@ -2,11 +2,6 @@
 <main class="service-main-container">
   <div class="planner-section">
     <div class="head-cards">
-      <div class="search-input">
-        <div class="submit-button">
-          <h3>Search...</h3>
-        </div>
-      </div>
       <div class="dropdown">
       </div>
       <div class="dropdown">
@@ -46,7 +41,13 @@
                 <td>350</td>
                 <td>503</td>
                 <td>
-                  <%= item.average == nil || item.available_qty < item.average ?  content_tag(:div, "short", class: "status-short") : "good" %>
+                  <% if item.status == "short" %>
+                    <div class="status-short">Short</div>
+                  <% elsif item.status == "good" %>
+                    <div class="status-good">Good</div>
+                  <% elsif item.status == "low" %>
+                    <div class="status-low">Low</div>
+                  <% end %>
                 </td>
                 <td><button class= "button-planner-edit"><%=image_tag("edit-planner.svg")%></button></td>
               </tr>
@@ -97,19 +98,14 @@
             </thead>
             <tbody class= "rows-ingredients-container">
               <tr class="items-row-sidebar">
-                <td>Tomatto</td>
-                <td>350</td>
-                <td>
-                  <div class="status-inactive" >Inactive</div>
-                </td>
+                <td class = "ingredient-name-column"> -- </td>
+                <td class = "ingredient-qty-column"> -- </td>
+                <td class = "ingredient-available-column"> -- </td>
+                <td class="ingredient-status-column">inactive</td>
               </tr>
             </tbody>
           </table>
         </div>
-      </div>
-      <div class="order-buttons-container">
-        <button class="send-date">Update  <span><%=image_tag("refresh.svg")%></span></button>
-        <button class="cacel-edit">Cancel  <span><%=image_tag("cancel.svg")%></span></button>
       </div>
     </div>
   </div>

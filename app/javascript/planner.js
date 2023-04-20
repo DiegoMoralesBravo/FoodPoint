@@ -59,7 +59,7 @@ function planner() {
           data.forEach((element) => {
             console.log(element);
 
-            let row = document.createElement("tr")
+            let row = document.createElement("tr");
 
             row.classList.add("items-row-sidebar");
             let columnName = document.createElement("td");
@@ -67,14 +67,22 @@ function planner() {
             let columnAvailable = document.createElement("td");
             let columnStatus = document.createElement("td");
 
-
-
             columnName.innerHTML = element.name;
             columnNamQty.innerHTML = element.recipe_qty;
-            columnAvailable.innerHTML = element.available
-            columnStatus.innerHTML = element.status
+            columnAvailable.innerHTML = element.available;
+            columnStatus.innerHTML = element.status;
 
+            columnName.classList.add("ingredient-name-column");
+            columnNamQty.classList.add("ingredient-qty-column");
+            columnAvailable.classList.add("ingredient-available-column");
 
+            if (columnStatus.innerHTML == "short") {
+              columnStatus.classList.add("ingredient-status-column-short");
+            } else if (columnStatus.innerHTML == "good") {
+              columnStatus.classList.add("ingredient-status-column-short");
+            } else {
+              columnStatus.classList.add("ingredient-status-column");
+            }
 
             row.append(columnName);
             row.append(columnNamQty);

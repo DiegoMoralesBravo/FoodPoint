@@ -57,7 +57,6 @@ function planner() {
           let data = IngredientsList;
 
           data.forEach((element) => {
-            console.log(element);
 
             let row = document.createElement("tr");
 
@@ -79,7 +78,7 @@ function planner() {
             if (columnStatus.innerHTML == "short") {
               columnStatus.classList.add("ingredient-status-column-short");
             } else if (columnStatus.innerHTML == "good") {
-              columnStatus.classList.add("ingredient-status-column-short");
+              columnStatus.classList.add("ingredient-status-column-good");
             } else {
               columnStatus.classList.add("ingredient-status-column");
             }

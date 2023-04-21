@@ -3,10 +3,7 @@
 <main class="service-main-container">
   <div class="planner-section">
     <div class="head-cards">
-      <div class="dropdown">
-      </div>
-      <div class="dropdown">
-      </div>
+      <h1>Items Planner</h1>
       <%= link_to inventory_index_path do %>
         <button class="dropdown">Inventory</button>
       <% end %>
@@ -22,8 +19,6 @@
               <th>Qty Available</th>
               <th>Average 15-day sales</th>
               <th>Two months sales</th>
-              <th>Sales Value</th>
-              <th>Sales Earned</th>
               <th>Status</th>
               <th>Edit</th>
             </tr>
@@ -40,8 +35,6 @@
                 <td><%= item.available_qty %></td>
                 <td class="items-planner-avg"><%= item.average %></td>
                 <td><%= item.sales %></td>
-                <td>350</td>
-                <td>503</td>
                 <td>
                   <% if item.status == "short" %>
                     <div class="status-short">Short</div>
@@ -65,12 +58,7 @@
     </div>
     <div class="item-name-footer">
       <h3 class= "planner-item-name"> -- </h3>
-      <div class="status-planner-edit">
-        <h3>Status: </h3>
-        <div class="status-lamp">
-          <p>Good</p>
-        </div>
-      </div>
+
     </div>
     <div class="planner-edit-info">
       <div class="item-info-container">
@@ -94,7 +82,7 @@
               <tr >
                 <th>Ingredient</th>
                 <th>Qty</th>
-                <th>available</th>
+                <th>Available</th>
                 <th>Status</th>
               </tr>
             </thead>

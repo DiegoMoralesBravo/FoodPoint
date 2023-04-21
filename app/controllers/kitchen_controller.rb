@@ -13,7 +13,8 @@ class KitchenController < ApplicationController
       joins("
         JOIN orders_items ON orders.id = orders_items.order_id
         JOIN tables ON orders.tables_id = tables.id
-        JOIN items ON orders_items.item_id = items.id")
+        JOIN items ON orders_items.item_id = items.id").
+        order("orders.status ASC, orders.created_at ASC")
 
   end
 

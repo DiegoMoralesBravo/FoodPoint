@@ -46,7 +46,36 @@ class ItemsPlannerController < ApplicationController
       end
       item.available_qty = min
     end
+
+    @items.each do |item|
+      status = " "
+      ratio = item.available_qty.to_f / item.average.to_f
+
+      if ratio <= 0.2
+        status = "short"
+      elsif ratio <= 0.6
+        status = "low"
+      elsif ratio > 0.6
+        status = "good"
+      end
+      item.status = status
+    end
+
+    @items = @items.sort_by { |item|
+      case item.status
+      when "short"
+        [0, item]
+      when "low"
+        [1, item]
+      when "good"
+        [2, item]
+      else
+        [3, item]
+      end
+    }
+
     @ingSupplieList = @ingSupplieList.sort_by { |ingredient| ingredient[:id] }
+
   end
 
   def getIngredients

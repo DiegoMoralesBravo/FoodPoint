@@ -3,15 +3,7 @@
 <main class="service-main-container">
   <div class="planner-section">
     <div class="head-cards">
-      <div class="search-input">
-        <div class="submit-button">
-          <h3>Search...</h3>
-        </div>
-      </div>
-      <div class="dropdown">
-      </div>
-      <div class="dropdown">
-      </div>
+      <h1>Items Planner</h1>
       <%= link_to inventory_index_path do %>
         <button class="dropdown">Inventory</button>
       <% end %>
@@ -27,8 +19,6 @@
               <th>Qty Available</th>
               <th>Average 15-day sales</th>
               <th>Two months sales</th>
-              <th>Sales Value</th>
-              <th>Sales Earned</th>
               <th>Status</th>
               <th>Edit</th>
             </tr>
@@ -45,10 +35,14 @@
                 <td><%= item.available_qty %></td>
                 <td class="items-planner-avg"><%= item.average %></td>
                 <td><%= item.sales %></td>
-                <td>350</td>
-                <td>503</td>
                 <td>
-                  <%= item.average == nil || item.available_qty < item.average ?  content_tag(:div, "short", class: "status-short") : "good" %>
+                  <% if item.status == "short" %>
+                    <div class="status-short">Short</div>
+                  <% elsif item.status == "good" %>
+                    <div class="status-good">Good</div>
+                  <% elsif item.status == "low" %>
+                    <div class="status-low">Low</div>
+                  <% end %>
                 </td>
                 <td><button class= "button-planner-edit"><%=image_tag("edit-planner.svg")%></button></td>
               </tr>
@@ -64,12 +58,7 @@
     </div>
     <div class="item-name-footer">
       <h3 class= "planner-item-name"> -- </h3>
-      <div class="status-planner-edit">
-        <h3>Status: </h3>
-        <div class="status-lamp">
-          <p>Good</p>
-        </div>
-      </div>
+
     </div>
     <div class="planner-edit-info">
       <div class="item-info-container">
@@ -93,24 +82,20 @@
               <tr >
                 <th>Ingredient</th>
                 <th>Qty</th>
+                <th>Available</th>
                 <th>Status</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class= "rows-ingredients-container">
               <tr class="items-row-sidebar">
-                <td>Tomatto</td>
-                <td>350</td>
-                <td>
-                  <div class="status-inactive" >Inactive</div>
-                </td>
+                <td class = "ingredient-name-column"> -- </td>
+                <td class = "ingredient-qty-column"> -- </td>
+                <td class = "ingredient-available-column"> -- </td>
+                <td class="ingredient-status-column">inactive</td>
               </tr>
             </tbody>
           </table>
         </div>
-      </div>
-      <div class="order-buttons-container">
-        <button class="send-date">Update  <span><%=image_tag("refresh.svg")%></span></button>
-        <button class="cacel-edit">Cancel  <span><%=image_tag("cancel.svg")%></span></button>
       </div>
     </div>
   </div>

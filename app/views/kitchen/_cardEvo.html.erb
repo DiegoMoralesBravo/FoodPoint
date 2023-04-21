@@ -41,7 +41,7 @@
     <% if order_data.first.status == 'progress' || order_data.first.status == 'wait'  %>
       <%= button_to "#{statusTextBtn(order_data.first.status)}",
         update_status_kitchen_path(order_id),
-        class: "kitchen__order__button #{statuscolor(order_data.first.status)}",
+        class: "kitchen__order__button status_button",
         method: :patch %>
     <% end %>
 
@@ -89,7 +89,7 @@
         <% if order_data.first.status == 'progress' || order_data.first.status == 'wait'  %>
           <%= button_to "#{statusTextBtn(order_data.first.status)}",
             update_status_kitchen_path(order_id),
-            class: "kitchen__order__button #{statuscolor(order_data.first.status)}",
+            class: "kitchen__order__button status_button",
             method: :patch %>
         <% end %>
       </div>

@@ -146,7 +146,8 @@ totalDays.times do |i|
     )
     rand(1..4).times do |_|
       OrdersItem.create(order_id: order.id, item_id: rand(1..totalnumberitems),
-                        quantity: Faker::Number.between(from: 1, to: 3))
+                        quantity: Faker::Number.between(from: 1, to: 3),
+                        created_at: (i + 1).days.ago)
     end
   end
 end

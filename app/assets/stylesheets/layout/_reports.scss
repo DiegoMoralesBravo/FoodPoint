@@ -1,5 +1,8 @@
+@import "../abstracts/variables";
+
 .container{
   margin-left: 10rem;
+  margin-top: 50px;
 }
 
 .titulo{
@@ -34,99 +37,179 @@
   margin-top: 15px;
 }
 
-.scores{
-  display: grid;
-  gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
-  grid-template-columns: 30% 30% 30%;
-  justify-content: center;
-  margin-left: 10%;
-  margin-top: 2%;
-  text-align: center;
-
-  .tarjeta{
-    -moz-box-shadow: 7px 9px 22px -5px rgba(0,0,0,0.5);
-    -webkit-box-shadow: 7px 9px 22px -5px rgba(0,0,0,0.5);
-    align-items: center;
-    background-color: #D9D9D9;
-    border-radius: 10px;
-    box-shadow: 7px 9px 22px -5px rgba(0,0,0,0.5);
-    display: flex;
-    flex-wrap: wrap;
-    height: 72%;
-
-    justify-content: center; /* centrar horizontalmente el contenido */
-
-    padding-bottom: 10px;
-    width: 60%;
-  }
-
-
-  h1 {
-    -o-transition: all 0.4s ease 0s;
-    -webkit-transition: all 0.4s ease 0s;
-    color: #080808;
-    font-family: "Raleway", sans-serif;
-    font-size: 30px;
-    font-weight: 300;
-    position: relative;
-    transition: all 0.4s ease 0s;
-  }
-  
-  h1 span {
-    display: block;
-    font-size: 25px;
-    line-height: 1.3;
-  }
-  h1 em {
-    font-style: normal;
-    font-weight: 600;
-  }
-
-  h4{
-    color: rgba(0, 0, 0, 0.6);
-    font-weight: normal;
-    font-family: "Raleway", sans-serif;
-  }
-
-  .rojo{
-    color: rgba(213, 30, 30, 0.6);
-  }
-
-  .verde{
-    color: rgba(164, 223, 125, 0.6);
-  }
-  
-  /* === HEADING STYLE #2 === */
-  .two h1 {
-    text-transform: capitalize;
-  }
-  .two h1 span {
-    color: rgba(0, 0, 0, 0.4);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 4px;
-    line-height: 3em;
-    padding-bottom: 10px;
-    padding-left: 0.25em;
-    text-transform: uppercase;
-  }
-  .alt-two h1 {
-    text-align:center;
-  }
-  .alt-two h1:before {
-    left:50%; margin-left:-30px;
-  }
-  
-}
-
   .reports{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 10%;
     padding-bottom: 50px;
     text-align: center;
+
+    .scores{
+      align-items: center;
+      display: flex;
+      justify-content: space-around;
+      margin: 15px 0;
+      text-align: center;
+
+      .good {
+        border: $green-ok 3px solid;
+      }
+
+      .bad {
+        border: $navbar-logout 3px solid;
+      }
+    
+      .tarjeta{
+        align-items: center;
+        background-color: $background-beige-principal;
+        display: flex;
+        height: 75px;
+        justify-content: space-between; /* centrar horizontalmente el contenido */
+        padding: 5px;
+        width: 200px;
+
+        .tarjeta-estado-bad,
+        .tarjeta-estado-good{
+          align-items: center;
+          color: $white;
+          display: flex;
+          font-size: 42px;
+          height: 75px;
+          justify-content: center;
+          width: 30px;
+        }
+
+        .tarjeta-estado-good{
+          background-color: $green-ok;
+        }
+
+        .tarjeta-estado-bad{
+          background-color: $navbar-logout;
+        }
+
+        .tarjeta-info{
+          align-items: flex-start;
+          display: flex;
+          flex-direction: column;
+          height: 95%;
+          justify-content: space-between;
+          margin-right: 3px;
+          width: 80%;
+
+          h1{
+            font-size: x-large;
+          }
+
+          h2{
+            font-size: medium;
+          }
+
+          h3 {
+            color: $gray_button;
+            font-size: small;
+          }
+
+          hr{
+            border: 1px solid $gray_button;
+            width: 100%;
+          }
+
+          .tarjeta-prev{
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+          }
+        }
+      }
+      
+    }
+
+    .grafica {
+      align-items: center;
+      display: flex;
+      height: 300px;
+      justify-content: space-between;
+      margin-top: 50px;
+
+      .grafica-table{
+        background-color: gray;
+        height: 300px;
+        width: 500px;
+      }
+      .grafica-chart{
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
+        padding: 20px;
+
+        h1{
+          font-size: large;
+        }
+      }
+
+      .table-container {
+        margin: 20px;
+  
+        .tittle-main-modal {
+          font-size: 12px;
+        }
+  
+        table {
+          border-collapse: collapse;
+          border-spacing: 0;
+          margin-top: 10px;
+  
+          tr:nth-child(even) {
+            background-color: $background-table
+          }
+  
+          thead,
+          tbody {
+            display: block;
+          }
+  
+          tbody {
+            height: 100px;
+            overflow-y: auto;
+          }
+
+          .modal-supply {
+            height: 250px;
+          }
+  
+          thead {
+            background-color: $navbar-background-color;
+            border: 1px solid $border_form;
+            color: $white;
+
+            tr {
+              height: 25px;
+  
+              th {
+                min-width: 110px;
+                text-align: center;
+              }
+            }
+          }
+  
+          tbody {
+            tr {
+              border: 1px solid $border_form;
+              height: 25px;
+  
+              td {
+                min-width: 110px;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+      
+    }
   }
   .estilo{
   -moz-box-shadow: 7px 9px 22px -5px rgba(0,0,0,0.5);
@@ -162,7 +245,6 @@
   display: block;
   flex: 1;
   margin-bottom: 3%;
-  margin-left: 25%;
   margin-top: 1%;
   }
 
@@ -187,7 +269,6 @@
   }
   .grafica{
     margin-bottom: 20px;
-    margin-left: 60px;
   }
   .hidden {
     display: none;
@@ -199,7 +280,6 @@
 }
   .btn-date {
     background-color:#2C2C2C;
-    border-radius:28px;
     border:1px solid #c7c7c7;
     box-shadow: 0px 2px 14px -5px #212121;
     color:white;
@@ -219,7 +299,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 2%;
   }
     
   .dias{
@@ -229,8 +308,13 @@
 
   .botones {
     display: flex;
-    justify-content: flex-end;
-    padding-left: 20px;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    h1{
+      margin-bottom: 80px;
+      margin-top: 40px;
+    }
   }
 
   .contenedor {
@@ -241,7 +325,3 @@
   .seleccion {
     float: left;
   }
-  
-  
-  
-  

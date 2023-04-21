@@ -23,13 +23,13 @@
             <ul class="open-order-list" >
                 <li>
                   <h3 class="order-batch">
-                    Order ID:
+                    Order ID
                   </h3>
                   <h3 class="time-order">
-                    Time:
+                    Time
                   </h3>
                   <h3 class="tables-order">
-                    Tables:
+                    Tables
                   </h3>  
                   <h3>
                   </h3>
@@ -75,18 +75,18 @@
             <ul class="closed-order-list" placeholder="Empty">
               <li>
                 <h3 class="closed-order-batch">
-                  Order ID:
+                  Order ID
                 </h3>
                 <div class="time-check">
                   <h3 class="closed-time-order">
-                    Time:
+                    Time
                   </h3>
                 </div>
                 <h3 class="status-order">
-                  Status:
+                  Status
                 <h3>
                 <h3 class="price-order-closed">
-                  Total:
+                  Total
                 </h3>
               </li>
                 <% @orders.order([:created_at ]).each do |order| %>
@@ -118,7 +118,7 @@
               <div class="total-billed">
                 <span
                       >Total:
-                    <p><p>$</p><%= @total_val %></p>
+                    <p>$<%= @total_val %></p>
                 </span
                     >
               </div>
@@ -156,21 +156,20 @@
     <div class="order-list-open">
       <% if @order_Items.present? %>
         <ul class="list-open">
-          <% @order_Items.each do |item| %>
+          <% @order_Items.each do |order| %>
             <li class="item-open">
               <div class="list-icon-open">
-                <% category_item = Item.where(id: item.item_id).pluck(:category).first %>
-                <% if category_item == "Food" %>
+                <% item = Item.find(order.item_id) %>
+                <% if item.category == "Food" %>
                   <span> <%=image_tag("lunch_dining_black_24dp.svg", :class => "icon_category")%></span>
-                <% elsif category_item == "Dessert" %>
+                <% elsif item.category == "Dessert" %>
                   <span> <%=image_tag("cake_black_24dp.svg", :class => "icon_category")%></span>
-                <% elsif category_item == "Drink" %>
+                <% elsif item.category == "Drink" %>
                   <span> <%=image_tag("local_cafe_black_24dp.svg", :class => "icon_category")%></span>
                 <% end %>
               </div>
               <div class="list-icon-open">
-                <% name_item = Item.where(id: item.item_id).pluck(:name).first %>
-                <p><%= name_item %></p>
+                <p><%= item.name + ' x ' + order.quantity.to_s  %></p>  
               </div>
               <div class="list-price-open">
                 <%# <button>

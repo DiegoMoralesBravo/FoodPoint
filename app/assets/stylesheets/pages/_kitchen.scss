@@ -53,8 +53,9 @@
         width: 100%;
 
         &:hover {
-          background-color: $red-color-main-button-hover;
           box-shadow: none;
+          cursor: pointer;
+          opacity: 0.7;
         }
 
         &__close {
@@ -67,11 +68,12 @@
           font-weight: bold;
           height: 4.5rem;
           justify-content: space-around;
-          transition: 0.5s;
+          transition: 0.2s;
           width: 100%;
 
           &:hover {
-            background-color: $red-color-main-button-hover;
+            cursor: pointer;
+            opacity: 0.8;
           }
         }
       }
@@ -109,11 +111,13 @@
       display: flex;
       height: 2rem;
       justify-content: center;
-      transition: 0.5s;
+      transition: 0.2s;
       width: 100%;
 
       &:hover {
-        background-color: $red-color-main-button-hover;
+        box-shadow: none;
+        cursor: pointer;
+        opacity: 0.8;
       }
     }
   }
@@ -137,11 +141,12 @@
     }
 
     &_whoops {
+      background-color: $navbar-logout;
       border: none;
-      background-color: rgb(255, 117, 82);
-      position: absolute;
-      padding: 0.5rem;
+      color: white;
       left: 0.5rem;
+      padding: 0.5rem;
+      position: absolute;
       top: 5rem
     }
 
@@ -170,26 +175,28 @@
   height: 1.5rem;
   margin-bottom: 0.5rem;
   margin-right: 0.8rem;
-  transition: 0.5s;
+  transition: 0.3s;
   width: 1.5rem;
 
   &:hover {
     background-color: lightgrey;
+    cursor: pointer;
   }
 
   &_checked {
-    background-color: greenyellow;
+    background-color: $status-order-complete;
     border-radius: 3px;
     border: 1px solid black;
     display: inline-block;
     height: 1.5rem;
     margin-bottom: 0.5rem;
     margin-right: 0.8rem;
-    transition: 0.5s;
+    transition: 0.3s;
     width: 1.5rem;
 
     &:hover {
-      background-color: rgb(96, 114, 69);
+      cursor: pointer;
+      opacity: 0.7;
     }
   }
 }
@@ -198,29 +205,27 @@
 .status {
 
   &_waiting {
-    background-color: #ceccca;
+    background-color: $status-order-wait ;
 
     &_overlay {
-      border-color: #ceccca;
-
+      border: none;
     }
   }
 
   &_progress {
-    background-color: #f09f3c;
+    background-color:  $status-order-progress ;
 
     &_overlay {
-      border-color: #f09f3c;
+      border: none;
 
     }
   }
 
   &_done {
-    background-color: #4eb05d;
+    background-color: $status-order-complete;
 
     &_overlay {
-      border-color: #4eb05d;
-
+      border: none;
     }
   }
 
@@ -230,5 +235,9 @@
 
   &_completed {
     text-decoration: line-through;
+  }
+
+  &_button {
+    background-color: $navbar-background-color;
   }
 }

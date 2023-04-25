@@ -116,7 +116,7 @@ function service() {
         numberOrder: null,
       }
       if (status === 'progress' || status === 'done') {
-        alert('No puedes seleccionar esta mesa porque ya está en progreso o finalizada.');
+        alert('No puedes seleccionar esta mesa porque ya está en progreso o en espera de realizar su pago.');
       } else {
         data.selected_table_id = mesaId;
         sendKitchen(data);

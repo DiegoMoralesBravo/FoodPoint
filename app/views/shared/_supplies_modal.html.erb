@@ -1,0 +1,39 @@
+<%= render 'shared/navbarAdmin' %>
+<div class="modal">
+  <div class="modal-content">
+    <div class="header-modal">
+      <h1 class="title">Ingredients to supply!</h1>
+      <h1 class="close">X</h1>
+    </div>
+    <div class="main-modal">
+      <div class="table-container">
+        <div class="tittle-main-modal">
+          <h1>Ingredients</h1>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Req. Sup.</th>
+              <th>Unit Price</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody class="modal-supply">
+            <% @ingSupplieList.each do |ingredient| %>
+              <tr class="ingredient">
+                <td><%= ingredient[:id] %></td>
+                <td><%= ingredient[:name] %></td>
+                <td><%= ingredient[:reqSupp] %><%= ingredient[:units] == 'grams' ? ' gr' : ' mil'%></td>
+                <td>$<%= ingredient[:price] %></td>
+                <td>$<%= ingredient[:total].round(0) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <h1>Total: $<%= @ingSupplieList.reduce(0) { |sum, ingredient| sum + ingredient[:total] }.round(0) %></h1>
+      </div>
+    </div>
+  </div>
+</div>

@@ -124,14 +124,14 @@
       width: 448px;
 
       .open-orders {
-        border-radius: 20px;
-        border: solid 3px $black-light;
+        border-radius: 5px;
+        border: solid 1px $black-light;
         overflow: auto;  
 
         .header-open-orders {
           align-items: center;
           background-color: $black-light;
-          border-radius: 17px 17px 0 0;
+          border-radius: 5px 5px 0 0;
           color: $white-font-and-lettering;
           display: flex;
           height: 72px;
@@ -142,8 +142,7 @@
         .open-order-list {
           li {
             align-items: center;
-            border-bottom: solid;
-            border-radius: 15px;
+            border-bottom: 1px solid;
             display: flex;
             height: 50px;
             justify-content: space-between;
@@ -152,8 +151,6 @@
             .order-number {
               align-items: center;
               background-color: $white-font-and-lettering;
-              border-radius: 50%;
-              border: solid 2px rgb(66, 66, 66);
               color: $red-color-main-button;
               display: flex;
               height: 30px;
@@ -210,9 +207,7 @@
               margin-right: -75px;
               padding-bottom: 18px;
               margin-bottom: -18px;
-              border-radius: 0 0 15px 15px;
               left: 10px;
-              box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             }
 
             .pointer{
@@ -220,6 +215,10 @@
               font-size: 20px;
               margin-left: 20px;
             }
+          }
+
+          li:last-of-type {
+            border-bottom: none;
           }
         }
       }
@@ -234,14 +233,14 @@
       width: 448px;
 
       .closed-orders {
-        border-radius: 20px;
-        border: solid 3px $black-light;
+        border-radius: 5px;
+        border: solid 1px $black-light;
         overflow: auto;
 
         .header-closed-orders {
           align-items: center;
           background-color: $black-light;
-          border-radius: 17px 17px 0 0;
+          border-radius: 5px 5px 0 0;
           color: white;
           display: flex;
           height: 72px;
@@ -251,8 +250,7 @@
         .closed-order-list {
           li {
             align-items: center;
-            border-bottom: solid;
-            border-radius: 15px;
+            border-bottom: 1px solid;
             display: flex;
             height: 50px;
             justify-content: space-between;
@@ -341,6 +339,9 @@
             }
 
           }
+          li:last-of-type {
+            border-bottom: none;
+          }
         }
       }
       .buttons-section {
@@ -349,9 +350,10 @@
         flex-direction: column;
 
         .total-billed {
+          align-items: flex-end;
           display: flex;
-          align-items: center;
           flex-direction: column;
+          margin-right: 70px;
           padding-top: 20px;
           width: 448px;
           span {
@@ -481,7 +483,7 @@
         justify-content: space-between;
         margin: 5px;
         padding-bottom: 6px;
-        width: 200px;
+        width: 250px;
         .list-icon-open {
           align-items: center;
           display: flex;

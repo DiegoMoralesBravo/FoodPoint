@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   end
   resources :orders
   resources :ingredients
-  resources :items_planner
+  resources :items_planner do
+    get :getIngredients, on: :collection
+  end
   resources :inventory
 
 end

@@ -1,19 +1,13 @@
 <%= render 'shared/navbarAdmin' %>
+<%= render 'shared/supplies_modal' %>
 <main class="service-main-container">
   <div class="planner-section">
     <div class="head-cards">
-      <div class="search-input">
-        <div class="submit-button">
-          <h3>Search...</h3>
-        </div>
-      </div>
-      <div class="dropdown">
-      </div>
-      <div class="dropdown">
-      </div> 
+      <h1>Items Planner</h1>
       <%= link_to inventory_index_path do %>
         <button class="dropdown">Inventory</button>
       <% end %>
+      <button class="supplier-button">Supplies</button>
     </div>
     <article class="planner-container">
       <div class="main-planner-container">
@@ -25,8 +19,6 @@
               <th>Qty Available</th>
               <th>Average 15-day sales</th>
               <th>Two months sales</th>
-              <th>Sales Value</th>
-              <th>Sales Earned</th>
               <th>Status</th>
               <th>Edit</th>
             </tr>
@@ -35,17 +27,22 @@
             <% @items.each do |item| %>
               <tr class="items-row">
                 <td class="items-planner-image"><%=image_tag item.image%></td>
+                <td class="items-planner-id"><%= item.id%></td>
                 <td class="items-planner-price"><%= item.price %></td>
                 <td class="items-planner-category"><%= item.category %></td>
                 <td class="items-planner-name" ><%= item.name %></td>
                 <td class="items-planner-description" ><%= item.description %></td>
-                <td>50</td>
-                <td><%= item.average %></td>
+                <td><%= item.available_qty %></td>
+                <td class="items-planner-avg"><%= item.average %></td>
                 <td><%= item.sales %></td>
-                <td>350</td>
-                <td>503</td>
                 <td>
-                  <div class="status-inactive" >Inactive</div>
+                  <% if item.status == "short" %>
+                    <div class="status-short">Short</div>
+                  <% elsif item.status == "good" %>
+                    <div class="status-good">Good</div>
+                  <% elsif item.status == "low" %>
+                    <div class="status-low">Low</div>
+                  <% end %>
                 </td>
                 <td><button class= "button-planner-edit"><%=image_tag("edit-planner.svg")%></button></td>
               </tr>
@@ -61,12 +58,7 @@
     </div>
     <div class="item-name-footer">
       <h3 class= "planner-item-name"> -- </h3>
-      <div class="status-planner-edit">
-        <h3>Status: </h3>
-        <div class="status-lamp">
-          <p>Good</p>
-        </div>
-      </div>
+
     </div>
     <div class="planner-edit-info">
       <div class="item-info-container">
@@ -90,83 +82,24 @@
               <tr >
                 <th>Ingredient</th>
                 <th>Qty</th>
+                <th>Available</th>
                 <th>Status</th>
               </tr>
             </thead>
-            <tbody>
-              <tr class="items-row">
-                <td>Tomatto</td>
-                <td>350</td>
-                <td>
-                  <div class="status-inactive" >Inactive</div>
-                </td>
-              </tr>
-              <tr class="items-row">
-                <td>Ground beef</td>
-                <td>350</td>
-                <td>
-                  <div class="status-inactive-side" >Inactive</div>
-                </td>
-              </tr>
-              <tr class="items-row">
-                <td>TomaHamburger bunstto</td>
-                <td>350</td>
-                <td>
-                  <div class="status-inactive-side" >Inactive</div>
-                </td>
-              </tr>
-              <tr class="items-row">
-                <td>Lettuce</td>
-                <td>350</td>
-                <td>
-                  <div class="status-inactive-side" >Inactive</div>
-                </td>
-              </tr>
-              <tr class="items-row">
-                <td>Tomato</td>
-                <td>350</td>
-                <td>
-                  <div class="status-inactive-side" >Inactive</div>
-                </td>
-              </tr>
-              <tr class="items-row">
-                <td>Onion</td>
-                <td>350</td>
-                <td>
-                  <div class="status-inactive-side" >Inactive</div>
-                </td>
-              </tr>
-              <tr class="items-row">
-                <td>Cheese</td>
-                <td>350</td>
-                <td>
-                  <div class="status-inactive-side" >Inactive</div>
-                </td>
-              </tr>
-              <tr class="items-row">
-                <td>Ketchup</td>
-                <td>350</td>
-                <td>
-                  <div class="status-inactive-side" >Inactive</div>
-                </td>
-              </tr>
-              <tr class="items-row">
-                <td>Mustard</td>
-                <td>350</td>
-                <td>
-                  <div class="status-inactive-side" >Inactive</div>
-                </td>
+            <tbody class= "rows-ingredients-container">
+              <tr class="items-row-sidebar">
+                <td class = "ingredient-name-column"> -- </td>
+                <td class = "ingredient-qty-column"> -- </td>
+                <td class = "ingredient-available-column"> -- </td>
+                <td class="ingredient-status-column">inactive</td>
               </tr>
             </tbody>
           </table>
         </div>
-      </div>
-      <div class="order-buttons-container">
-        <button class="send-date">Update  <span><%=image_tag("refresh.svg")%></span></button>
-        <button class="cacel-edit">Cancel  <span><%=image_tag("cancel.svg")%></span></button>
       </div>
     </div>
   </div>
 </div>
 </main>
 <%=  javascript_include_tag 'planner' %>
+<%=  javascript_include_tag 'supplie-modal' %>

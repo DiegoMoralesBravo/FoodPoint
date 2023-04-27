@@ -1,6 +1,7 @@
 
 # Food Point
 
+![BrightCoders Logo](img/home.png)
 
 ## Descripcion
 
